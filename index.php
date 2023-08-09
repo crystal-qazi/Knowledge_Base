@@ -33,7 +33,7 @@
     </div>
 </div>
 <div class="body_wrapper">
-    <nav class="navbar navbar-expand-lg menu_one dark_menu display_none sticky-nav">
+   <nav class="navbar navbar-expand-lg menu_one dark_menu display_none sticky-nav">
         <div class="container custom_container">
             <a class="navbar-brand header_logo" href="index.html">
                 <img class="first_logo sticky_logo main_logo" src="img/logo.png" srcset="img/logo-2x.png 2x" alt="logo">
@@ -283,7 +283,7 @@
                 </div>
             </div>
         </div>
-    </nav>
+    </nav>  
     <div class="mobile_main_menu dark_menu sticky-nav ">
         <div class="container">
             <div class="mobile_menu_left">
@@ -492,9 +492,10 @@
                 </aside>
             </div>
         </div>
-    </div>
+    </div>  
 
     <!--================Forum Breadcrumb Area =================-->
+   
     <section class="doc_banner_area search-banner-light">
         <div class="container">
             <div class="doc_banner_content">
@@ -777,7 +778,7 @@
     </section>
     <!--================End Topic Area =================-->
 
-    <footer class="forum_footer_area">
+   <footer class="forum_footer_area">
         <div class="container">
             <div class="forum_footer_inner">
                 <div class="row">
