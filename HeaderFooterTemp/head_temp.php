@@ -15,6 +15,10 @@
      <link rel="stylesheet" href="assets/mcustomscrollbar/jquery.mCustomScrollbar.min.css">
      <link rel="stylesheet" href="css/style-main.css">
      <link rel="stylesheet" href="css/responsive.css">
+     <link rel="stylesheet" href="assets/font-size/css/rvfs.css" />
+
+     <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+     <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -340,24 +344,4 @@
         </div>
     </section>
 
-    <!-- Back to top button -->
-<a id="back-to-top" title="Back to Top"></a>
-
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="js/jquery-3.5.1.min.js"></script>
-<script src="js/pre-loader.js"></script>
-<script src="assets/bootstrap/js/popper.min.js"></script>
-<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-<script src="assets/bootstrap/js/bootstrap-select.min.js"></script>
-<script src="assets/niceselectpicker/jquery.nice-select.min.js"></script>
-<script src="assets/wow/wow.min.js"></script>
-<script src="assets/mcustomscrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-<script src="assets/font-size/js/rv-jquery-fontsize-2.0.3.min.js"></script>
-<script src="js/anchor.js"></script>
-<script src="assets/magnify-pop/jquery.magnific-popup.min.js"></script>
-<script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
-<script src="js/plugins.js"></script>
-<script src="js/main.js"></script>
-</body>
-</html>
+   
