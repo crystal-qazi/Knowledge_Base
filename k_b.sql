@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Aug 12, 2023 at 09:06 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 7.4.29
+-- Host: localhost:3306
+-- Generation Time: Aug 12, 2023 at 07:37 AM
+-- Server version: 8.0.30
+-- PHP Version: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,179 +24,49 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `1`
---
-
-CREATE TABLE `1` (
-  `id` int(11) NOT NULL,
-  `firstname` varchar(20) NOT NULL,
-  `lastname` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `1`
---
-
-INSERT INTO `1` (`id`, `firstname`, `lastname`) VALUES
-(1, 'Shazor', 'Khan'),
-(2, 'Ali', 'Khan'),
-(3, 'Shazor', 'Khan'),
-(4, 'Ali', 'Khan');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `inventory`
---
-
-CREATE TABLE `inventory` (
-  `id` int(11) NOT NULL,
-  `drug_name` varchar(100) DEFAULT NULL,
-  `quantity` int(11) DEFAULT NULL,
-  `unit_price` decimal(10,2) DEFAULT NULL,
-  `expiration_date` date DEFAULT NULL,
-  `supplier_name` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `orderinfo`
---
-
-CREATE TABLE `orderinfo` (
-  `order_id` int(11) NOT NULL,
-  `product_id` int(11) DEFAULT NULL,
-  `quantity` int(11) DEFAULT NULL,
-  `unit_price` decimal(10,2) DEFAULT NULL,
-  `total_price` decimal(10,2) DEFAULT NULL,
-  `order_date` date DEFAULT NULL,
-  `Dummy1` text DEFAULT NULL,
-  `Dummy2` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `project`
 --
 
 CREATE TABLE `project` (
-  `project_id` int(11) NOT NULL,
-  `project_name` varchar(100) DEFAULT NULL,
-  `start_date` date DEFAULT NULL,
-  `end_date` date DEFAULT NULL,
-  `status` varchar(50) DEFAULT NULL,
-  `description` text DEFAULT NULL,
-  `Dummy1` text DEFAULT NULL,
-  `Dummy2` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
+  `ID` int NOT NULL,
+  `UID` int DEFAULT NULL,
+  `Project_name` varchar(250) NOT NULL,
+  `Description` text NOT NULL,
+  `Date` date NOT NULL,
+  `Dummy2` int DEFAULT NULL,
+  `Dummy3` int DEFAULT NULL,
+  `Dummy4` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Table structure for table `records`
+-- Dumping data for table `project`
 --
 
-CREATE TABLE `records` (
-  `User_ID` int(11) NOT NULL,
-  `User_Name` varchar(50) DEFAULT NULL,
-  `User_Email` varchar(50) DEFAULT NULL,
-  `User_Age` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `records`
---
-
-INSERT INTO `records` (`User_ID`, `User_Name`, `User_Email`, `User_Age`) VALUES
-(1, 'Shazor', 'shazor@gmai.com', 12),
-(3, 'Ali', 'Khan', 15),
-(4, 'Azeem', 'Azeem@gmail.com', 30);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user`
---
-
-CREATE TABLE `user` (
-  `id` int(11) NOT NULL,
-  `UID` int(11) NOT NULL,
-  `User_Number` int(11) NOT NULL,
-  `First_name` varchar(60) NOT NULL,
-  `Last_name` varchar(60) NOT NULL,
-  `Register_date` date NOT NULL,
-  `Dummy2` text NOT NULL,
-  `Dummy3` text NOT NULL,
-  `Dummy4` text NOT NULL,
-  `Dummy5` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `project` (`ID`, `UID`, `Project_name`, `Description`, `Date`, `Dummy2`, `Dummy3`, `Dummy4`) VALUES
+(1, 100000000, 'Pharmacy', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2023-08-12', 1, 1, 1),
+(2, NULL, 'Store', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2023-08-12', 1, 1, 1),
+(3, NULL, 'Fast_food', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2023-08-12', NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `1`
---
-ALTER TABLE `1`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `inventory`
---
-ALTER TABLE `inventory`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `orderinfo`
---
-ALTER TABLE `orderinfo`
-  ADD PRIMARY KEY (`order_id`);
-
---
 -- Indexes for table `project`
 --
 ALTER TABLE `project`
-  ADD PRIMARY KEY (`project_id`);
-
---
--- Indexes for table `records`
---
-ALTER TABLE `records`
-  ADD PRIMARY KEY (`User_ID`);
-
---
--- Indexes for table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id` (`id`),
-  ADD UNIQUE KEY `UID` (`UID`),
-  ADD UNIQUE KEY `User_Number` (`User_Number`);
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `UID` (`UID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `1`
+-- AUTO_INCREMENT for table `project`
 --
-ALTER TABLE `1`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `records`
---
-ALTER TABLE `records`
-  MODIFY `User_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `project`
+  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
