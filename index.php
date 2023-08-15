@@ -1,5 +1,12 @@
-
-<?php include('headerfootertemp/head_temp.php') ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <?php include('headerfootertemp/head_temp.php') ?>
 <section class="doc_documentation_area" id="sticky_doc">
         <div class="overlay_bg"></div>
         <div class="container custom_container">
@@ -212,3 +219,12 @@
 <?php include('headerfootertemp/footer_temp.php') ?>
 
 
+
+
+
+
+
+
+    
+</body>
+</html>

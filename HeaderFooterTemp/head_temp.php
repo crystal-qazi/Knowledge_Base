@@ -1,28 +1,39 @@
+<?php
+// Include the database configuration
+include 'config/connection.php';
+
+// Fetch menu items from the database
+$sql = "SELECT * FROM project";
+$res = mysqli_query($con,$sql);
+$count = mysqli_num_rows($res);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-     <!-- Required meta tags -->
-     <meta charset="utf-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-     <!-- Bootstrap CSS -->
-     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-select.min.css">
-     <!-- icon css-->
-     <link rel="stylesheet" href="assets/elagent-icon/style.css">
-     <link rel="stylesheet" href="assets/niceselectpicker/nice-select.css">
-     <link rel="stylesheet" href="assets/animation/animate.css">
-     <link rel="stylesheet" href="assets/mcustomscrollbar/jquery.mCustomScrollbar.min.css">
-     <link rel="stylesheet" href="css/style-main.css">
-     <link rel="stylesheet" href="css/responsive.css">
-     <link rel="stylesheet" href="assets/font-size/css/rvfs.css" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-select.min.css">
+    <!-- icon css-->
+    <link rel="stylesheet" href="assets/elagent-icon/style.css">
+    <link rel="stylesheet" href="assets/niceselectpicker/nice-select.css">
+    <link rel="stylesheet" href="assets/animation/animate.css">
+    <link rel="stylesheet" href="assets/mcustomscrollbar/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="css/style-main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="assets/font-size/css/rvfs.css" />
 
-     <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
-     <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
+
+
+    <title>Docy</title>
 </head>
+
 <body class="doc wide-container" data-spy="scroll" data-target="#navbar-example3" data-scroll-animation="true" data-offset="70">
 <div id="preloader">
     <div id="ctn-preloader" class="ctn-preloader">
@@ -69,13 +80,23 @@
                         <a href="index.html" class="nav-link dropdown-toggle">Home</a>
                             <i class="arrow_carrot-down_alt2 mobile_dropdown_icon" aria-hidden="false" data-toggle="dropdown"></i>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a href="index.html" class="nav-link">Creative Helpdesk</a></li>
-                                <li class="nav-item"><a href="index-multi.html" class="nav-link">Multi Helpdesk</a></li>
-                                <li class="nav-item"><a href="index-classic.html" class="nav-link">Classic Helpdesk</a></li>
-                            </ul>
-                    </li>
+                                <?php   
+                                    if($count > 0){
+                                        while($row= mysqli_fetch_assoc($res)){
+                                            $id = $row['ID'];
+                                            $porject_name = $row['Project_name'];
+                                            ?>
+                                            <li class="nav-item">
+                                                <a href="<?php echo $porject_name?>.php" class="nav-link"><?php echo $porject_name ?> </a></li> 
+                                            <?php                                     
+                                        }
+                                    }
+                                ?>
+                            
+                    </ul>
+                        </li>
                     <li class="nav-item dropdown submenu mega_menu tab-demo active">
-                        <a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Docs</a>
+                        <a href="" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Docs</a>
                         <i class="arrow_carrot-down_alt2 mobile_dropdown_icon" aria-hidden="true" data-toggle="dropdown"></i>
                         <ul class="dropdown-menu">
                             <li>
@@ -344,4 +365,3 @@
         </div>
     </section>
 
-   

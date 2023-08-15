@@ -46,11 +46,8 @@
     </footer> 
 
     <!-- Back to top button -->
-<a id="back-to-top" title="Back to Top"></a>
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/jquery-3.5.1.min.js"></script>
 <script src="js/pre-loader.js"></script>
 <script src="assets/bootstrap/js/popper.min.js"></script>
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
@@ -61,9 +58,12 @@
 <script src="assets/font-size/js/rv-jquery-fontsize-2.0.3.min.js"></script>
 <script src="js/anchor.js"></script>
 <script src="assets/magnify-pop/jquery.magnific-popup.min.js"></script>
+<!-- <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script> -->
 <script src="js/plugins.js"></script>
 <script src="js/main.js"></script>
-<script src="js/store.min.js"></script><!-- store plugin required if "store : true"!  -->
+<script type="text/javascript" src="assets/font-size/js/store.min.js"></script><!-- store plugin required if "store : true"!  -->
+
+
 
 </body>
 </html>

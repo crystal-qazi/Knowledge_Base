@@ -5,7 +5,17 @@
     $result = mysqli_query($con,$query);
 
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
 
+    
+
+<body>
 <?php include('headerfootertemp/head_temp.php') ?>
 <section class="doc_documentation_area" id="sticky_doc">
         <div class="overlay_bg"></div>
@@ -26,7 +36,7 @@
                                     <a href="doc-main.html" class="nav-link"><img src="img/side-nav/briefcase.png" alt="briefcase">Elements</a>
                                     <span class="icon"><i class="arrow_carrot-down"></i></span>
                                     <ul class="list-unstyled dropdown_nav">
-                                        <li><a href="doc-element-tab.html">Tabs</a></li>
+                                        <li><a href="doc-element-tab.php">Tabs</a></li>
                                         <li><a href="doc-element-accordion.html">Accordion</a></li>
                                         <li><a href="doc-element-notice.html">Notices</a></li>
                                         <li><a href="doc-content-tables.html">Table</a></li>
@@ -142,5 +152,5 @@
 <?php include('headerfootertemp/footer_temp.php') ?>
 
 
-
-
+    
+</body>
