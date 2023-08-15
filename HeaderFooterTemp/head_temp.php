@@ -86,7 +86,8 @@ $count = mysqli_num_rows($res);
                                             $id = $row['ID'];
                                             $porject_name = $row['Project_name'];
                                             ?>
-                                            <li class="nav-item"><a href="<?php echo connection.php?>index.php" class="nav-link"><?php echo $porject_name ?> </a></li> 
+                                            <li class="nav-item">
+                                                <a href="<?php echo $porject_name?>.php" class="nav-link"><?php echo $porject_name ?> </a></li> 
                                             <?php                                     
                                         }
                                     }
@@ -95,7 +96,7 @@ $count = mysqli_num_rows($res);
                     </ul>
                         </li>
                     <li class="nav-item dropdown submenu mega_menu tab-demo active">
-                        <a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Docs</a>
+                        <a href="" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Docs</a>
                         <i class="arrow_carrot-down_alt2 mobile_dropdown_icon" aria-hidden="true" data-toggle="dropdown"></i>
                         <ul class="dropdown-menu">
                             <li>
