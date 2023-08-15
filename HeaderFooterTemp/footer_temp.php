@@ -1,25 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-select.min.css">
-    <!-- icon css-->
-    <link rel="stylesheet" href="assets/elagent-icon/style.css">
-    <link rel="stylesheet" href="assets/niceselectpicker/nice-select.css">
-    <link rel="stylesheet" href="assets/animation/animate.css">
-    <link rel="stylesheet" href="assets/mcustomscrollbar/jquery.mCustomScrollbar.min.css">
-    <link rel="stylesheet" href="css/style-main.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>footer</title>
-</head>
-<body>
+
 <footer class="forum_footer_area">
         <div class="container">
             <div class="forum_footer_inner">
@@ -82,7 +61,9 @@
 <!-- <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script> -->
 <script src="js/plugins.js"></script>
 <script src="js/main.js"></script>
-<script type="text/javascript" src="js/store.min.js"></script><!-- store plugin required if "store : true"!  -->
+<script type="text/javascript" src="assets/font-size/js/store.min.js"></script><!-- store plugin required if "store : true"!  -->
+
+
 
 </body>
 </html>

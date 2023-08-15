@@ -36,7 +36,7 @@
                                     <a href="doc-main.html" class="nav-link"><img src="img/side-nav/briefcase.png" alt="briefcase">Elements</a>
                                     <span class="icon"><i class="arrow_carrot-down"></i></span>
                                     <ul class="list-unstyled dropdown_nav">
-                                        <li><a href="doc-element-tab.html">Tabs</a></li>
+                                        <li><a href="doc-element-tab.php">Tabs</a></li>
                                         <li><a href="doc-element-accordion.html">Accordion</a></li>
                                         <li><a href="doc-element-notice.html">Notices</a></li>
                                         <li><a href="doc-content-tables.html">Table</a></li>

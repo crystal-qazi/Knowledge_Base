@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="assets/mcustomscrollbar/jquery.mCustomScrollbar.min.css">
     <link rel="stylesheet" href="css/style-main.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="assets/font-size/css/rvfs.css" />
 
     <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
