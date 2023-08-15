@@ -1,3 +1,13 @@
+<?php
+// Include the database configuration
+include 'config/connection.php';
+
+// Fetch menu items from the database
+$sql = "SELECT * FROM project";
+$res = mysqli_query($con,$sql);
+$count = mysqli_num_rows($res);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,11 +80,20 @@
                         <a href="index.html" class="nav-link dropdown-toggle">Home</a>
                             <i class="arrow_carrot-down_alt2 mobile_dropdown_icon" aria-hidden="false" data-toggle="dropdown"></i>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a href="index.html" class="nav-link">Creative Helpdesk</a></li>
-                                <li class="nav-item"><a href="index-multi.html" class="nav-link">Multi Helpdesk</a></li>
-                                <li class="nav-item"><a href="index-classic.html" class="nav-link">Classic Helpdesk</a></li>
-                            </ul>
-                    </li>
+                                <?php   
+                                    if($count > 0){
+                                        while($row= mysqli_fetch_assoc($res)){
+                                            $id = $row['ID'];
+                                            $porject_name = $row['Project_name'];
+                                            ?>
+                                            <li class="nav-item"><a href="<?php echo connection.php?>index.php" class="nav-link"><?php echo $porject_name ?> </a></li> 
+                                            <?php                                     
+                                        }
+                                    }
+                                ?>
+                            
+                    </ul>
+                        </li>
                     <li class="nav-item dropdown submenu mega_menu tab-demo active">
                         <a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Docs</a>
                         <i class="arrow_carrot-down_alt2 mobile_dropdown_icon" aria-hidden="true" data-toggle="dropdown"></i>

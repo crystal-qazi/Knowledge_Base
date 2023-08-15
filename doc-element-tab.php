@@ -1,6 +1,13 @@
 <?php include('headerfootertemp/head_temp.php') ?>
+<?php
+// Include the database configuration
+include 'config/connection.php';
 
-
+// Fetch menu items from the database
+$sql = "SELECT * FROM module";
+$res = mysqli_query($con,$sql);
+$count = mysqli_num_rows($res);
+?>
 
         <section class="page_breadcrumb">
             <div class="container custom_container">
@@ -39,29 +46,50 @@
                                         <a href="doc-main.html" class="nav-link"><img src="img/side-nav/home.png" alt="">Home</a>
                                     </li>
                                     <li class="nav-item active">
-                                        <a href="doc-main.html" class="nav-link"><img src="img/side-nav/briefcase.png" alt="briefcase">Elements</a>
+                                        <a href="doc-main.html" class="nav-link"><img src="img/side-nav/briefcase.png" alt="briefcase">Module</a>
                                         <span class="icon"><i class="arrow_carrot-down"></i></span>
                                         <ul class="list-unstyled dropdown_nav">
-                                            <li><a class="active" href="doc-element-tab.html">Tabs</a></li>
-                                            <li><a href="doc-element-accordion.html">Accordion</a></li>
-                                            <li><a href="doc-element-notice.html">Notices</a></li>
-                                            <li><a href="doc-content-tables.html">Table</a></li>
-                                            <li><a href="doc-element-lightbox.html">Image Lightbox</a></li>
-                                            <li><a href="doc-element-hotspots.html">Image Hotspots</a></li>
-                                            <li><a href="doc-element-code.html">Source Code</a></li>
+                                        <?php   
+                                    if($count > 0){
+                                        while($row= mysqli_fetch_assoc($res)){
+                                            $id = $row['ID'];
+                                            $module = $row['Module_name'];
+                                            ?>
+                                            <li><a  href="<?php echo connection.php?>doc-element-accordion.php" ><?php echo $module ?> </a></li>
+                                           <?php
+                                            
+                                                                      
+                                        }
+                                    }
+                                ?>
+                                           <li><a href="doc-element-code.html">Source Code</a></li>
                                             <li><a href="doc-content-tooltip.html">Tooltip</a></li>
                                         </ul>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="typography.html" class="nav-link"><img src="img/side-nav/document.png" alt="">Content</a>
+                                        <a href="typography.html" class="nav-link"><img src="img/side-nav/document.png" alt="">Subject</a>
                                         <span class="icon"><i class="arrow_carrot-down"></i></span>
                                         <ul class="list-unstyled dropdown_nav">
+                                        <?php    
+                                        $sql = "SELECT * FROM subject";
+                                        $res1 = mysqli_query($con,$sql);
+                                        $count1 = mysqli_num_rows($res1);
+                                        if($count1 > 0){
+                                            while($row= mysqli_fetch_assoc($res1)){
+                                                $id = $row['ID'];
+                                                $subject = $row['Subject_name'];
+                                                ?>
+                                                <li><a  href="<?php echo connection.php?>doc-element-accordion.php" ><?php echo $subject ?> </a></li>
+                                               <?php
+                                                
+                                                                          
+                                            }
+                                        }
+                                    ?>
+                                        
                                             <li><a href="doc-content-image.html">Image</a></li>
                                             <li><a href="doc-element-tab.html">Tables</a></li>
-                                            <li><a href="doc-element-code.html">Code</a></li>
-                                            <li><a href="doc-content-video.html">Video</a></li>
-                                            <li><a href="doc-content-tooltip.html">Tooltips & Direction</a></li>
-                                            <li><a href="typography.html">Typography</a></li>
+                                            
                                         </ul>
                                     </li>
                                     <li class="nav-item">

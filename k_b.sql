@@ -35,7 +35,7 @@ CREATE TABLE `module` (
   `Date` date NOT NULL,
   `Project_reff` int NOT NULL,
   `Dummy2` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `module`
@@ -62,7 +62,7 @@ CREATE TABLE `project` (
   `Dummy2` int DEFAULT NULL,
   `Dummy3` int DEFAULT NULL,
   `Dummy4` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `project`
@@ -88,7 +88,7 @@ CREATE TABLE `subject` (
   `Module_reff` int DEFAULT NULL,
   `Dummy3` int DEFAULT NULL,
   `Column 8` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `subject`
@@ -111,7 +111,7 @@ CREATE TABLE `tags` (
   `UID` int NOT NULL,
   `Tag_name` varchar(250) NOT NULL,
   `Description` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
