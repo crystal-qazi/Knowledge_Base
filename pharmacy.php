@@ -4,9 +4,7 @@
 include 'config/connection.php';
 
 // Fetch menu items from the database
-$sql = "SELECT * FROM module";
-$res = mysqli_query($con,$sql);
-$count = mysqli_num_rows($res);
+
 ?>
 
         <section class="page_breadcrumb">
@@ -45,18 +43,22 @@ $count = mysqli_num_rows($res);
                                     <li class="nav-item">
                                         <a href="doc-main.html" class="nav-link"><img src="img/side-nav/home.png" alt="">Home</a>
                                     </li>
+                                    
                                     <li class="nav-item active">
-                                        <a href="doc-main.html" class="nav-link"><img src="img/side-nav/briefcase.png" alt="briefcase">Module</a>
+                                        <a href="doc-main.html" class="nav-link"><img src="img/side-nav/briefcase.png" alt="briefcase">My Prescription</a>
                                         <span class="icon"><i class="arrow_carrot-down"></i></span>
                                         <ul class="list-unstyled dropdown_nav">
                                         <?php   
-                                    if($count > 0){
-                                        while($row= mysqli_fetch_assoc($res)){
-                                            $id = $row['ID'];
-                                            $module = $row['Module_name'];
-                                            ?>
-                                            <li><a  href="<?php echo connection.php?>doc-element-accordion.php" ><?php echo $module ?> </a></li>
-                                           <?php
+                                                $sql = "SELECT * FROM subject";
+                                                $res = mysqli_query($con,$sql);
+                                                $count = mysqli_num_rows($res);
+                                                    if($count > 0){
+                                                        while($row= mysqli_fetch_assoc($res)){
+                                                            $id = $row['ID'];
+                                                            $module = $row['Subject_name'];
+                                                            ?>
+                                    <li><a  href="<?php echo connection.php?>doc-element-accordion.php" ><?php echo $module ?> </a></li>
+                                                <?php
                                             
                                                                       
                                         }
@@ -67,7 +69,7 @@ $count = mysqli_num_rows($res);
                                         </ul>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="typography.html" class="nav-link"><img src="img/side-nav/document.png" alt="">Subject</a>
+                                        <a href="typography.html" class="nav-link"><img src="img/side-nav/document.png" alt="">Manage Patients</a>
                                         <span class="icon"><i class="arrow_carrot-down"></i></span>
                                         <ul class="list-unstyled dropdown_nav">
                                         <?php    
