@@ -365,3 +365,144 @@ $count = mysqli_num_rows($res);
         </div>
     </section>
 
+     <!-- Fetch menu items from the database -->
+
+        <section class="page_breadcrumb">
+            <div class="container custom_container">
+                <div class="row">
+                    <div class="col-sm-7">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item"><a href="#">Docs</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Docy WordPress Theme</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="col-sm-5">
+                        <a href="#" class="date"><i class="icon_clock_alt"></i>Updated on March 03, 2020</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--================End Forum Breadcrumb Area =================-->
+
+        <!--================Topic Area =================-->
+        <section class="doc_documentation_area" id="sticky_doc">
+            <div class="overlay_bg"></div>
+            <div class="container custom_container">
+                <div class="row">
+                    <div class="col-lg-3 doc_mobile_menu display_none">
+                        <aside class="doc_left_sidebarlist">
+                            <div class="open_icon" id="left">
+                                <i class="arrow_carrot-right"></i>
+                                <i class="arrow_carrot-left"></i>
+                            </div>
+                            <div class="scroll">
+                                <ul class="list-unstyled nav-sidebar">
+                                    <li class="nav-item">
+                                        <a href="doc-main.html" class="nav-link"><img src="img/side-nav/home.png" alt="">Home</a>
+                                    </li>
+                                    
+                                    <li class="nav-item active">
+                                        <a href="doc-main.html" class="nav-link"><img src="img/side-nav/briefcase.png" alt="briefcase">My Prescription</a>
+                                        <span class="icon"><i class="arrow_carrot-down"></i></span>
+                                        <ul class="list-unstyled dropdown_nav">
+                                        <?php   
+                                                $sql = "SELECT * FROM subject";
+                                                $res = mysqli_query($con,$sql);
+                                                $count = mysqli_num_rows($res);
+                                                    if($count > 0){
+                                                        while($row= mysqli_fetch_assoc($res)){
+                                                            $id = $row['ID'];
+                                                            $module = $row['Subject_name'];
+                                                            ?>
+                                    <li>
+                                        <!-- <a  href="/content.php?id=<?//php echo $id ?>" ><?php echo $module ?> </a> -->
+                                        <a  href="content.php?id=<?php echo $id?>"><?php echo ucwords($module)?></a>
+
+                                    </li>
+                                                <?php
+                                            
+                                                                      
+                                        }
+                                    }
+                                ?>
+                                           <li><a href="doc-element-code.html">Source Code</a></li>
+                                            <li><a href="doc-content-tooltip.html">Tooltip</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="typography.html" class="nav-link"><img src="img/side-nav/document.png" alt="">Manage Patients</a>
+                                        <span class="icon"><i class="arrow_carrot-down"></i></span>
+                                        <ul class="list-unstyled dropdown_nav">
+                                        <?php    
+                                        $sql = "SELECT * FROM subject";
+                                        $res1 = mysqli_query($con,$sql);
+                                        $count1 = mysqli_num_rows($res1);
+                                        if($count1 > 0){
+                                            while($row= mysqli_fetch_assoc($res1)){
+                                                $id = $row['ID'];
+                                                $subject = $row['Subject_name'];
+                                                ?>
+                                                <li><a  href="<?php echo connection.php?>doc-element-accordion.php" ><?php echo $subject ?> </a></li>
+                                               <?php
+                                                
+                                                                          
+                                            }
+                                        }
+                                    ?>
+                                        
+                                            <li><a href="doc-content-image.html">Image</a></li>
+                                            <li><a href="doc-element-tab.html">Tables</a></li>
+                                            
+                                        </ul>
+                                    </li>
+                                    <!-- <li class="nav-item">
+                                        <a href="doc-ref-cheatsheet.html" class="nav-link"><img src="img/side-nav/chat1.png" alt="">Reference</a>
+                                        <span class="icon"><i class="arrow_carrot-down"></i></span>
+                                        <ul class="list-unstyled dropdown_nav">
+                                            <li><a href="doc-ref-cheatsheet.html">Cheatsheet</a></li>
+                                            <li><a href="doc-ref-footnote.html">Footnotes</a></li>
+                                            <li><a href="doc-tour.html">Interface Tour</a></li>
+                                            <li><a href="doc-ref-can-use.html">Can I Use</a></li>
+                                            <li><a href="doc-content-tooltip.html">Tooltips & Direction</a></li>
+                                            <li><a href="doc-ref-shortcuts.html">Keyboard Shortcuts</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="doc-content-video.html" class="nav-link"><img src="img/side-nav/layout.png" alt="">Layouts</a>
+                                        <span class="icon"><i class="arrow_carrot-down"></i></span>
+                                        <ul class="list-unstyled dropdown_nav">
+                                            <li><a href="doc-content-video.html">Full-width</a></li>
+                                            <li><a href="doc-element-hotspots.html">Left Sidebar</a></li>
+                                            <li><a href="doc-layout-banner-gradient.html">Gradient Banner</a></li>
+                                            <li><a href="doc-layout-banner-empty.html">Without Banner</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="doc-changelog.html" class="nav-link"><img src="img/side-nav/clock.png" alt="">Change Log</a>
+                                    </li> -->
+                                </ul>
+                                <ul class="list-unstyled nav-sidebar coding_nav">
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link"><img src="img/side-nav/account.png" alt="">Account</a>
+                                    </li>
+                                    <!-- <li class="nav-item">
+                                        <a href="doc-element-code.html" class="nav-link"><img src="img/side-nav/coding.png" alt="">Development</a>
+                                    </li> -->
+                                </ul>
+                                <ul class="list-unstyled nav-sidebar bottom_nav">
+                                    <!-- <li class="nav-item">
+                                        <a href="#" class="nav-link"><img src="img/side-nav/united-states.png" alt="">United States</a>
+                                    </li> -->
+                                    <!-- <li class="nav-item">
+                                        <a href="#" class="nav-link"><img src="img/side-nav/edit.png" alt="">English </a>
+                                    </li> -->
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link"><img src="img/side-nav/users.png" alt="">Sign In <i class="arrow_right"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </aside>
+                    </div>
