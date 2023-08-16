@@ -1,17 +1,56 @@
 <?php include('headerfootertemp/head_temp.php') ?>
+
 <?php
 // Include the database configuration
 include 'config/connection.php'; ?>
 
+<?php
+// Include the database configuration
+include 'config/connection.php';
+$Url_id = $_GET['id'];
+// Fetch menu items from the database
+$sql = "SELECT subject.* , tags.Tag_name FROM subject LEFT JOIN tags ON subject.Tagged_id = tags.ID where subject.ID = $Url_id";
+$res = mysqli_query($con,$sql);
+$count = mysqli_num_rows($res);
+?>
+
+             
+              
+                    
 
                     <div class="col-lg-7 col-md-8 doc-middle-content">
                         <div id="post" class="shortcode_info">
+
+                      
+
+                      
+                                <?php   
+                                    if($count > 0){
+                                        while($row= mysqli_fetch_assoc($res)){
+                                            $id = $row['ID'];
+                                            $porject_name = $row['Subject_name'];
+                                            $porject_Description = $row['Description'];
+                                            $Element = $row['Tag_name'];
+                                            ?>
+                                            <div class="shortcode_title">
+                                                <a class="btn" href="#"><?php echo $Element ?></a>
+                                                <h1> <?php echo $porject_name ?></h1>
+                                                <p> <?php echo $porject_Description ?></p>
+                                            </div>
+                                            <?php                                     
+                                        }
+                                    }
+                                ?>
+                            
+                    
+                      
+
                             <div class="shortcode_title">
                                 <a class="btn" href="#">Elements</a>
                                 <h1>Tabs Widget</h1>
                                 <p>Welcome to Docy ! Get familiar with the Docy products and explore their features, guides, tips and tools.</p>
                             </div>
-
+ <!--
                             <div class="tab_shortcode">
                                 <div class="shortcode_title">
                                     <h4>Horizontal Tab</h4>
@@ -198,7 +237,12 @@ include 'config/connection.php'; ?>
                                             class="arrow_carrot-left"></i></button>
                                     <button class="btn btn-info btn-lg next"><i class="arrow_carrot-right"></i></button>
                                 </div>
-                            </div>
+                            </div> -->
+
+
+
+
+
 
                             <div class="doc-btm">
                                 <ul class="nav card_tagged">
