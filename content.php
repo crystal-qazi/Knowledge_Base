@@ -1,3 +1,4 @@
+<?php ini_set('display_errors', 0); ?>
 <?php include('headerfootertemp/head_temp.php') ?>
 
 <?php
@@ -25,6 +26,7 @@ $count = mysqli_num_rows($res);
 
                       
                                 <?php   
+                                if (isset($_GET['id'])) {
                                     if($count > 0){
                                         while($row= mysqli_fetch_assoc($res)){
                                             $id = $row['ID'];
@@ -40,6 +42,15 @@ $count = mysqli_num_rows($res);
                                             <?php                                     
                                         }
                                     }
+                                    else{
+                                        echo "<h2> ID not Present</h2>";
+                                    }
+                                  }
+                                  else
+                                  {
+                                    echo "<h2> No ID</h2>";
+                                  }
+                                    
                                 ?>
                             
                     
