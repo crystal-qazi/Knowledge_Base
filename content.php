@@ -171,7 +171,7 @@ $count = mysqli_num_rows($res);
                                     } else {
                                     echo "ID parameter not provided.";
                                     
-                                }
+                                }*/
                                 ?>
 
                              <!--   <p>Welcome to Docy ! Get familiar with the Docy products and explore their features, guides, tips and tools.</p>-->
