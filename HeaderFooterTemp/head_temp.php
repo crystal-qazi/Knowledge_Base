@@ -77,7 +77,7 @@ $count = mysqli_num_rows($res);
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav menu ml-auto">
                     <li class="nav-item dropdown submenu">
-                        <a href="index.html" class="nav-link dropdown-toggle">Home</a>
+                        <a href="index.php" class="nav-link dropdown-toggle">Home</a>
                             <i class="arrow_carrot-down_alt2 mobile_dropdown_icon" aria-hidden="false" data-toggle="dropdown"></i>
                             <ul class="dropdown-menu">
                                 <?php   

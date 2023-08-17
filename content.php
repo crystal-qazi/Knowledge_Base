@@ -43,24 +43,30 @@ $count = mysqli_num_rows($res);
                             <div class="scroll">
                                 <ul class="list-unstyled nav-sidebar">
                                     <li class="nav-item">
-                                        <a href="content.php" class="nav-link"><img src="img/side-nav/home.png" alt="">Home</a>
+                                        <a href="index.php" class="nav-link"><img src="img/side-nav/home.png" alt="">Home</a>
                                     </li>
                                     <li class="nav-item active">
                                         <a href="content.php" class="nav-link"><img src="img/side-nav/briefcase.png" alt="briefcase">Module</a>
                                         <span class="icon"><i class="arrow_carrot-down"></i></span>
                                         <ul class="list-unstyled dropdown_nav">
-                                        <?php
-                                            if ($count > 0) {
-                                                 while ($row = mysqli_fetch_assoc($res)) {
-                                                    $id = $row['ID'];
-                                                    $module = $row['Module_name'];
-                                            ?>
-                                                <li><a href="content.php?id=<?php echo $id; ?>"><?php echo $module; ?></a></li>
-                                            <?php
-                                                }
-                                            }
-                                        ?>
+                                        <?php   
+                                    if($count > 0){
+                                        while($row= mysqli_fetch_assoc($res)){
+                                            $id = $row['ID'];
+                                            $module = $row['Module_name'];
+                                            $description = $row['Description'];
+                                            $uid = $row['UID'];
 
+                                            ?>
+                                            <li><a href="content.php?id=<?php echo $id; ?>"><?php echo $module; ?></a></li>
+                                           <?php
+                                            
+                                                                      
+                                        }
+                                    }
+                                ?>
+                                           <li><a href="doc-element-code.html">Source Code</a></li>
+                                            <li><a href="doc-content-tooltip.html">Tooltip</a></li>
                                         </ul>
                                     </li>
                                     <li class="nav-item">
@@ -68,7 +74,8 @@ $count = mysqli_num_rows($res);
                                         <span class="icon"><i class="arrow_carrot-down"></i></span>
                                         <ul class="list-unstyled dropdown_nav">
                                         <?php    
-                                        $sql = "SELECT * FROM subject";
+                                        
+                                        $sql = "SELECT * FROM subject where ID = $url_id";
                                         $res1 = mysqli_query($con,$sql);
                                         $count1 = mysqli_num_rows($res1);
                                         if($count1 > 0){
@@ -76,7 +83,6 @@ $count = mysqli_num_rows($res);
                                                 $id = $row['ID'];
                                                 $subject = $row['Subject_name'];
                                                 ?>
-                                                
                                                 <li><a href="content.php?id=<?php echo $id; ?>"><?php echo $subject; ?></a></li>
                                                <?php
                                                 
@@ -142,7 +148,33 @@ $count = mysqli_num_rows($res);
                             <div class="shortcode_title">
                                 <a class="btn" href="#">Elements</a>
                                 <h1>Tabs Widget</h1>
-                                <p>Welcome to Docy ! Get familiar with the Docy products and explore their features, guides, tips and tools.</p>
+                                <div><?php
+                                $url_id = $_GET['id'];
+                                echo $url_id;
+                                ?></div>
+                                <?php
+                                        /*
+                                    if (isset($_GET['id'])) {
+                                        $id = $_GET['id'];
+
+                                        $data = fetchDataById($id);
+
+                                    if ($data) {
+                                        $description = $data['Description']; 
+                                        ?>
+                                        <p><a href="content.php?id=<?php echo $id; ?>"><?php echo $description; ?></a></p>
+                                        
+                                <?php
+                                        } else {
+                                            echo "Data not found for the provided ID.";
+                                        }
+                                    } else {
+                                    echo "ID parameter not provided.";
+                                    
+                                }*/
+                                ?>
+
+                             <!--   <p>Welcome to Docy ! Get familiar with the Docy products and explore their features, guides, tips and tools.</p>-->
                             </div>
 
                             <div class="tab_shortcode">
