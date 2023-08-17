@@ -1,3 +1,4 @@
+<?php ini_set('display_errors', 1); ?>
 <?php include('headerfootertemp/head_temp.php') ?>
 <?php
 // Include the database configuration
@@ -75,7 +76,7 @@ $count = mysqli_num_rows($res);
                                         <ul class="list-unstyled dropdown_nav">
                                         <?php    
                                         
-                                        $sql = "SELECT * FROM subject where ID = $url_id";
+                                        $sql = "SELECT * FROM subject ";
                                         $res1 = mysqli_query($con,$sql);
                                         $count1 = mysqli_num_rows($res1);
                                         if($count1 > 0){
@@ -147,37 +148,53 @@ $count = mysqli_num_rows($res);
                         <div id="post" class="shortcode_info">
                             <div class="shortcode_title">
                                 <a class="btn" href="#">Elements</a>
-                                <h1>Tabs Widget</h1>
-                                <div><?php
-                                $url_id = $_GET['id'];
-                                echo $url_id;
+                                
+                                <div><?php/*
+                                $url_id2 = $_GET['id'];
+                                echo $url_id2;*/
                                 ?></div>
                                 <?php
-                                        /*
-                                    if (isset($_GET['id'])) {
-                                        $id = $_GET['id'];
-
-                                        $data = fetchDataById($id);
-
-                                    if ($data) {
-                                        $description = $data['Description']; 
-                                        ?>
-                                        <p><a href="content.php?id=<?php echo $id; ?>"><?php echo $description; ?></a></p>
                                         
-                                <?php
+                                    if (isset($_GET['id'])) {
+                                        $url_id = $_GET['id'];
+                                        $sql = "SELECT * FROM subject where ID = $url_id";
+                                        $res1 = mysqli_query($con,$sql);
+                                        $count1 = mysqli_num_rows($res1);
+                                        
+
+                                        if($count1 > 0){
+                                            while($row= mysqli_fetch_assoc($res1)){
+                                            
+                                                $subject_name = $row['Subject_name'];
+                                                $subject_description = $row['Description']
+                                                
+
+                                                ?>
+                                                <h1>
+                                                <?php echo $subject_name; ?>
+                                                </h1>
+                                                <p><?php echo $description ?></p>
+                                            
+                                        <?php
+                                            
+                                                                    
+                                        }
+                                    }
+                                                                                
+                                            
+                               
                                         } else {
                                             echo "Data not found for the provided ID.";
+                                        
                                         }
-                                    } else {
-                                    echo "ID parameter not provided.";
                                     
-                                }*/
+                                
                                 ?>
 
                              <!--   <p>Welcome to Docy ! Get familiar with the Docy products and explore their features, guides, tips and tools.</p>-->
                             </div>
 
-                            <div class="tab_shortcode">
+                            <!-- <div class="tab_shortcode">
                                 <div class="shortcode_title">
                                     <h4>Horizontal Tab</h4>
                                 </div>
@@ -363,7 +380,7 @@ $count = mysqli_num_rows($res);
                                             class="arrow_carrot-left"></i></button>
                                     <button class="btn btn-info btn-lg next"><i class="arrow_carrot-right"></i></button>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <div class="doc-btm">
                                 <ul class="nav card_tagged">
