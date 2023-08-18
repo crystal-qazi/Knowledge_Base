@@ -48,7 +48,7 @@ $count = mysqli_num_rows($res);
 </div>
 
 <div class="body_wrapper">
-   <nav class="navbar navbar-expand-lg menu_one dark_menu  sticky-nav">
+   <nav class="navbar navbar-expand-lg menu_one dark_menu display_none sticky-nav">
         <div class="container custom_container">
             <a class="navbar-brand header_logo" href="index.html">
                 <img class="first_logo sticky_logo main_logo" src="img/logo.png" srcset="img/logo-2x.png 2x" alt="logo">
@@ -289,13 +289,13 @@ $count = mysqli_num_rows($res);
                     </li>
                 </ul>
                 <div class="right-nav">
-                    <!-- <a class="nav_btn tp_btn" href="https://is.gd/nDvqm2" target="_blank">Get Docy</a>
+                    <a class="nav_btn tp_btn" href="https://is.gd/nDvqm2" target="_blank">Get Docy</a>
                     <a class="px-2 ml-3" href="#" title="Subscribe to the newsletter">
                         <ion-icon name="mail"></ion-icon>
                     </a>
                     <a class="px-2" href="#" title="RSS feed">
                         <ion-icon name="logo-rss"></ion-icon>
-                    </a> -->
+                    </a>
                     <div class="px-2 js-darkmode-btn" title="Toggle dark mode">
                         <label for="something" class="tab-btn tab-btns">
                             <ion-icon class="light-mode" name="contrast"></ion-icon>
@@ -314,51 +314,7 @@ $count = mysqli_num_rows($res);
  <section class=" search-banner-light">
         <div class="container">
             <div class="doc_banner_content">
-                <!-- <form action="#" class="header_search_form">
-                    <div class="header_search_form_info">
-                        <div class="form-group">
-                            <div class="input-wrapper">
-                                <i class="icon_search"></i>
-                                <input type='search' id="searchbox" autocomplete="off" name="search"
-                                       placeholder="Search for Topics...." />
-                                <div class="header_search_form_panel">
-                                    <ul class="list-unstyled">
-                                        <li>Help Desk
-                                            <ul class="list-unstyled search_item">
-                                                <li><span>Configuration</span><a href="#">How to edit host and
-                                                    port?</a></li>
-                                                <li><span>Configuration</span><a href="#">The dev Property</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>Support
-                                            <ul class="list-unstyled search_item">
-                                                <li><span>Pages</span><a href="#">The asyncData Method</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>Documentation
-                                            <ul class="list-unstyled search_item">
-                                                <li><span>Getting Started</span><a href="#">The asyncData Method</a>
-                                                </li>
-                                                <li><span>Getting Started</span><a href="#">The asyncData Method</a>
-                                                </li>
-                                                <li><span>Getting Started</span><a href="#">The asyncData Method</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="header_search_keyword">
-                        <span class="header-search-form__keywords-label">Popular Searches:</span>
-                        <ul class="list-unstyled">
-                            <li class="wow fadeInUp" data-wow-delay="0.2s"><a href="#">Docy Documentation</a>,</li>
-                            <li class="wow fadeInUp" data-wow-delay="0.3s"><a href="#">Tabs Widget</a>,</li>
-                            <li class="wow fadeInUp" data-wow-delay="0.4s"><a href="#">Process Tab</a></li>
-                        </ul>
-                    </div>
-                </form> -->
+                
             </div>
         </div>
     </section>
@@ -395,7 +351,7 @@ $count = mysqli_num_rows($res);
             <div class="overlay_bg"></div>
             <div class="container custom_container">
                 <div class="row">
-                    <div class="col-lg-3 doc_mobile_menu">
+                    <div class="col-lg-3 doc_mobile_menu display_none">
                         <aside class="doc_left_sidebarlist">
                             <div class="open_icon" id="left">
                                 <i class="arrow_carrot-right"></i>
