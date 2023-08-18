@@ -1,21 +1,31 @@
-<?php include('HeaderFooterTemp\admin\adminheader.php') ?>
+<?php ini_set('display_errors', 0); ?>
+<?php include('headerfootertemp/admin/admin_head.php') ?>
+<?php
+// Include the database configuration
+include 'config/connection.php'; ?>
 
-<div class="col-lg-7 col-md-8 doc-middle-content">
-    <div id="post" class="shortcode_info">
-        <div class="shortcode_title">
-            <h4>Process Tab</h4>
-            <p class="just_ch_color">Try the Docy API in seconds. Create your first customer,
-                charge, and more by
-                following the step below.</p>
-        </div>
-    </div>
-</div>
+<?php
+// Include the database configuration
+include 'config/connection.php';?>
 
+             
+              
+                    
 
-</div>
-</div>
-</div>
-</section>
+                    <div class="col-lg-7 col-md-8 doc-middle-content">
+                        <div id="post" class="shortcode_info">
+
+                        </div>
+                    </div>                    
+                    
+                      
+
+                    
+          
+               
+                </div>
+            </div>
+        </section>
         <!--================End Topic Area =================-->
 
-<?php include('HeaderFooterTemp\admin\adminfooter.php') ?>
+        <?php include('headerfootertemp/admin/admin_footer.php') ?>

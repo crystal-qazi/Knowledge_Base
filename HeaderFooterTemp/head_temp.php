@@ -24,6 +24,8 @@ $count = mysqli_num_rows($res);
     <link rel="stylesheet" href="css/style-main.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="assets/font-size/css/rvfs.css" />
+    <!-- <link rel="stylesheet" href="assets/fontawesome-5/css/fontawesome.min.css"> -->
+    <link rel="stylesheet" href="assets\fontawesome-5\css\all.min.css" />
 
     <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
@@ -363,12 +365,7 @@ $count = mysqli_num_rows($res);
         </div>
     </section>
 
-
-    <?php
-        $sql = "SELECT * FROM module";
-        $res = mysqli_query($con,$sql);
-        $count = mysqli_num_rows($res);
-    ?>
+     <!-- Fetch menu items from the database -->
 
         <section class="page_breadcrumb">
             <div class="container custom_container">
@@ -402,66 +399,104 @@ $count = mysqli_num_rows($res);
                                 <i class="arrow_carrot-left"></i>
                             </div>
                             <div class="scroll">
-                                
                                 <ul class="list-unstyled nav-sidebar">
-                                    
-                                    <li class="nav-item">
-                                        <a href="content.php" class="nav-link"><img src="img/side-nav/home.png" alt="">Home</a>
-                                    </li>
-
+                                    <li class="nav-item">                                      
+                                        <a href="doc-main.html" class="nav-link"><img src="img/side-nav/home.png" alt="">Home</a>
+                                    </li>   
                                     <?php    
                                         $sql = "SELECT * FROM module";
                                         $res1 = mysqli_query($con,$sql);
                                         $count1 = mysqli_num_rows($res1);
-                                        
-                                            if($count > 0){
-                                                while($row= mysqli_fetch_assoc($res)){
-                                                    $menu_id = $row['ID'];
-                                                    $module_name = $row['Module_name'];
-                                                
-                                        ?>
-                                                <li class="nav-item">
-                                     
-                                                <a href="doc-ref-cheatsheet.html" class="nav-link"><img src="img/side-nav/chat1.png" alt=""><?php echo $module_name ?></a>
-                                       
-                                                <span class="icon"><i class="arrow_carrot-down"></i></span>
-                                                <ul class="list-unstyled dropdown_nav">
-                                                
-                                        <?php    
-
-                                        $sql1 = "SELECT * FROM subject where Module_id = $menu_id ";
-                                        $res1 = mysqli_query($con,$sql1);
-                                        $count1 = mysqli_num_rows($res1);
-                                            if($count > 0){
-                                                while($row= mysqli_fetch_assoc($res1)){
-                                                    $id = $row['ID'];
-                                                    $subject_name = $row['Subject_name'];
-                                        ?>
-
-                                                    <li><a href="content.php?id= <?php echo $id ?>"><?php echo $subject_name ?></a></li>
-                                            
-                                            <?php                                                
-                                                                          
-                                                    }
-                                                }
-                                            ?>
-                                                    </ul>
-                                        <?php                                                
-                                                                          
-                                                    }
-                                                }
-                                             ?>
+                                        if($count1 > 0){
+                                            while($row= mysqli_fetch_assoc($res1)){
+                                                $menu_id = $row['ID'];
+                                                $module_name = $row['Module_name'];
+                                                ?> 
+                                                                      
+                                    <li class="nav-item active">                                      
+                                        <a href="content_home.php?module=<?php echo $menu_id?>" class="nav-link"><i class="fa fa-solid fa-bars"></i>   <span class="pl-3"> </span><?php echo $module_name ?></a>                                       
+                                        <span class="icon"><i class="arrow_carrot-down"></i></span>                                        
+                                        <ul class="list-unstyled dropdown_nav">                                       
                                     </li>
                                     
+                                    
+                                                <?php    
+                                                     
+                                                    $sql = "SELECT * FROM subject Where Module_id = $menu_id";
+                                                    $res2 = mysqli_query($con,$sql);
+                                                    $count1 = mysqli_num_rows($res2);
+                                                    if($count1 > 0){
+                                                        while($row= mysqli_fetch_assoc($res2)){
+                                                            $id = $row['ID'];
+                                                            $subject_name = $row['Subject_name'];
+                                                            ?> 
+                                                <li>
+                                                
+                                                    <!-- <a  href="/content.php?id=<?//php echo $id ?>" ><?php echo $module ?> </a> -->
+                                                    <a  href="content.php?id=<?php echo $id?>"><?php echo $subject_name ?></a>
+                                                    
+                                                    
+
+                                                </li>
+                                                <?php
+                                                            
+                                                                                    
+                                                        }
+                                                    }
+                                                ?>
+                                         
+                                        
+                                </ul>
+                                <?php
+                                                
+                                                                          
+                                            }
+                                        }
+                                    ?>
+                                        
+                                    
+                                    
+                                    <!-- <li class="nav-item">
+                                        <a href="doc-ref-cheatsheet.html" class="nav-link"><img src="img/side-nav/chat1.png" alt="">Reference</a>
+                                        <span class="icon"><i class="arrow_carrot-down"></i></span>
+                                        <ul class="list-unstyled dropdown_nav">
+                                            <li><a href="doc-ref-cheatsheet.html">Cheatsheet</a></li>
+                                            <li><a href="doc-ref-footnote.html">Footnotes</a></li>
+                                            <li><a href="doc-tour.html">Interface Tour</a></li>
+                                            <li><a href="doc-ref-can-use.html">Can I Use</a></li>
+                                            <li><a href="doc-content-tooltip.html">Tooltips & Direction</a></li>
+                                            <li><a href="doc-ref-shortcuts.html">Keyboard Shortcuts</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="doc-content-video.html" class="nav-link"><img src="img/side-nav/layout.png" alt="">Layouts</a>
+                                        <span class="icon"><i class="arrow_carrot-down"></i></span>
+                                        <ul class="list-unstyled dropdown_nav">
+                                            <li><a href="doc-content-video.html">Full-width</a></li>
+                                            <li><a href="doc-element-hotspots.html">Left Sidebar</a></li>
+                                            <li><a href="doc-layout-banner-gradient.html">Gradient Banner</a></li>
+                                            <li><a href="doc-layout-banner-empty.html">Without Banner</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="doc-changelog.html" class="nav-link"><img src="img/side-nav/clock.png" alt="">Change Log</a>
+                                    </li> -->
                                 </ul>
                                 <ul class="list-unstyled nav-sidebar coding_nav">
                                     <li class="nav-item">
                                         <a href="#" class="nav-link"><img src="img/side-nav/account.png" alt="">Account</a>
                                     </li>
-                                    
+                                    <!-- <li class="nav-item">
+                                        <a href="doc-element-code.html" class="nav-link"><img src="img/side-nav/coding.png" alt="">Development</a>
+                                    </li> -->
                                 </ul>
                                 <ul class="list-unstyled nav-sidebar bottom_nav">
-                                    
+                                    <!-- <li class="nav-item">
+                                        <a href="#" class="nav-link"><img src="img/side-nav/united-states.png" alt="">United States</a>
+                                    </li> -->
+                                    <!-- <li class="nav-item">
+                                        <a href="#" class="nav-link"><img src="img/side-nav/edit.png" alt="">English </a>
+                                    </li> -->
                                     <li class="nav-item">
                                         <a href="#" class="nav-link"><img src="img/side-nav/users.png" alt="">Sign In <i class="arrow_right"></i></a>
                                     </li>
