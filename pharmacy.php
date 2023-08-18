@@ -1,40 +1,40 @@
 <?php include('headerfootertemp/head_temp.php') ?>
 
-                    <div class="col-lg-7 col-md-8 doc-middle-content">
-                        <div id="post" class="shortcode_info">
-                            <div class="shortcode_title">
-                                <a class="btn" href="#">Elements</a>
-                                <h1>Tabs Widget</h1>
-                                <p>Welcome to Docy ! Get familiar with the Docy products and explore their features, guides, tips and tools.</p>
-                            </div>
+<div class="col-lg-7 col-md-8 doc-middle-content">
+    <div id="post" class="shortcode_info">
+        <div class="shortcode_title">
+            <a class="btn" href="#">Elements</a>
+            <h1>Tabs Widget</h1>
+            <p>Welcome to Docy ! Get familiar with the Docy products and explore their features, guides, tips and tools.</p>
+         </div>
 
-                            <div class="tab_shortcode">
-                                <div class="shortcode_title">
-                                    <h4>Horizontal Tab</h4>
-                                </div>
-                                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Conclusions</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Forum</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Reporting</a>
-                                    </li>
-                                </ul>
-                                <div class="tab-content" id="myTabContent">
-                                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                        Don't get shirty with me what a plonker on your bike mate bugger all mate chip shop bits and bobs smashing mush bugger cup of char, in my flat.
-                                    </div>
-                                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                        Don't get shirty with me what a plonker on your bike mate bugger all mate chip shop bits and bobs smashing mush bugger cup of char, in my flat.
-                                    </div>
-                                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                                        Don't get shirty with me what a plonker on your bike mate bugger all mate chip shop bits and bobs smashing mush bugger cup of char, in my flat.
-                                    </div>
-                                </div>
-                            </div>
+        <div class="tab_shortcode">
+            <div class="shortcode_title">
+                <h4>Horizontal Tab</h4>
+            </div>
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Conclusions</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Forum</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Reporting</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        Don't get shirty with me what a plonker on your bike mate bugger all mate chip shop bits and bobs smashing mush bugger cup of char, in my flat.
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        Don't get shirty with me what a plonker on your bike mate bugger all mate chip shop bits and bobs smashing mush bugger cup of char, in my flat.
+                    </div>
+                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                        Don't get shirty with me what a plonker on your bike mate bugger all mate chip shop bits and bobs smashing mush bugger cup of char, in my flat.
+                    </div>
+                </div>
+        </div>
 
                             <div class="shortcode_title">
                                 <h4>Process Tab</h4>
