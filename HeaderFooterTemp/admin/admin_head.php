@@ -390,7 +390,7 @@ $count = mysqli_num_rows($res);
         <!--================End Forum Breadcrumb Area =================-->
 
         <!--================Topic Area =================-->
-        <section class="doc_documentation_area" id="sticky_doc">
+        <section class="doc_documentation_area" id="">
             <div class="overlay_bg"></div>
             <div class="container custom_container">
                 <div class="row">

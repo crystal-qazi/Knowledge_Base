@@ -393,7 +393,7 @@ $count = mysqli_num_rows($res);
             <div class="container custom_container">
                 <div class="row">
                     <div class="col-lg-3 doc_mobile_menu display_none">
-                        <aside class="doc_left_sidebarlist">
+                        <!-- <aside class="doc_left_sidebarlist">
                             <div class="open_icon" id="left">
                                 <i class="arrow_carrot-right"></i>
                                 <i class="arrow_carrot-left"></i>
@@ -432,7 +432,6 @@ $count = mysqli_num_rows($res);
                                                             ?> 
                                                 <li>
                                                 
-                                                    <!-- <a  href="/content.php?id=<?//php echo $id ?>" ><?php echo $module ?> </a> -->
                                                     <a  href="content.php?id=<?php echo $id?>"><?php echo $subject_name ?></a>
                                                     
                                                     
@@ -454,53 +453,20 @@ $count = mysqli_num_rows($res);
                                         }
                                     ?>
                                         
-                                    
-                                    
-                                    <!-- <li class="nav-item">
-                                        <a href="doc-ref-cheatsheet.html" class="nav-link"><img src="img/side-nav/chat1.png" alt="">Reference</a>
-                                        <span class="icon"><i class="arrow_carrot-down"></i></span>
-                                        <ul class="list-unstyled dropdown_nav">
-                                            <li><a href="doc-ref-cheatsheet.html">Cheatsheet</a></li>
-                                            <li><a href="doc-ref-footnote.html">Footnotes</a></li>
-                                            <li><a href="doc-tour.html">Interface Tour</a></li>
-                                            <li><a href="doc-ref-can-use.html">Can I Use</a></li>
-                                            <li><a href="doc-content-tooltip.html">Tooltips & Direction</a></li>
-                                            <li><a href="doc-ref-shortcuts.html">Keyboard Shortcuts</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="doc-content-video.html" class="nav-link"><img src="img/side-nav/layout.png" alt="">Layouts</a>
-                                        <span class="icon"><i class="arrow_carrot-down"></i></span>
-                                        <ul class="list-unstyled dropdown_nav">
-                                            <li><a href="doc-content-video.html">Full-width</a></li>
-                                            <li><a href="doc-element-hotspots.html">Left Sidebar</a></li>
-                                            <li><a href="doc-layout-banner-gradient.html">Gradient Banner</a></li>
-                                            <li><a href="doc-layout-banner-empty.html">Without Banner</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="doc-changelog.html" class="nav-link"><img src="img/side-nav/clock.png" alt="">Change Log</a>
-                                    </li> -->
+                            
                                 </ul>
                                 <ul class="list-unstyled nav-sidebar coding_nav">
                                     <li class="nav-item">
                                         <a href="#" class="nav-link"><img src="img/side-nav/account.png" alt="">Account</a>
                                     </li>
-                                    <!-- <li class="nav-item">
-                                        <a href="doc-element-code.html" class="nav-link"><img src="img/side-nav/coding.png" alt="">Development</a>
-                                    </li> -->
+                                    
                                 </ul>
                                 <ul class="list-unstyled nav-sidebar bottom_nav">
-                                    <!-- <li class="nav-item">
-                                        <a href="#" class="nav-link"><img src="img/side-nav/united-states.png" alt="">United States</a>
-                                    </li> -->
-                                    <!-- <li class="nav-item">
-                                        <a href="#" class="nav-link"><img src="img/side-nav/edit.png" alt="">English </a>
-                                    </li> -->
+                                 
                                     <li class="nav-item">
                                         <a href="#" class="nav-link"><img src="img/side-nav/users.png" alt="">Sign In <i class="arrow_right"></i></a>
                                     </li>
                                 </ul>
                             </div>
-                        </aside>
+                        </aside> -->
                     </div>

@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <?php include('headerfootertemp/head_temp.php') ?>
+    <?php include('headerfootertemp/index_header.php') ?>
 <section class="doc_documentation_area" id="sticky_doc">
         <div class="overlay_bg"></div>
         <div class="container custom_container">
@@ -96,7 +96,7 @@
                         </div>
                     </aside>
                 </div> -->
-                <div class="col-lg-9">
+                <div class="col-lg-12">
                     <article id="post" class="documentation_info">
                         <div class="documentation_body" id="documentation">
                             <div class="shortcode_title">
