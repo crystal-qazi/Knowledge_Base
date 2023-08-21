@@ -31,9 +31,26 @@ include 'config/connection.php'; ?>
         </ul>
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                sss't get shirty with me what a plonker on your bike mate bugger all mate chip shop bits and bobs smashing mush bugger cup of char, in my flat.
                 <div class="col-lg-3">
-                <?php
+                
+
+<form action="#" method="post">
+    <?php if (!empty($message)) : ?>
+        <div class="message"><?php echo htmlspecialchars($message); ?></div>
+    <?php endif; ?>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Add Main Menu</label>
+        <input name="title" class="form-control form-control-sm" type="text" placeholder="Name Of Menu" aria-label=".form-control-sm example" value="<?php echo htmlspecialchars($title); ?>">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+        <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Describe Menu"><?php echo htmlspecialchars($description); ?></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+
+<?php
 // Include the database connection configuration
 include_once 'config/connection.php';
 
@@ -60,22 +77,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 ?>
 
-<form action="" method="post">
-    <?php if (!empty($message)) : ?>
-        <div class="message"><?php echo htmlspecialchars($message); ?></div>
-    <?php endif; ?>
-    <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Add Main Menu</label>
-        <input name="title" class="form-control form-control-sm" type="text" placeholder="Name Of Menu" aria-label=".form-control-sm example" value="<?php echo htmlspecialchars($title); ?>">
-    </div>
-    <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-        <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Describe Menu"><?php echo htmlspecialchars($description); ?></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-</div>
-
 <?php
 // Include the database connection configuration
 include_once 'config/connection.php';
@@ -100,12 +101,10 @@ if ($result) {
 
 <article class="shortcode_info">
         <div class="shortcode_title">
-            <h1>Tables</h1>
-            <p><span>Welcome to Docy !</span> Get familiar with the Docyproducts and explore
-                their features:</p>
+            <h1>Menus</h1>
+            <p><span>Main Menu</span></p>
         </div>
 
-        <h4 class="s_title load-order-2" id="data-table">Data Table<a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="" href="#data-table" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h4>
         <div class="basic_table">
             <table class="table basic_table_info">
                 <thead>
