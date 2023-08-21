@@ -405,6 +405,24 @@ $count = mysqli_num_rows($res);
                                     <li class="nav-item">                                      
                                         <a href="doc-main.html" class="nav-link"><img src="img/side-nav/home.png" alt="">Home</a>
                                     </li>   
+
+                                    <?php    
+                                                     
+                                                    $sql = "SELECT * FROM subject Where Module_id = $menu_id";
+                                                    $res4 = mysqli_query($con,$sql);
+                                                    $count4 = mysqli_num_rows($res4);
+                                                    if($count4 > 0){
+                                                        while($row= mysqli_fetch_assoc($res4)){
+                                                            $id = $row['ID'];
+                                                            $subject_name = $row['Subject_name'];
+                                                        }
+                                                    
+                                                            
+                                                    }
+                                                            ?>
+                                                
+
+                                    
                                     <?php    
                                         $sql = "SELECT * FROM module";
                                         $res1 = mysqli_query($con,$sql);
@@ -414,8 +432,9 @@ $count = mysqli_num_rows($res);
                                                 $menu_id = $row['ID'];
                                                 $module_name = $row['Module_name'];
                                                 ?> 
+                                                
                                                                       
-                                    <li class="nav-item >                                      
+                                    <li class="nav-item">                                      
                                         <a href="content_home.php?module=<?php echo $menu_id?>" class="nav-link"><i class="fa fa-solid fa-bars"></i>   <span class="pl-3"> </span><?php echo $module_name ?></a>                                       
                                         <span class="icon"><i class="arrow_carrot-down"></i></span>                                        
                                         <ul class="list-unstyled dropdown_nav">                                       

@@ -4,9 +4,7 @@
 // Include the database configuration
 include 'config/connection.php'; ?>
 
-<?php
-// Include the database configuration
-include 'config/connection.php';?>
+
 
              
               
