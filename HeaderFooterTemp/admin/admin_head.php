@@ -422,7 +422,7 @@ $count = mysqli_num_rows($res);
                                                 <li>
                                                 
                                                     <!-- <a  href="/content.php?id=<?//php echo $id ?>" > </a> -->
-                                                    <a  href="content.php?id=1">Menu</a>
+                                                    <a  href="admin_add_menu.php">Menu</a>
                                                     
                                                     
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 17, 2023 at 10:12 AM
+-- Generation Time: Aug 21, 2023 at 10:52 AM
 -- Server version: 8.0.30
 -- PHP Version: 7.4.33
 
@@ -20,8 +20,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `k_b`
 --
-CREATE DATABASE IF NOT EXISTS `k_b` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+CREATE DATABASE IF NOT EXISTS `k_b` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
 USE `k_b`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `main_menu`
+--
+
+DROP TABLE IF EXISTS `main_menu`;
+CREATE TABLE `main_menu` (
+  `id` int NOT NULL,
+  `title` varchar(250) NOT NULL,
+  `description` text,
+  `dummy` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `main_menu`
+--
+
+INSERT INTO `main_menu` (`id`, `title`, `description`, `dummy`) VALUES
+(1, 'Home', NULL, NULL),
+(2, 'Projects', NULL, NULL),
+(3, 'Help', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -38,7 +61,7 @@ CREATE TABLE `module` (
   `Date` date NOT NULL,
   `project_id` int NOT NULL,
   `Dummy2` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `module`
@@ -63,19 +86,19 @@ CREATE TABLE `project` (
   `Project_name` varchar(250) NOT NULL,
   `Description` text NOT NULL,
   `Date` date NOT NULL,
-  `Dummy2` int DEFAULT NULL,
+  `main_menu_id` int DEFAULT NULL,
   `Dummy3` int DEFAULT NULL,
   `Dummy4` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `project`
 --
 
-INSERT INTO `project` (`ID`, `UID`, `Project_name`, `Description`, `Date`, `Dummy2`, `Dummy3`, `Dummy4`) VALUES
-(1, 100000000, 'Pharmacy', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2023-08-12', 1, 1, 1),
-(2, NULL, 'Store', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2023-08-12', 1, 1, 1),
-(3, NULL, 'Fast_food', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2023-08-12', NULL, NULL, NULL);
+INSERT INTO `project` (`ID`, `UID`, `Project_name`, `Description`, `Date`, `main_menu_id`, `Dummy3`, `Dummy4`) VALUES
+(1, 100000000, 'Pharmacy', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2023-08-12', 2, 1, 1),
+(2, NULL, 'Store', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2023-08-12', 2, 1, 1),
+(3, NULL, 'Fast_food', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2023-08-12', 3, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -91,9 +114,9 @@ CREATE TABLE `subject` (
   `Description` text NOT NULL,
   `Date` date NOT NULL,
   `Module_id` int DEFAULT NULL,
-  `Tagged_id` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `Tagged_id` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `Column 8` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `subject`
@@ -118,7 +141,7 @@ CREATE TABLE `tags` (
   `UID` int NOT NULL,
   `Tag_name` varchar(250) NOT NULL,
   `Description` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `tags`
@@ -131,6 +154,12 @@ INSERT INTO `tags` (`ID`, `UID`, `Tag_name`, `Description`) VALUES
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `main_menu`
+--
+ALTER TABLE `main_menu`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `module`
@@ -163,6 +192,12 @@ ALTER TABLE `tags`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `main_menu`
+--
+ALTER TABLE `main_menu`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `module`
