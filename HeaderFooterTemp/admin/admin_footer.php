@@ -1,5 +1,5 @@
 
-<footer class="forum_footer_area" style = "padding-top: 25px;padding-bottom: 25px;">
+<footer class="forum_footer_area" style = " ">
         <div class="container">
             <div class="forum_footer_inner">
                 <div class="row">
@@ -10,7 +10,7 @@
                                 <option value="1">English</option>
                                 <option value="2">Bengali</option>
                                 <option value="3">Euro</option>
-                                <option value="4">Ind</option>
+                                <option value="4">Ind</option>forum_footer_area
                             </select> -->
                         </aside>
                     </div>

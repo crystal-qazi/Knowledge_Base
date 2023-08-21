@@ -3217,6 +3217,12 @@ p kbd {
   background-position: bottom;
   background-repeat: no-repeat;
 }
+
+.doc_banner_area_admin.search-banner-light_admin {
+  background-color: #f3f3f3;
+  padding-top: 6px;
+  padding-bottom: 100px;}
+
 .doc_banner_area.search-banner-light .banner_shap_img li:first-child {
   top: auto;
   bottom: 0;

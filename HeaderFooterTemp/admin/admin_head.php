@@ -1,8 +1,6 @@
 <?php
-// Include the database configuration
 include 'config/connection.php';
 
-// Fetch menu items from the database
 $sql = "SELECT * FROM project";
 $res = mysqli_query($con,$sql);
 $count = mysqli_num_rows($res);
@@ -52,16 +50,16 @@ $count = mysqli_num_rows($res);
 </div>
 
 <div class="body_wrapper">
-   <nav class="navbar navbar-expand-lg menu_one dark_menu sticky-nav">
+   <nav class="navbar navbar-expand-lg menu_one dark_menu display_none sticky-nav">
         <div class="container custom_container">
             <a class="navbar-brand header_logo" href="index.html">
                 <img class="first_logo sticky_logo main_logo" src="img/logo.png" srcset="img/logo-2x.png 2x" alt="logo">
                 <img class="white_logo" src="img/logo-w.png" srcset="img/logo-w2x.png 2x" alt="logo">
             </a>
-            <!-- <div class="search-input">
+            <div class="search-input">
                 <ion-icon class="search-icon" name="search-outline"></ion-icon>
                 <input type="text" placeholder="Search..." value="" class="">
-            </div> -->
+            </div>
 
             <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="menu_toggle">
@@ -79,7 +77,7 @@ $count = mysqli_num_rows($res);
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav menu ml-auto">
                     <li class="nav-item dropdown submenu">
-                        <a href="index.html" class="nav-link dropdown-toggle">Home</a>
+                        <a href="index.php" class="nav-link dropdown-toggle">Home</a>
                             <i class="arrow_carrot-down_alt2 mobile_dropdown_icon" aria-hidden="false" data-toggle="dropdown"></i>
                             <ul class="dropdown-menu">
                                 <?php   
@@ -292,14 +290,14 @@ $count = mysqli_num_rows($res);
                         </ul>
                     </li>
                 </ul>
-                <div class="right-nav" style="margin-left: 29px;">
-                    <!-- <a class="nav_btn tp_btn" href="https://is.gd/nDvqm2" target="_blank">Get Docy</a>
+                <div class="right-nav">
+                    <a class="nav_btn tp_btn" href="https://is.gd/nDvqm2" target="_blank">Get Docy</a>
                     <a class="px-2 ml-3" href="#" title="Subscribe to the newsletter">
                         <ion-icon name="mail"></ion-icon>
                     </a>
                     <a class="px-2" href="#" title="RSS feed">
                         <ion-icon name="logo-rss"></ion-icon>
-                    </a> -->
+                    </a>
                     <div class="px-2 js-darkmode-btn" title="Toggle dark mode">
                         <label for="something" class="tab-btn tab-btns">
                             <ion-icon class="light-mode" name="contrast"></ion-icon>
@@ -315,13 +313,13 @@ $count = mysqli_num_rows($res);
     </nav>      
 <!--================Forum Breadcrumb Area =================-->
    
- <section class=" search-banner-light">
+ <section class="doc_banner_area_admin search-banner-light_admin">
         <div class="container">
             <div class="doc_banner_content">
-                <form action="#" class="header_search_form">
+                <!-- <form action="#" class="header_search_form">
                     <div class="header_search_form_info">
                         <div class="form-group">
-                            <!-- <div class="input-wrapper">
+                            <div class="input-wrapper">
                                 <i class="icon_search"></i>
                                 <input type='search' id="searchbox" autocomplete="off" name="search"
                                        placeholder="Search for Topics...." />
@@ -351,18 +349,18 @@ $count = mysqli_num_rows($res);
                                         </li>
                                     </ul>
                                 </div>
-                            </div> -->
+                            </div>
                         </div>
                     </div>
-                    <!-- <div class="header_search_keyword">
+                    <div class="header_search_keyword">
                         <span class="header-search-form__keywords-label">Popular Searches:</span>
                         <ul class="list-unstyled">
                             <li class="wow fadeInUp" data-wow-delay="0.2s"><a href="#">Docy Documentation</a>,</li>
                             <li class="wow fadeInUp" data-wow-delay="0.3s"><a href="#">Tabs Widget</a>,</li>
                             <li class="wow fadeInUp" data-wow-delay="0.4s"><a href="#">Process Tab</a></li>
                         </ul>
-                    </div> -->
-                </form>
+                    </div>
+                </form> -->
             </div>
         </div>
     </section>
@@ -390,12 +388,12 @@ $count = mysqli_num_rows($res);
         <!--================End Forum Breadcrumb Area =================-->
 
         <!--================Topic Area =================-->
-        <section class="doc_documentation_area" id="">
+        <section class="doc_documentation_area" id="sticky_doc">
             <div class="overlay_bg"></div>
             <div class="container custom_container">
                 <div class="row">
-                    <div class="col-lg-3 doc_mobile_menu ">
-                        <aside class="doc_left_sidebarlist" style="padding-top: 30px;">
+                    <div class="col-lg-3 doc_mobile_menu display_none">
+                        <aside class="doc_left_sidebarlist">
                             <div class="open_icon" id="left">
                                 <i class="arrow_carrot-right"></i>
                                 <i class="arrow_carrot-left"></i>
@@ -413,8 +411,8 @@ $count = mysqli_num_rows($res);
                                      
                                                 
                                                                       
-                                    <li class="nav-item">                                      
-                                        <a href="content_home.php?module=1" class="nav-link"><i class="fa fa-solid fa-bars"></i>   <span class="pl-3"> </span>Add Menu</a>                                       
+                                    <li class="nav-item ">                                      
+                                        <a href="content_home.php?module=<?php echo $menu_id?>" class="nav-link"><i class="fa fa-solid fa-bars"></i>   <span class="pl-3"> </span><?php echo $module_name ?></a>                                       
                                         <span class="icon"><i class="arrow_carrot-down"></i></span>                                        
                                         <ul class="list-unstyled dropdown_nav">                                       
                                     </li>
