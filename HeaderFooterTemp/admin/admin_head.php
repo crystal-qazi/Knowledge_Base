@@ -406,6 +406,160 @@ $count = mysqli_num_rows($res);
                                         <a href="doc-main.html" class="nav-link"><img src="img/side-nav/home.png" alt="">Home</a>
                                     </li>   
 
+                                                                                    
+
+                                    
+                                    
+                                     
+                                                
+                                                                      
+                                    <li class="nav-item">                                      
+                                        <a href="content_home.php?module=1" class="nav-link"><i class="fa fa-solid fa-bars"></i>   <span class="pl-3"> </span>Add Menu</a>                                       
+                                        <span class="icon"><i class="arrow_carrot-down"></i></span>                                        
+                                        <ul class="list-unstyled dropdown_nav">                                       
+                                    </li>
+                                    
+                                    
+                                                 
+                                                <li>
+                                                
+                                                    <!-- <a  href="/content.php?id=<?//php echo $id ?>" > </a> -->
+                                                    <a  href="content.php?id=1">Menu</a>
+                                                    
+                                                    
+
+                                                </li>
+                                                 
+                                                <li>
+                                                
+                                                    <!-- <a  href="/content.php?id=<?//php echo $id ?>" > </a> -->
+                                                    <a  href="content.php?id=2">Tags</a>
+                                                    
+                                                    
+
+                                                </li>
+                                                                                         
+                                        
+                                </ul>
+                                 
+                                                
+                                                                      
+                                    <li class="nav-item">                                      
+                                        <a href="content_home.php?module=2" class="nav-link"><i class="fa fa-solid fa-bars"></i>   <span class="pl-3"> </span>Feature Detail</a>                                       
+                                        <span class="icon"><i class="arrow_carrot-down"></i></span>                                        
+                                        <ul class="list-unstyled dropdown_nav">                                       
+                                    </li>
+                                    
+                                    
+                                                 
+                                                <li>
+                                                
+                                                    <!-- <a  href="/content.php?id=<?//php echo $id ?>" > </a> -->
+                                                    <a  href="content.php?id=3">Add Feature</a>
+                                                    
+                                                    
+
+                                                </li>
+                                                                                         
+                                        
+                                </ul>
+                                 
+                                                
+                                                                      
+                                    <li class="nav-item">                                      
+                                        <a href="content_home.php?module=3" class="nav-link"><i class="fa fa-solid fa-bars"></i>   <span class="pl-3"> </span>Settup</a>                                       
+                                        <span class="icon"><i class="arrow_carrot-down"></i></span>                                        
+                                        <ul class="list-unstyled dropdown_nav">                                       
+                                    </li>
+                                    
+                                    
+                                                 
+                                                <li>
+                                                
+                                                    <!-- <a  href="/content.php?id=<?//php echo $id ?>" > </a> -->
+                                                    <a  href="content.php?id=4">Application Configuration</a>
+                                                    
+                                                    
+
+                                                </li>
+                                                 
+                                                <li>
+                                                
+                                                    <!-- <a  href="/content.php?id=<?//php echo $id ?>" > </a> -->
+                                                    <a  href="content.php?id=5">User Management</a>
+                                                    
+                                                    
+
+                                                </li>
+                                                                                         
+                                        
+                                </ul>
+                                                                        
+                                    
+                                    
+                                    <!-- <li class="nav-item">
+                                        <a href="doc-ref-cheatsheet.html" class="nav-link"><img src="img/side-nav/chat1.png" alt="">Reference</a>
+                                        <span class="icon"><i class="arrow_carrot-down"></i></span>
+                                        <ul class="list-unstyled dropdown_nav">
+                                            <li><a href="doc-ref-cheatsheet.html">Cheatsheet</a></li>
+                                            <li><a href="doc-ref-footnote.html">Footnotes</a></li>
+                                            <li><a href="doc-tour.html">Interface Tour</a></li>
+                                            <li><a href="doc-ref-can-use.html">Can I Use</a></li>
+                                            <li><a href="doc-content-tooltip.html">Tooltips & Direction</a></li>
+                                            <li><a href="doc-ref-shortcuts.html">Keyboard Shortcuts</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="doc-content-video.html" class="nav-link"><img src="img/side-nav/layout.png" alt="">Layouts</a>
+                                        <span class="icon"><i class="arrow_carrot-down"></i></span>
+                                        <ul class="list-unstyled dropdown_nav">
+                                            <li><a href="doc-content-video.html">Full-width</a></li>
+                                            <li><a href="doc-element-hotspots.html">Left Sidebar</a></li>
+                                            <li><a href="doc-layout-banner-gradient.html">Gradient Banner</a></li>
+                                            <li><a href="doc-layout-banner-empty.html">Without Banner</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="doc-changelog.html" class="nav-link"><img src="img/side-nav/clock.png" alt="">Change Log</a>
+                                    </li> -->
+                                </ul>
+                                <ul class="list-unstyled nav-sidebar coding_nav">
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link"><img src="img/side-nav/account.png" alt="">Account</a>
+                                    </li>
+                                    <!-- <li class="nav-item">
+                                        <a href="doc-element-code.html" class="nav-link"><img src="img/side-nav/coding.png" alt="">Development</a>
+                                    </li> -->
+                                </ul>
+                                <ul class="list-unstyled nav-sidebar bottom_nav">
+                                    <!-- <li class="nav-item">
+                                        <a href="#" class="nav-link"><img src="img/side-nav/united-states.png" alt="">United States</a>
+                                    </li> -->
+                                    <!-- <li class="nav-item">
+                                        <a href="#" class="nav-link"><img src="img/side-nav/edit.png" alt="">English </a>
+                                    </li> -->
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link"><img src="img/side-nav/users.png" alt="">Sign In <i class="arrow_right"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </aside>
+                    </div>
+            <div class="overlay_bg"></div>
+            <div class="container custom_container">
+                <div class="row">
+                    <div class="col-lg-3 doc_mobile_menu ">
+                        <aside class="doc_left_sidebarlist" style="padding-top: 30px;">
+                            <div class="open_icon" id="left">
+                                <i class="arrow_carrot-right"></i>
+                                <i class="arrow_carrot-left"></i>
+                            </div>
+                            <div class="scroll">
+                                <ul class="list-unstyled nav-sidebar">
+                                    <li class="nav-item">                                      
+                                        <a href="doc-main.html" class="nav-link"><img src="img/side-nav/home.png" alt="">Home</a>
+                                    </li>   
+
                                     <?php    
                                                      
                                                     $sql = "SELECT * FROM subject Where Module_id = $menu_id";
