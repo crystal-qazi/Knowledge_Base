@@ -412,7 +412,7 @@ $count = mysqli_num_rows($res);
                                                 
                                                                       
                                     <li class="nav-item ">                                      
-                                        <a href="content_home.php?module=<?php echo $menu_id?>" class="nav-link"><i class="fa fa-solid fa-bars"></i>   <span class="pl-3"> </span><?php echo $module_name ?></a>                                       
+                                        <a href="#" class="nav-link"><i class="fa fa-solid fa-bars"></i>   <span class="pl-3"> </span>Add Menu</a>                                       
                                         <span class="icon"><i class="arrow_carrot-down"></i></span>                                        
                                         <ul class="list-unstyled dropdown_nav">                                       
                                     </li>
