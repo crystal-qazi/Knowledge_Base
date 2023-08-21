@@ -79,6 +79,11 @@ $count = mysqli_num_rows($res);
                     <li class="nav-item dropdown submenu">
                         <a href="index.php" class="nav-link dropdown-toggle">Home</a>
                             <i class="arrow_carrot-down_alt2 mobile_dropdown_icon" aria-hidden="false" data-toggle="dropdown"></i>
+                            
+                    </li>
+                    <li class="nav-item dropdown submenu">
+                        <a href="index.php" class="nav-link dropdown-toggle">Project</a>
+                            <i class="arrow_carrot-down_alt2 mobile_dropdown_icon" aria-hidden="false" data-toggle="dropdown"></i>
                             <ul class="dropdown-menu">
                                 <?php   
                                     if($count > 0){
@@ -93,7 +98,12 @@ $count = mysqli_num_rows($res);
                                     }
                                 ?>
                             
-                    </ul>
+                            </ul>
+                    </li>
+                    <li class="nav-item dropdown submenu">
+                        <a href="index.php" class="nav-link dropdown-toggle">Help</a>
+                            <i class="arrow_carrot-down_alt2 mobile_dropdown_icon" aria-hidden="false" data-toggle="dropdown"></i>
+                            
                         </li>
                     <li class="nav-item dropdown submenu mega_menu tab-demo active">
                         <a href="" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Docs</a>

@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `k_b`
 --
-CREATE DATABASE IF NOT EXISTS `k_b` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+CREATE DATABASE IF NOT EXISTS `k_b` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `k_b`;
 
 -- --------------------------------------------------------
@@ -35,7 +35,7 @@ CREATE TABLE `main_menu` (
   `title` varchar(250) NOT NULL,
   `description` text,
   `dummy` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `main_menu`
@@ -61,7 +61,7 @@ CREATE TABLE `module` (
   `Date` date NOT NULL,
   `project_id` int NOT NULL,
   `Dummy2` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `module`
@@ -89,7 +89,7 @@ CREATE TABLE `project` (
   `main_menu_id` int DEFAULT NULL,
   `Dummy3` int DEFAULT NULL,
   `Dummy4` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `project`
@@ -114,9 +114,9 @@ CREATE TABLE `subject` (
   `Description` text NOT NULL,
   `Date` date NOT NULL,
   `Module_id` int DEFAULT NULL,
-  `Tagged_id` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `Tagged_id` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `Column 8` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `subject`
@@ -141,7 +141,7 @@ CREATE TABLE `tags` (
   `UID` int NOT NULL,
   `Tag_name` varchar(250) NOT NULL,
   `Description` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tags`
