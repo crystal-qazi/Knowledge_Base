@@ -34,21 +34,22 @@ include 'config/connection.php'; ?>
                 <div class="col-lg-3">
                 
 
-<form action="#" method="post">
-    <?php if (!empty($message)) : ?>
-        <div class="message"><?php echo htmlspecialchars($message); ?></div>
-    <?php endif; ?>
-    <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Add Main Menu</label>
-        <input name="title" class="form-control form-control-sm" type="text" placeholder="Name Of Menu" aria-label=".form-control-sm example" value="<?php echo htmlspecialchars($title); ?>">
-    </div>
-    <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-        <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Describe Menu"><?php echo htmlspecialchars($description); ?></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-</div>
+                <form action="#" method="post">
+                    <?php if (!empty($message)) : ?>
+                        <div class="message"><?php echo htmlspecialchars($message); ?></div>
+                    <?php endif; ?>
+                    <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Add Main Menu</label>
+                    <input name="title" class="form-control form-control-sm" type="text" placeholder="Name Of Menu" aria-label=".form-control-sm example" value="<?php echo htmlspecialchars($title); ?>">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                    <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Describe Menu"><?php echo htmlspecialchars($description); ?></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+            </div>
 
 <?php
 // Include the database connection configuration
@@ -127,8 +128,60 @@ if ($result) {
             </table>
         </div>
     </article>
-            </div>
+        </div>
+            
+            
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="col-lg-3">
+                
+
+            <form action="#" method="post">
+                <?php if (!empty($message)) : ?>
+                    <div class="message"><?php echo htmlspecialchars($message); ?></div>
+                    <?php endif; ?>
+                    <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Add Main Menu</label>
+                    <input name="title" class="form-control form-control-sm" type="text" placeholder="Name Of Menu" aria-label=".form-control-sm example" value="<?php echo htmlspecialchars($title); ?>">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                    <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Describe Menu"><?php echo htmlspecialchars($description); ?></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+        </div>
+
+
+                </div>
+
+       
+
+
+    
+            
+            <div class="tab-pane fade" id="profile-tab" role="profilepanel" aria-labelledby="profile-tab">
+            <?php
+                include 'config/connection.php';
+
+                $sql = "SELECT * FROM project";
+                $res = mysqli_query($con,$sql);
+                $count = mysqli_num_rows($res);
+                ?>
+            <?php   
+                if($count > 0){
+                    while($row= mysqli_fetch_assoc($res)){
+                        $id = $row['ID'];
+                        $porject_name = $row['Project_name'];
+                        ?>
+                        <p class="nav-item">
+                        <a href="<?php echo $porject_name?>.php" class="nav-link"><?php echo $porject_name ?> </a></p> 
+                        <?php                                     
+                    }
+                }
+                ?>
                 Don't get shirty with me what a plonker on your bike mate bugger all mate chip shop bits and bobs smashing mush bugger cup of char, in my flat.
             </div>
             <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">

@@ -4,6 +4,8 @@ include 'config/connection.php';
 $sql = "SELECT * FROM project";
 $res = mysqli_query($con,$sql);
 $count = mysqli_num_rows($res);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -103,11 +105,32 @@ $count = mysqli_num_rows($res);
                             
                             </ul>
                     </li>
-                    <li class="nav-item dropdown submenu">
-                        <a href="index.php" class="nav-link dropdown-toggle">Help</a>
-                            <i class="arrow_carrot-down_alt2 mobile_dropdown_icon" aria-hidden="false" data-toggle="dropdown"></i>
-                            
-                        </li>
+
+                    
+                    <?php
+                            $sql2 = "SELECT * FROM main_menu";
+                            $res2 = mysqli_query($con, $sql2);
+                            $count2 = mysqli_num_rows($res2);
+
+                            if ($count2 > 0) {
+                                while ($row = mysqli_fetch_assoc($res2)) {
+                                    $id = $row['id'];
+                                    $title = $row['title'];
+                            ?>
+                                    <li class="nav-item dropdown submenu">
+                                        <a href="<?php echo $title ?>.php" class="nav-link dropdown-toggle"><?php echo $title ?></a>
+                                        <i class="arrow_carrot-down_alt2 mobile_dropdown_icon" aria-hidden="false" data-toggle="dropdown"></i>
+                                    </li>
+                            <?php
+                                }
+                            }
+                            ?>
+   
+                    
+                    
+
+
+
                     <li class="nav-item dropdown submenu mega_menu tab-demo active">
                         <a href="" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Docs</a>
                         <i class="arrow_carrot-down_alt2 mobile_dropdown_icon" aria-hidden="true" data-toggle="dropdown"></i>
@@ -264,44 +287,9 @@ $count = mysqli_num_rows($res);
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item dropdown submenu">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Pages
-                        </a>
-                        <i class="arrow_carrot-down_alt2 mobile_dropdown_icon" aria-hidden="false" data-toggle="dropdown"></i>
-                        <ul class="dropdown-menu">
-                                <li class="nav-item"><a href="onepage.html" class="nav-link">Onepage Doc</a></li>
-                                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                            <li class="nav-item"><a href="forums.html" class="nav-link">Forum</a></li>
-                            <li class="nav-item"><a href="typography.html" class="nav-link">Typography</a></li>
-                            <li class="nav-item"><a href="404-error.html" class="nav-link">404 Error</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown submenu">
-                        <a class="nav-link dropdown-toggle" href="forums.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Forum
-                        </a>
-                        <i class="arrow_carrot-down_alt2 mobile_dropdown_icon" aria-hidden="false"
-                           data-toggle="dropdown"></i>
-                        <ul class="dropdown-menu">
-                            <li class="nav-item"><a href="forums.html" class="nav-link">Forums Root</a></li>
-                            <li class="nav-item"><a href="forum-topics.html" class="nav-link">Forum Topics</a></li>
-                            <li class="nav-item"><a href="forum-single.html" class="nav-link">Topic Details</a></li>
-                            <li class="nav-item"><a href="forum-profile.html" class="nav-link">User Profile</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown submenu">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Blog
-                        </a>
-                        <i class="arrow_carrot-down_alt2 mobile_dropdown_icon" aria-hidden="false" data-toggle="dropdown"></i>
-                        <ul class="dropdown-menu">
-                            <li class="nav-item"><a href="blog-grid.html" class="nav-link">Blog Grid</a></li>
-                            <li class="nav-item"><a href="blog-grid-two.html" class="nav-link">Blog Grid Two</a></li>
-                            <li class="nav-item"><a href="blog-list.html" class="nav-link">Blog List</a></li>
-                            <li class="nav-item"><a href="blog-single.html" class="nav-link">Blog Details</a></li>
-                        </ul>
-                    </li>
+                    
+                    
+                    
                 </ul>
                 <div class="right-nav">
                     <a class="nav_btn tp_btn" href="https://is.gd/nDvqm2" target="_blank">Get Docy</a>
