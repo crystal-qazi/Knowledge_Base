@@ -69,7 +69,7 @@ include 'config/connection.php';
 
 
 <div>
-    
+
 
 <article class="shortcode_info">
         <div class="shortcode_title">
@@ -90,13 +90,13 @@ include 'config/connection.php';
                 </thead>
                 <tbody>
                 <?php
-                $sql = "SELECT * FROM `main_menu`";
-                $result=mysqli_query($con,$sql);
-                if($result){
-                    while($row=mysqli_fetch_assoc($result)){
-                        $id=$row['id'];
-                        $name=$row['title'];
-                        $email=$row['description'];
+                $sql1 = "SELECT * FROM `main_menu`";
+                $result1=mysqli_query($con,$sql1);
+                if($result1){
+                    while($row1=mysqli_fetch_assoc($result1)){
+                        $id=$row1['id'];
+                        $name=$row1['title'];
+                        $email=$row1['description'];
 
                      echo   '<tr>
                                 <th scope="row">'.$id.'</th>
