@@ -32,8 +32,8 @@ include 'config/connection.php';
 
                 <?php
                 if(isset($_POST['submit'])){
-                    $name= $_POST['title'];
-                    $email=$_POST['description'];
+                    $title= $_POST['title'];
+                    $description=$_POST['description'];
 
                     $sql= "INSERT into main_menu (title, description) VALUES ('$title','$description')";
                     $result= mysqli_query($con,$sql);
@@ -95,8 +95,8 @@ include 'config/connection.php';
                 if($result1){
                     while($row1=mysqli_fetch_assoc($result1)){
                         $id=$row1['id'];
-                        $name=$row1['title'];
-                        $email=$row1['description'];
+                        $title=$row1['title'];
+                        $description=$row1['description'];
 
                      echo   '<tr>
                                 <th scope="row">'.$id.'</th>
