@@ -12,6 +12,8 @@ include 'config/connection.php';
 <div class="col-lg-9 doc-middle-content">
 
     <div class="tab_shortcode">
+
+    <div>
         <div class="shortcode_title">
             <h4 id="horizontal-tab">Menu Setup<a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon=""
                     href="#horizontal-tab" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h4>
@@ -113,7 +115,9 @@ include 'config/connection.php';
                             </table>
                         </div>
                     </article>
-                </div>
+                    </div>
+
+                    
 
 
 
