@@ -30,7 +30,19 @@ include 'config/connection.php';
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <div class="col-lg-3">
 
-                <?php
+                <form action=""  method="post">
+                    
+                <div class="mb-3">
+                    <label class="form-label">Add Main Menu</label>
+                    <input name="title" class="form-control form-control-sm" type="text" placeholder="Name Of Menu" aria-label=".form-control-sm example">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                    <textarea type="description" name="description" class="form-control"  rows="3" placeholder="Describe Menu"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+            </form>
+            <?php
                 if(isset($_POST['submit'])){
                     $title= $_POST['title'];
                     $description=$_POST['description'];
@@ -47,19 +59,6 @@ include 'config/connection.php';
                     }
                 }
             ?>
-
-                <form  method="post">
-                    
-                <div class="mb-3">
-                    <label class="form-label">Add Main Menu</label>
-                    <input name="title" class="form-control form-control-sm" type="text" placeholder="Name Of Menu" aria-label=".form-control-sm example">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-                    <textarea name="description" class="form-control"  rows="3" placeholder="Describe Menu"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
 
             </div>
 
