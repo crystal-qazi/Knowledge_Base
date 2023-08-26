@@ -10349,6 +10349,7 @@ button.mfp-close {
 
 .modal-backdrop {
   background: #fff;
+  display: contents;
 }
 
 .img_modal {

@@ -103,7 +103,7 @@ include 'config/connection.php';
                                                                         <td>'.$title.'</td>
                                                                         <td>'.$description.'</td>
                                                                         <td>
-                                                                            <button class="btn btn-primary"><a href="update.php?updateid='.$id.'" class="text-light">Update</a></button>
+                                                                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><a href="update.php?updateid='.$id.'" class="text-light">Update</a></button>
                                                                             <button class="btn btn-danger"><a href="delete.php?deleteid='.$id.'" class="text-light">Delete</a></button>
                                                                         </td>
                                                                     </tr>';
@@ -113,6 +113,70 @@ include 'config/connection.php';
 
                                     </tbody>
                                 </table>
+
+                                <!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+  </button> -->
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update Screen</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         
+            <!-- form content -->
+            <form action="" method="post">
+
+                <div class="mb-3">
+                    <label class="form-label">Update Main Menu</label>
+                    <input name="title" class="form-control form-control-sm" type="text"
+                        placeholder="Name Of Menu" aria-label=".form-control-sm example">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Update Description</label>
+                    <textarea type="description" name="description" class="form-control" rows="3"
+                        placeholder="Describe Menu"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+            </form>
+            <?php
+                                if(isset($_POST['submit'])){
+                                    $title= $_POST['title'];
+                                    $description=$_POST['description'];
+
+                                    $sql= "INSERT into main_menu (title, description) VALUES ('$title','$description')";
+                                    $result= mysqli_query($con,$sql);
+
+                                    if($result){
+                                        header('location:admin_add_menu.php');
+                                        //echo "Data inseted successfully";
+                                    }
+                                    else{
+                                        die(mysqli_error($con));
+                                    }
+                                }
+                            ?>
+
+
+                            <!-- content end -->
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
                             </div>
                         </article>
                     </div>
