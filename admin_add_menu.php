@@ -136,13 +136,6 @@ include 'config/connection.php';
 
 
 
-
-
-
-
-
-
-
                                 <div class="tab-pane fade" id="profile-tab" role="profilepanel" aria-labelledby="profile-tab">
                                     Don't get shirty with me what a plonker on your bike mate bugger all mate chip shop bits and
                                     bobs smashing mush bugger cup of char, in my flat.

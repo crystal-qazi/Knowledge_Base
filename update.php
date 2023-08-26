@@ -82,10 +82,7 @@ include 'config/connection.php';
 
                 </div>
 
-                
-
-
-                </div>
+            </div>
 </div>
 </div>
 
