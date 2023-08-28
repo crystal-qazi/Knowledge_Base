@@ -292,7 +292,7 @@ $count = mysqli_num_rows($res);
                     
                 </ul>
                 <div class="right-nav">
-                    <a class="nav_btn tp_btn" href="https://is.gd/nDvqm2" target="_blank">Get Docy</a>
+                    
                     <a class="px-2 ml-3" href="#" title="Subscribe to the newsletter">
                         <ion-icon name="mail"></ion-icon>
                     </a>
