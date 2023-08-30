@@ -67,6 +67,7 @@ include 'config/connection.php';
                                                     die(mysqli_error($con));
                                                 }
                                             }
+                                            
                                         ?>
 
                     </div>
@@ -161,6 +162,7 @@ include 'config/connection.php';
                                         die(mysqli_error($con));
                                     }
                                 }
+                                
                             ?>
 
 
