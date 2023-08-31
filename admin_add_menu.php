@@ -318,7 +318,7 @@
                                                     $result3=mysqli_query($con,$sql3);
                                                     if($result3){
                                                         while($row3=mysqli_fetch_assoc($result3)){
-                                                            $id=$row3['id'];
+                                                            $id=$row3['ID'];
                                                             
                                                             $Module_name=$row3['Module_name'];
                                                             $Fea_Description=$row3['Description'];
