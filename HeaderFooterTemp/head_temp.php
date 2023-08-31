@@ -4,6 +4,7 @@ include 'config/connection.php';
 $sql = "SELECT * FROM project";
 $res = mysqli_query($con,$sql);
 $count = mysqli_num_rows($res);
+
 ?>
 
 <!DOCTYPE html>

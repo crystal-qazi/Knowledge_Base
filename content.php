@@ -13,6 +13,7 @@ $Url_id = $_GET['id'];
 $sql = "SELECT subject.* , tags.Tag_name FROM subject LEFT JOIN tags ON subject.Tagged_id = tags.ID where subject.ID = $Url_id";
 $res = mysqli_query($con,$sql);
 $count = mysqli_num_rows($res);
+
 ?>
 
              

@@ -2,7 +2,7 @@
 <?php include('headerfootertemp/admin/admin_head.php') ?>
 <?php
 // Include the database configuration
-include 'config/connection.php'; 
+//include 'config/connection.php'; 
 
 
 ?>
@@ -37,7 +37,7 @@ include 'config/connection.php';
                     <div class="d-flex">
                     <div class="col-lg-3 pt-5">
 
-                        <form action="" method="post">
+                        <form  method="post">
 
                             <div class="mb-3">
                                 <label class="form-label">Add Main Menu</label>
@@ -49,27 +49,29 @@ include 'config/connection.php';
                                 <textarea type="description" name="description" class="form-control" rows="3"
                                     placeholder="Describe Menu"></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+                            <button type="submit" class="btn btn-primary" name="submit" value="submit">Submit</button>
+                          
+                       
                         </form>
-                        <?php
-                                            if(isset($_POST['submit'])){
-                                                $title= $_POST['title'];
-                                                $description=$_POST['description'];
-
-                                                $sql= "INSERT into main_menu (title, description) VALUES ('$title','$description')";
-                                                $result= mysqli_query($con,$sql);
-
-                                                if($result){
-                                                    header('location:admin_add_menu.php');
-                                                    //echo "Data inseted successfully";
-                                                }
-                                                else{
-                                                    die(mysqli_error($con));
-                                                }
-                                            }
-                                            
-                                        ?>
-
+                            <?php
+                                //include 'config/connection.php';
+                                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                                
+                                    // collect value of input field
+                                    $title= $_POST['title'];
+                                    $description=$_POST['description'];
+                                
+                                    if (empty($title)) {
+                                        echo "data is empty";
+                                    } else {
+                                        $sql= "INSERT into main_menu (title, description) VALUES ('$title','$description')";
+                                        $result= mysqli_query($con,$sql);
+                                    }
+                                }
+                                // Closing the connection.
+                               $con->close();
+                                ?>
+                    
                     </div>
 
                     <div class="col-lg-9">
@@ -92,7 +94,13 @@ include 'config/connection.php';
                                     </thead>
                                     <tbody>
                                         <?php
-                                                        $sql1 = "SELECT * FROM `main_menu`";
+                               
+                                        // Include the database configuration
+                                       include 'config/connection.php'; 
+                                        
+                                        
+                                       
+                                                        $sql1 = "SELECT * FROM main_menu";
                                                         $result1=mysqli_query($con,$sql1);
                                                         if($result1){
                                                             while($row1=mysqli_fetch_assoc($result1)){
@@ -111,75 +119,11 @@ include 'config/connection.php';
                                                                     </tr>';
                                                                 }
                                                             }
+                                                            $con->close();
                                                         ?>
 
                                     </tbody>
                                 </table>
-
-                                <!-- Button trigger modal -->
-<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Launch demo modal
-  </button> -->
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Update Screen</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-         
-            <!-- form content -->
-            <form action="" method="post">
-
-                <div class="mb-3">
-                    <label class="form-label">Update Main Menu</label>
-                    <input name="title" class="form-control form-control-sm" type="text"
-                        placeholder="Name Of Menu" aria-label=".form-control-sm example">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Update Description</label>
-                    <textarea type="description" name="description" class="form-control" rows="3"
-                        placeholder="Describe Menu"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary" name="submit">Submit</button>
-            </form>
-            <?php
-                                if(isset($_POST['submit'])){
-                                    $title= $_POST['title'];
-                                    $description=$_POST['description'];
-
-                                    $sql= "INSERT into main_menu (title, description) VALUES ('$title','$description')";
-                                    $result= mysqli_query($con,$sql);
-
-                                    if($result){
-                                        header('location:admin_add_menu.php');
-                                        //echo "Data inseted successfully";
-                                    }
-                                    else{
-                                        die(mysqli_error($con));
-                                    }
-                                }
-                                
-                            ?>
-
-
-                            <!-- content end -->
-
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-         
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
                             </div>
                         </article>
                     </div>
@@ -190,107 +134,111 @@ include 'config/connection.php';
                 <div class="tab-pane " id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <div class="d-flex">
                         <div class="col-lg-3 pt-5">
-    
-                            <form action="" method="post">
-    
-                                <div class="mb-3">
-                                    <label class="form-label">Add Sub Menu</label>
-                                    <input name="UID" class="form-control form-control-sm" type="text"
-                                        placeholder="UID" aria-label=".form-control-sm example">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Add Project</label>
-                                    <input name="Project_name" class="form-control form-control-sm" type="text"
-                                        placeholder="Name Of Project" aria-label=".form-control-sm example">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-                                    <textarea type="Description" name="Description" class="form-control" rows="3"
-                                        placeholder="Describe Menu"></textarea>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Add Main_Menu_ID</label>
-                                    <input name="main_menu_id" class="form-control form-control-sm" type="text"
-                                        placeholder="main_menu_id" aria-label=".form-control-sm example">
-                                </div>
-                                <button type="submit" class="btn btn-primary" name="submit">Submit</button>
-                            </form>
-                            <?php
-                                                if(isset($_POST['submit'])){
-                                                    
-                                                    $UID= $_POST['UID'];
-                                                    $Project_name=$_POST['Project_name'];
-                                                    $Description=$_POST['Description'];
-                                                    $main_menu_id=$_POST['main_menu_id'];
-    
-                                                    $sql = "INSERT into project (UID, Project_name,Description,main_menu_id) VALUES ('$UID','$Project_name','$Description', '$main_menu_id');";
-                                                    $result= mysqli_query($con,$sql);
-    
-                                                    if($result){
-                                                        header('location:admin_add_menu.php');
-                                                        //echo "Data inseted successfully";
-                                                    }
-                                                    else{
-                                                        die(mysqli_error($con));
-                                                    }
-                                                }
-                                            ?>
-    
-                        </div>
-    
-                        <div class="col-lg-9">
-                            <article class="shortcode_info">
-                                <div class="shortcode_title">
-                                    <h1>SUb_MENU</h1>
-                                    <p><span>SubMenu</span></p>
-                                </div>
-    
-                                <div class="table">
-                                    <table class="table basic_table_info">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>UID</th>
-                                                <th>Project_name</th>
-                                                <th>Description</th>
-                                                <th>main_menu_id</th>
-                                                <th>Action</th>
-    
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php
-                                                    $sql2 = "SELECT * FROM `project`";
-                                                    $result2=mysqli_query($con,$sql2);
-                                                    if($result2){
-                                                        while($row2=mysqli_fetch_assoc($result2)){
-                                                            $id=$row2['id'];
-                                                            $UID=$row2['UID'];
-                                                            $Project_name=$row2['Project_name'];
-                                                            $Description=$row2['Description'];
-                                                            $main_menu_id=$row2['main_menu_id'];
-                                                            
+                     
 
-                                                        echo   '<tr>
-                                                                    <th scope="row">'.$id.'</th>
-                                                                    <td>'.$UID.'</td>
-                                                                    <td>'.$Project_name.'</td>
-                                                                    <td>'.$Description.'</td>
-                                                                    <td>'.$main_menu_id.'</td>
-                                                                    <td>
-                                                                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><a href="update.php?updateid='.$id.'" class="text-light">Update</a></button>
-                                                                        <button class="btn btn-danger"><a href="delete.php?deleteid='.$id.'" class="text-light">Delete</a></button>
-                                                                    </td>
-                                                                </tr>';
-                                                            }
-                                                        }
-                                                    ?>
+                        <form action="" method="post">
     
-                                        </tbody>
-                                    </table>   
-    
-                                </div>
-                            </article>
+   
+    <div class="mb-3">
+        <label class="form-label">Add Project</label>
+        <input name="Project_name" class="form-control form-control-sm" type="text"
+            placeholder="Name Of Project" aria-label=".form-control-sm example">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+        <textarea type="Description" name="Description" class="form-control" rows="3"
+            placeholder="Describe Menu"></textarea>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Add Main_Menu_ID</label>
+        <input name="main_menu_id" class="form-control form-control-sm" type="text"
+            placeholder="main_menu_id" aria-label=".form-control-sm example">
+    </div>
+    <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+
+<?php
+ include 'config/connection.php'; 
+                    if(isset($_POST['submit'])){
+                        
+                  
+                        $Project_name=$_POST['Project_name'];
+                        $sub_Description=$_POST['Description'];
+                        $main_menu_id=$_POST['main_menu_id'];
+                        
+                        if(empty($Project_name)){
+
+                            echo "data is empty";
+                    }else{
+                        $sql5 = "INSERT into project ( Project_name,Description,main_menu_id) VALUES ('$Project_name','$sub_Description', '$main_menu_id');";
+                        $result= mysqli_query($con,$sql5);
+                    }
+
+                       
+                    }
+                    $con->close();
+                ?>
+    </form>
+</div>
+
+<div class="col-lg-9">
+<article class="shortcode_info">
+    <div class="shortcode_title">
+        <h1>SUb_MENU</h1>
+        <p><span>SubMenu</span></p>
+    </div>
+
+    <div class="table">
+        <table class="table basic_table_info">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                  
+                    <th>Project_name</th>
+                    <th>Description</th>
+                    <th>main_menu_id</th>
+                    <th>Action</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                include 'config/connection.php'; 
+                        $sql2 = "SELECT * FROM project";
+                        $result2=mysqli_query($con,$sql2);
+                        if($result2){
+                            while($row2=mysqli_fetch_assoc($result2)){
+                                $subid=$row2['ID'];
+                                $UID=$row2['UID'];
+                                $Project_name=$row2['Project_name'];
+                                $Description=$row2['Description'];
+                                $main_menu_id=$row2['main_menu_id'];
+                                
+
+                            echo   '<tr>
+                                        <th scope="row">'.$subid.'</th>
+                                       
+                                        <td>'.$Project_name.'</td>
+                                        <td>'.$Description.'</td>
+                                        <td>'.$main_menu_id.'</td>
+                                        <td>
+                                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><a href="update.php?updateid='.$id.'" class="text-light">Update</a></button>
+                                            <button class="btn btn-danger"><a href="delete.php?deleteid='.$subid.'" class="text-light">Delete</a></button>
+                                        </td>
+                                    </tr>';
+                                }
+                            }
+                           // mysqli_close($con)
+                            $con->close();
+                        ?>
+
+            </tbody>
+        </table>   
+
+    </div>
+</article>
+
+
+                           
                         </div>
                         </div>
                 </div>
