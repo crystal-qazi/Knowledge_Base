@@ -243,9 +243,111 @@
                         </div>
                 </div>
 
+                <!--============================  Feature ============================-->
+
                 <div class="tab-pane " id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                    adnan get shirty with me what a plonker on your bike mate bugger all mate chip shop bits and
-                    bobs smashing mush bugger cup of char, in my flat.
+                    <div class="d-flex">
+                        <div class="col-lg-3 pt-5">
+    
+                            <form action="" method="post">
+    
+                               <div class="mb-3">
+                                    <label class="form-label">Add Module</label>
+                                    <input name="Module_name" class="form-control form-control-sm" type="text"
+                                        placeholder="Name Of Module" aria-label=".form-control-sm example">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                                    <textarea type="Description" name="Description" class="form-control" rows="3"
+                                        placeholder="Describe Menu"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Add Project_ID</label>
+                                    <input name="project_id" class="form-control form-control-sm" type="text"
+                                        placeholder="Project_ID" aria-label=".form-control-sm example">
+                                </div>
+                                <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+                            
+                                <?php
+                                include 'config/connection.php'; 
+                                if(isset($_POST['submit'])){
+                                                    
+                                                   
+                                    $Module_name=$_POST['Module_name'];
+                                    $Fea_Description=$_POST['Description'];
+                                    $project_id=$_POST['project_id'];
+
+                                if(empty($Module_name)){
+
+                                        echo "data is empty";
+                                }else{
+                                    $sql = "INSERT into module ( Module_name,Description,project_id) VALUES ('$Module_name','$Fea_Description', '$project_id');";
+                                    $result= mysqli_query($con,$sql);
+                                }
+                                }
+                                 ?>
+                          
+                        </form>
+    
+                        </div>
+    
+                        <div class="col-lg-9">
+                        <article class="shortcode_info">
+                                <div class="shortcode_title">
+                                    <h1>Feature_MENU</h1>
+                                    <p><span>FeaMenu</span></p>
+                                </div>
+    
+                                <div class="table">
+                                    <table class="table basic_table_info">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>UID</th>
+                                                <th>Module_name</th>
+                                                <th>Description</th>
+                                                <th>Project_Id</th>
+                                                <th>Action</th>
+    
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                                 include 'config/connection.php'; 
+                                                    $sql2 = "SELECT * FROM `module`";
+                                                    $result3=mysqli_query($con,$sql3);
+                                                    if($result3){
+                                                        while($row3=mysqli_fetch_assoc($result3)){
+                                                            $id=$row3['id'];
+                                                            $UID=$row3['UID'];
+                                                            $Module_name=$row3['Module_name'];
+                                                            $Fea_Description=$row3['Description'];
+                                                            $project_id=$row3['project_id'];
+                                                            
+
+                                                        echo   '<tr>
+                                                                    <th scope="row">'.$id.'</th>
+                                                                    <td>'.$UID.'</td>
+                                                                    <td>'.$Module_name.'</td>
+                                                                    <td>'.$FeaDescription.'</td>
+                                                                    <td>'.$project_id.'</td>
+                                                                    <td>
+                                                                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><a href="update.php?updateid='.$id.'" class="text-light">Update</a></button>
+                                                                        <button class="btn btn-danger"><a href="delete.php?deleteid='.$id.'" class="text-light">Delete</a></button>
+                                                                    </td>
+                                                                </tr>';
+                                                            }
+                                                        }
+                                                        $con->close();
+                                                    ?>
+    
+                                        </tbody>
+                                    </table>   
+    
+                                </div>
+                            </article>
+                        </div>
+                        </div>
                 </div>
             </div>
         </div>
