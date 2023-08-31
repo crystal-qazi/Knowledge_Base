@@ -39,3 +39,24 @@ $con->close();
     $con->close();
 
 ?>
+
+<?php
+
+    include 'config/connection.php';
+
+    if(isset($_GET['deleteid'])){
+        $sub_id=$_GET['deleteid'];
+
+        $sql3="DELETE from `module` where id=$id";
+        $result3 = mysqli_query($con,$sql3);
+        if($result3){
+            echo "Delete success"; 
+           header('location:admin_add_menu.php');
+        }
+        else{
+            die(mysqli_error($con));
+        }
+    }
+    $con->close();
+
+?>
