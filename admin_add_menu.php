@@ -303,7 +303,7 @@
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>UID</th>
+                                                
                                                 <th>Module_name</th>
                                                 <th>Description</th>
                                                 <th>Project_Id</th>
@@ -314,12 +314,12 @@
                                         <tbody>
                                             <?php
                                                  include 'config/connection.php'; 
-                                                    $sql2 = "SELECT * FROM `module`";
+                                                    $sql3 = "SELECT * FROM `module`";
                                                     $result3=mysqli_query($con,$sql3);
                                                     if($result3){
                                                         while($row3=mysqli_fetch_assoc($result3)){
                                                             $id=$row3['id'];
-                                                            $UID=$row3['UID'];
+                                                            
                                                             $Module_name=$row3['Module_name'];
                                                             $Fea_Description=$row3['Description'];
                                                             $project_id=$row3['project_id'];
@@ -327,7 +327,7 @@
 
                                                         echo   '<tr>
                                                                     <th scope="row">'.$id.'</th>
-                                                                    <td>'.$UID.'</td>
+                                                                    
                                                                     <td>'.$Module_name.'</td>
                                                                     <td>'.$FeaDescription.'</td>
                                                                     <td>'.$project_id.'</td>
