@@ -49,9 +49,10 @@
                                 <textarea type="description" name="description" class="form-control" rows="3"
                                     placeholder="Describe Menu"></textarea>
                             </div>
+                            
                             <button type="submit" class="btn btn-primary" name="submit" value="submit">Submit</button>
                           
-                       
+                            
                         </form>
                             <?php
                                 //include 'config/connection.php';
@@ -136,7 +137,7 @@
                         <div class="col-lg-3 pt-5">
                      
 
-                        <form action="" method="post">
+    <form action="" method="post">
     
    
     <div class="mb-3">
@@ -149,13 +150,51 @@
         <textarea type="Description" name="Description" class="form-control" rows="3"
             placeholder="Describe Menu"></textarea>
     </div>
+    <?php
+include 'config/connection.php'; 
+
+
+    include 'config/connection.php';
+
+    $sql = "SELECT * FROM module";
+    $res = mysqli_query($con,$sql);
+    $count = mysqli_num_rows($res);
+
+    ?>
+
     <div class="mb-3">
         <label class="form-label">Add Main_Menu_ID</label>
-        <input name="main_menu_id" class="form-control form-control-sm" type="text"
-            placeholder="main_menu_id" aria-label=".form-control-sm example">
+        <select name="main_menu_id" class="form-control form-control-sm" 
+        placeholder="main_menu_id" aria-label=".form-control-sm example">
+    <option selected>Select Any</option>
+    <?php
+    if($count > 0){
+        while($row= mysqli_fetch_assoc($res)){
+            $id = $row['ID'];
+            $Module_name = $row['Module_name'];
+            ?>
+            <option class="nav-item" value="<?php echo $id; ?>"><?php echo $Module_name; ?></option>
+            <?php                                     
+        }
+    }
+    
+    
+
+?>
+</select>
     </div>
+   
+
+<?php
+$con->close();
+?>
     <button type="submit" class="btn btn-primary" name="submit">Submit</button>
 
+<!--======================================================fetching  data=======================================-->
+    <?php
+    
+?>
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++-->
 <?php
  include 'config/connection.php'; 
                     if(isset($_POST['submit'])){
@@ -261,10 +300,34 @@
                                     <textarea type="Description" name="Description" class="form-control" rows="3"
                                         placeholder="Describe Menu"></textarea>
                                 </div>
+                                <?php
+                                    include 'config/connection.php'; 
+
+                                    $sql = "SELECT * FROM project";
+                                    $res = mysqli_query($con, $sql);
+                                    $count = mysqli_num_rows($res);
+                                    ?>
                                 <div class="mb-3">
                                     <label class="form-label">Add Project_ID</label>
-                                    <input name="project_id" class="form-control form-control-sm" type="text"
+                                    <select name="project_id" class="form-control form-control-sm" type="text"
                                         placeholder="Project_ID" aria-label=".form-control-sm example">
+                                        <option >Select Any</option>
+                                            <?php
+                                                if($count > 0){
+                                                    while($row= mysqli_fetch_assoc($res)){
+                                                        $id = $row['ID'];
+                                                        $project_name = $row['Project_name'];
+                                                        
+                                                        ?>
+                                                        <option class="nav-item" value="<?php echo $id; ?>"><?php echo $project_name; ?>
+                                                            </option> 
+                                                        <?php                                     
+                                                    }
+                                                }
+                                              
+                                            ?>
+
+                           </select>
                                 </div>
                                 <button type="submit" class="btn btn-primary" name="submit">Submit</button>
                             
