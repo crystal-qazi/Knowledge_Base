@@ -32,28 +32,31 @@
                         aria-controls="contact" aria-selected="true">Features / Subject</a>
                 </li>
             </ul>
+              <!--============================  Main Menu ============================-->
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <div class="d-flex">
-                    <div class="col-lg-3 pt-5">
+                        <div class="col-lg-3 pt-5">
 
-                        <form  method="post">
+                            <form method="post">
 
-                            <div class="mb-3">
-                                <label class="form-label">Add Main Menu</label>
-                                <input name="title" class="form-control form-control-sm" type="text"
-                                    placeholder="Name Of Menu" aria-label=".form-control-sm example">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-                                <textarea type="description" name="description" class="form-control" rows="3"
-                                    placeholder="Describe Menu"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary" name="submit" value="submit">Submit</button>
-                          
-                       
-                        </form>
+                                <div class="mb-3">
+                                    <label class="form-label">Add Main Menu</label>
+                                    <input name="title" class="form-control form-control-sm" type="text"
+                                        placeholder="Name Of Menu" aria-label=".form-control-sm example">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                                    <textarea type="description" name="description" class="form-control" rows="3"
+                                        placeholder="Describe Menu"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary" name="submit-a"
+                                    value="submit">Submit</button>
+
+
+                            </form>
                             <?php
+                            if(isset($_POST['submit-a'])){
                                 //include 'config/connection.php';
                                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 
@@ -67,33 +70,33 @@
                                         $sql= "INSERT into main_menu (title, description) VALUES ('$title','$description')";
                                         $result= mysqli_query($con,$sql);
                                     }
-                                }
+                                }}
                                 // Closing the connection.
                                $con->close();
                                 ?>
-                    
-                    </div>
 
-                    <div class="col-lg-9">
-                        <article class="shortcode_info">
-                            <div class="shortcode_title">
-                                <h1>Menus</h1>
-                                <p><span>Main Menu</span></p>
-                            </div>
+                        </div>
 
-                            <div class="table">
-                                <table class="table basic_table_info">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Title</th>
-                                            <th>Description</th>
-                                            <th>Action</th>
+                        <div class="col-lg-9">
+                            <article class="shortcode_info">
+                                <div class="shortcode_title">
+                                    <h1>Menus</h1>
+                                    <p><span>Main Menu</span></p>
+                                </div>
 
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
+                                <div class="table">
+                                    <table class="table basic_table_info">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Title</th>
+                                                <th>Description</th>
+                                                <th>Action</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
                                
                                         // Include the database configuration
                                        include 'config/connection.php'; 
@@ -122,86 +125,112 @@
                                                             $con->close();
                                                         ?>
 
-                                    </tbody>
-                                </table>
-                            </div>
-                        </article>
-                    </div>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </article>
+                        </div>
                     </div>
                 </div>
-
+                <!--============================  Project ============================-->
 
                 <div class="tab-pane " id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <div class="d-flex">
                         <div class="col-lg-3 pt-5">
-                     
 
-                        <form action="" method="post">
-    
-   
-    <div class="mb-3">
-        <label class="form-label">Add Project</label>
-        <input name="Project_name" class="form-control form-control-sm" type="text"
-            placeholder="Name Of Project" aria-label=".form-control-sm example">
-    </div>
-    <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-        <textarea type="Description" name="Description" class="form-control" rows="3"
-            placeholder="Describe Menu"></textarea>
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Add Main_Menu_ID</label>
-        <input name="main_menu_id" class="form-control form-control-sm" type="text"
-            placeholder="main_menu_id" aria-label=".form-control-sm example">
-    </div>
-    <button type="submit" class="btn btn-primary" name="submit">Submit</button>
 
-<?php
- include 'config/connection.php'; 
-                    if(isset($_POST['submit'])){
-                        
-                  
-                        $Project_name=$_POST['Project_name'];
-                        $sub_Description=$_POST['Description'];
-                        $main_menu_id=$_POST['main_menu_id'];
-                        
-                        if(empty($Project_name)){
+                            <form action="" method="post">
 
-                            echo "data is empty";
-                    }else{
-                        $sql5 = "INSERT into project ( Project_name,Description,main_menu_id) VALUES ('$Project_name','$sub_Description', '$main_menu_id');";
-                        $result= mysqli_query($con,$sql5);
-                    }
 
-                       
-                    }
-                    $con->close();
-                ?>
-    </form>
-</div>
+                                <div class="mb-3">
+                                    <label class="form-label">Add Project</label>
+                                    <input name="Project_name" class="form-control form-control-sm" type="text"
+                                        placeholder="Name Of Project" aria-label=".form-control-sm example">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                                    <textarea type="Description" name="Description" class="form-control" rows="3"
+                                        placeholder="Describe Menu"></textarea>
+                                </div>
+                                <!-- <div class="mb-3">
+                                    <label class="form-label">Add Main_Menu_ID</label>
+                                    <input name="main_menu_id" class="form-control form-control-sm" type="text"
+                                        placeholder="main_menu_id" aria-label=".form-control-sm example">
+                                </div> -->
 
-<div class="col-lg-9">
-<article class="shortcode_info">
-    <div class="shortcode_title">
-        <h1>SUb_MENU</h1>
-        <p><span>SubMenu</span></p>
-    </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Parent Menu</label>
+                                    <select class="form-select  form-control" name="main_menu_id" aria-label="Default select example">
+                                        <option selected>Select Any</option>
+                                        <?php
+                                        include 'config/connection.php'; 
+                                                $sql2 = "SELECT * FROM main_menu";
+                                                $result2=mysqli_query($con,$sql2);
+                                                if($result2){
+                                                    while($row2=mysqli_fetch_assoc($result2)){
+                                                        $id=$row2['id'];
+                                                        $title2=$row2['title'];
+                                                        $description=$row2['description'];
+                                                        
+                                                        
+                                                        ?>
 
-    <div class="table">
-        <table class="table basic_table_info">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                  
-                    <th>Project_name</th>
-                    <th>Description</th>
-                    <th>main_menu_id</th>
-                    <th>Action</th>
+                                                    <option value="<?php echo $id ?>"> <?php echo $title2 ?> </option>
+                                                    <?php }}
+                                                    $con->close();
+                                                    ?>
+                                      
+                                      </select>
+                                </div>
 
-                </tr>
-            </thead>
-            <tbody>
-                <?php
+                                <button type="submit" class="btn btn-primary" name="submit-b">Submit</button>
+
+                                <?php
+                            include 'config/connection.php'; 
+                                                if(isset($_POST['submit-b'])){
+                                                    
+                                            
+                                                    $Project_name=$_POST['Project_name'];
+                                                    $sub_Description=$_POST['Description'];
+                                                    $main_menu_id=$_POST['main_menu_id'];
+                                                    
+                                                    if(empty($Project_name)){
+
+                                                        echo "data is empty";
+                                                }else{
+                                                    $sql5 = "INSERT into project ( Project_name,Description,main_menu_id) VALUES ('$Project_name','$sub_Description', '$main_menu_id');";
+                                                    $result= mysqli_query($con,$sql5);
+                                                }
+
+                                                
+                                                }
+                                                $con->close();
+                                            ?>
+                            </form>
+                        </div>
+
+                        <div class="col-lg-9">
+                            <article class="shortcode_info">
+                                <div class="shortcode_title">
+                                    <h1>SUb_MENU</h1>
+                                    <p><span>SubMenu</span></p>
+                                </div>
+
+                                <div class="table">
+                                    <table class="table basic_table_info">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+
+                                                <th>Project_name</th>
+                                                <th>Description</th>
+                                                <th>main_menu_id</th>
+                                                <th>Action</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
                 include 'config/connection.php'; 
                         $sql2 = "SELECT * FROM project";
                         $result2=mysqli_query($con,$sql2);
@@ -231,16 +260,16 @@
                             $con->close();
                         ?>
 
-            </tbody>
-        </table>   
+                                        </tbody>
+                                    </table>
 
-    </div>
-</article>
+                                </div>
+                            </article>
 
 
-                           
+
                         </div>
-                        </div>
+                    </div>
                 </div>
 
                 <!--============================  Feature ============================-->
@@ -248,10 +277,10 @@
                 <div class="tab-pane " id="contact" role="tabpanel" aria-labelledby="contact-tab">
                     <div class="d-flex">
                         <div class="col-lg-3 pt-5">
-    
+
                             <form action="" method="post">
-    
-                               <div class="mb-3">
+
+                                <div class="mb-3">
                                     <label class="form-label">Add Module</label>
                                     <input name="Module_name" class="form-control form-control-sm" type="text"
                                         placeholder="Name Of Module" aria-label=".form-control-sm example">
@@ -266,11 +295,11 @@
                                     <input name="project_id" class="form-control form-control-sm" type="text"
                                         placeholder="Project_ID" aria-label=".form-control-sm example">
                                 </div>
-                                <button type="submit" class="btn btn-primary" name="submit">Submit</button>
-                            
+                                <button type="submit" class="btn btn-primary" name="submit-c">Submit</button>
+
                                 <?php
                                 include 'config/connection.php'; 
-                                if(isset($_POST['submit'])){
+                                if(isset($_POST['submit-c'])){
                                                     
                                                    
                                     $Module_name=$_POST['Module_name'];
@@ -285,30 +314,31 @@
                                     $result= mysqli_query($con,$sql);
                                 }
                                 }
+                                $con -> close();
                                  ?>
-                          
-                        </form>
-    
+
+                            </form>
+
                         </div>
-    
+
                         <div class="col-lg-9">
-                        <article class="shortcode_info">
+                            <article class="shortcode_info">
                                 <div class="shortcode_title">
                                     <h1>Feature_MENU</h1>
                                     <p><span>FeaMenu</span></p>
                                 </div>
-    
+
                                 <div class="table">
                                     <table class="table basic_table_info">
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                
+
                                                 <th>Module_name</th>
                                                 <th>Description</th>
                                                 <th>Project_Id</th>
                                                 <th>Action</th>
-    
+
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -340,14 +370,14 @@
                                                         }
                                                         $con->close();
                                                     ?>
-    
+
                                         </tbody>
-                                    </table>   
-    
+                                    </table>
+
                                 </div>
                             </article>
                         </div>
-                        </div>
+                    </div>
                 </div>
             </div>
         </div>
