@@ -50,11 +50,13 @@
                                     placeholder="Describe Menu"></textarea>
                             </div>
                             
-                            <button type="submit" class="btn btn-primary" name="submit" value="submit">Submit</button>
+                            <button type="submit" class="btn btn-primary" name="submit-a" value="submit">Submit</button>
                           
                             
                         </form>
                             <?php
+                            if(isset($_POST['submit-a'])){
+                        
                                 //include 'config/connection.php';
                                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 
@@ -68,7 +70,7 @@
                                         $sql= "INSERT into main_menu (title, description) VALUES ('$title','$description')";
                                         $result= mysqli_query($con,$sql);
                                     }
-                                }
+                                }}
                                 // Closing the connection.
                                $con->close();
                                 ?>
@@ -188,7 +190,7 @@ include 'config/connection.php';
 <?php
 $con->close();
 ?>
-    <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+    <button type="submit" class="btn btn-primary" name="submit-b">Submit</button>
 
 <!--======================================================fetching  data=======================================-->
     <?php
@@ -197,7 +199,7 @@ $con->close();
 <!--++++++++++++++++++++++++++++++++++++++++++++++++++-->
 <?php
  include 'config/connection.php'; 
-                    if(isset($_POST['submit'])){
+                    if(isset($_POST['submit-b'])){
                         
                   
                         $Project_name=$_POST['Project_name'];
@@ -329,11 +331,11 @@ $con->close();
 
                            </select>
                                 </div>
-                                <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+                                <button type="submit" class="btn btn-primary" name="submit-c">Submit</button>
                             
                                 <?php
                                 include 'config/connection.php'; 
-                                if(isset($_POST['submit'])){
+                                if(isset($_POST['submit-c'])){
                                                     
                                                    
                                     $Module_name=$_POST['Module_name'];
