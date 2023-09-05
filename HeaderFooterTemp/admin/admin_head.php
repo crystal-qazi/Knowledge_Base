@@ -445,7 +445,7 @@ $count = mysqli_num_rows($res);
                                                 
                                                                       
                                     <li class="nav-item">                                      
-                                        <a href="content_home.php?module=2" class="nav-link"><i class="fa fa-info-circle"></i>   <span class="pl-3"> </span>Feature Detail</a>                                       
+                                        <a href="#" class="nav-link"><i class="fa fa-info-circle"></i>   <span class="pl-3"> </span>Feature Detail</a>                                       
                                         <span class="icon"><i class="arrow_carrot-down"></i></span>                                        
                                         <ul class="list-unstyled dropdown_nav">                                       
                                     </li>
@@ -455,7 +455,7 @@ $count = mysqli_num_rows($res);
                                                 <li>
                                                 
                                                     <!-- <a  href="/content.php?id=<?//php echo $id ?>" > </a> -->
-                                                    <a  href="content.php?id=3">Add Feature</a>
+                                                    <a  href="admin_add_feature">Add Feature</a>
                                                     
                                                     
 
