@@ -455,7 +455,7 @@ $count = mysqli_num_rows($res);
                                                 <li>
                                                 
                                                     <!-- <a  href="/content.php?id=<?//php echo $id ?>" > </a> -->
-                                                    <a  href="admin_add_feature">Add Feature</a>
+                                                    <a  href="admin_add_feature.php">Add Feature</a>
                                                     
                                                     
 
