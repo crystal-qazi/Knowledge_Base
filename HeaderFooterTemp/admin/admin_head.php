@@ -460,6 +460,14 @@ $count = mysqli_num_rows($res);
                                                     
 
                                                 </li>
+                                                <li>
+                                                
+                                                <!-- <a  href="/content.php?id=<?//php echo $id ?>" > </a> -->
+                                                <a  href="add_all_feature.php">Add All Feature</a>
+                                                
+                                                
+
+                                            </li>
                                                                                          
                                         
                                 </ul>

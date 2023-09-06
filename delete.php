@@ -60,3 +60,23 @@ $con->close();
     $con->close();
 
 ?>
+<?php
+
+include 'config/connection.php';
+
+if(isset($_GET['deleteid'])){
+    $sub_id=$_GET['deleteid'];
+
+    $sql4="DELETE from `tags` where id=$id";
+    $result4 = mysqli_query($con,$sql4);
+    if($result4){
+        echo "Delete success"; 
+       header('location:admin_add_menu.php');
+    }
+    else{
+        die(mysqli_error($con));
+    }
+}
+$con->close();
+
+?>
