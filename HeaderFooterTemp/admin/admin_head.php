@@ -235,7 +235,6 @@ $count = mysqli_num_rows($res);
                                         <ul class="list-unstyled dropdown_nav">
                                     </li>
 
-<<<<<<< HEAD
                                                 </li>
                                                 <li>
                                                 
@@ -255,7 +254,6 @@ $count = mysqli_num_rows($res);
                                         <a href="content_home.php?module=3" class="nav-link"><i class="fa fa-cogs"></i>   <span class="pl-3"> </span>Settup</a>                                       
                                         <span class="icon"><i class="arrow_carrot-down"></i></span>                                        
                                         <ul class="list-unstyled dropdown_nav">                                       
-=======
 
 
                                     <li>
@@ -274,7 +272,6 @@ $count = mysqli_num_rows($res);
 
 
 
->>>>>>> 47cb56ee0b217d81f418f57e7d9f3c9c0415ba28
                                     </li>
 
 
