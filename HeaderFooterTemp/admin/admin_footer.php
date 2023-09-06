@@ -5,16 +5,9 @@
                 <div class="row">
                     <div class="col-lg-3 col-sm-6">
                         <aside class="f_widget ab_wd">
-                            <a href="#"><img src="img/forum/forum-footer-logo.png" alt="">KBS © 2023</a>
-                            <!-- <select class="nice_select">
-                                <option value="1">English</option>
-                                <option value="2">Bengali</option>
-                                <option value="3">Euro</option>
-                                <option value="4">Ind</option>forum_footer_area
-                            </select> -->
+                            <a href="#"><img src="img/forum/forum-footer-logo.png" alt="">IT Solutions © 2023</a>
                         </aside>
-                    </div>
-                  
+                    </div>                  
                 </div>
             </div>
         </div>

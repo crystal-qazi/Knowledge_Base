@@ -49,6 +49,11 @@
                                 <textarea type="description" name="description" class="form-control" rows="3"
                                     placeholder="Describe Menu"></textarea>
                             </div>
+                            <div class="mb-3">
+                                <label class="form-label">Page Url</label>
+                                <input name="url" class="form-control form-control-sm" type="text"
+                                    placeholder="without space and .php" aria-label=".form-control-sm example">
+                            </div>
                             
                             <button type="submit" class="btn btn-primary" name="submit-a" value="submit">Submit</button>
                           
@@ -63,11 +68,12 @@
                                     // collect value of input field
                                     $title= $_POST['title'];
                                     $description=$_POST['description'];
+                                    $main_url=$_POST['url'];
                                 
                                     if (empty($title)) {
                                         echo "data is empty";
                                     } else {
-                                        $sql= "INSERT into main_menu (title, description) VALUES ('$title','$description')";
+                                        $sql= "INSERT into main_menu (title, description, url) VALUES ('$title','$description', '$main_url')";
                                         $result= mysqli_query($con,$sql);
                                     }
                                 }}
@@ -152,13 +158,18 @@
         <textarea type="Description" name="Description" class="form-control" rows="3"
             placeholder="Describe Menu"></textarea>
     </div>
+    <div class="mb-3">
+        <label class="form-label">Page Url</label>
+        <input name="project_url" class="form-control form-control-sm" type="text"
+            placeholder="Name Of Project" aria-label=".form-control-sm example">
+    </div>
     <?php
 include 'config/connection.php'; 
 
 
     include 'config/connection.php';
 
-    $sql = "SELECT * FROM module";
+    $sql = "SELECT * FROM main_menu";
     $res = mysqli_query($con,$sql);
     $count = mysqli_num_rows($res);
 
@@ -172,8 +183,8 @@ include 'config/connection.php';
     <?php
     if($count > 0){
         while($row= mysqli_fetch_assoc($res)){
-            $id = $row['ID'];
-            $Module_name = $row['Module_name'];
+            $id = $row['id'];
+            $Module_name = $row['title'];
             ?>
             <option class="nav-item" value="<?php echo $id; ?>"><?php echo $Module_name; ?></option>
             <?php                                     
@@ -201,12 +212,13 @@ $con->close();
                         $Project_name=$_POST['Project_name'];
                         $sub_Description=$_POST['Description'];
                         $main_menu_id=$_POST['main_menu_id'];
+                        $Project_url=$_POST['project_url'];
                         
                         if(empty($Project_name)){
 
                             echo "data is empty";
                     }else{
-                        $sql5 = "INSERT into project ( Project_name,Description,main_menu_id) VALUES ('$Project_name','$sub_Description', '$main_menu_id');";
+                        $sql5 = "INSERT into project ( Project_name,Description,main_menu_id,url) VALUES ('$Project_name','$sub_Description', '$main_menu_id','$Project_url');";
                         $result= mysqli_query($con,$sql5);
                     }
 

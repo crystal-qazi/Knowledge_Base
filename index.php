@@ -1,4 +1,4 @@
-
+<!-- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <?php include('headerfootertemp/index_header.php') ?>
+<body> -->
+    <?php include('HeaderFooterTemp\index_header.php') ?>
 <section class="doc_documentation_area" id="sticky_doc">
         <div class="overlay_bg"></div>
         <div class="container custom_container">
