@@ -234,29 +234,33 @@ $count = mysqli_num_rows($res);
                                         <span class="icon"><i class="arrow_carrot-down"></i></span>
                                         <ul class="list-unstyled dropdown_nav">
                                     </li>
-
-
-
                                     <li>
 
-                                        <!-- <a  href="/content.php?id=<?//php echo $id ?>" > </a> -->
-                                        <a href="admin_add_menu.php">Menu</a>
+                                            <!-- <a  href="/content.php?id=<?//php echo $id ?>" > </a> -->
+                                            <a href="admin_add_menu.php">Menu</a>
 
 
 
-                                    </li>
+                                            </li>
 
-                                    <li>
+                                            <li>
 
-                                        <!-- <a  href="/content.php?id=<?//php echo $id ?>" > </a> -->
-                                        <a href="content.php?id=2">Tags</a>
-
-
-
-                                    </li>
+                                            <!-- <a  href="/content.php?id=<?//php echo $id ?>" > </a> -->
+                                            <a href="content.php?id=2">Tags</a>
 
 
+
+                                            </li>
+                                                </li>
+                                                
+                                                                                         
+                                        
                                 </ul>
+                                 
+                                                
+                                                                      
+                                                                            
+                                       
 
 
 
@@ -277,7 +281,14 @@ $count = mysqli_num_rows($res);
 
 
                                 </li>
+                                <li>
+                                                
+                                                <!-- <a  href="/content.php?id=<?//php echo $id ?>" > </a> -->
+                                                <a  href="list_all_feature.php">Add All Feature</a>
+                                                
+                                                
 
+                                            </li>
 
                                 </ul>
 
