@@ -7,7 +7,7 @@ include 'config/connection.php'; ?>
 <?php
 // Include the database configuration
 include 'config/connection.php';
-$Url_id = $_GET['module'];
+$Url_id = $_GET['module_id'];
 // Fetch menu items from the database
 $sql = "SELECT subject.* , tags.Tag_name FROM subject LEFT JOIN tags ON subject.Tagged_id = tags.ID where Module_id = $Url_id";
 // $sql = "SELECT subject.* , tags.Tag_name FROM subject LEFT JOIN tags ON subject.Tagged_id = tags.ID where subject.ID = $Url_id";

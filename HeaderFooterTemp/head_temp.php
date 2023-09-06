@@ -117,12 +117,12 @@ $count = mysqli_num_rows($res);
                                 
                                     if($count > 0){
                                         while($row= mysqli_fetch_assoc($res)){
-                                            $id = $row['ID'];
+                                            $project_id = $row['ID'];
                                             $porject_name = $row['Project_name'];
                                             $url = $row['url'];
                                             ?>
                                 <li class="nav-item">
-                                    <a href="<?php echo $url?>.php" class="nav-link">
+                                    <a href="<?php echo $url?>.php?project_id=<?php echo $project_id ?>" class="nav-link">
                                         <?php echo $porject_name ?>
                                     </a>
                                 </li>
@@ -258,17 +258,18 @@ $count = mysqli_num_rows($res);
                                                 alt="">Home</a>
                                     </li>
                                     <?php    
-                                        $sql = "SELECT * FROM module";
+                                        $url_project_id = $_GET['project_id'];
+                                        $sql = "SELECT * FROM module where project_id = $url_project_id";
                                         $res1 = mysqli_query($con,$sql);
                                         $count1 = mysqli_num_rows($res1);
                                         if($count1 > 0){
                                             while($row= mysqli_fetch_assoc($res1)){
-                                                $menu_id = $row['ID'];
+                                                $module_id = $row['ID'];
                                                 $module_name = $row['Module_name'];
                                                 ?>
 
                                     <li class="nav-item ">
-                                        <a href="content_home.php?module=<?php echo $menu_id?>" class="nav-link"><i
+                                        <a href="content_home.php?project_id=<?php echo $url_project_id ?>&module_id=<?php echo $module_id?>" class="nav-link"><i
                                                 class="fa fa-solid fa-bars"></i> <span class="pl-3"> </span>
                                             <?php echo $module_name ?>
                                         </a>
@@ -278,25 +279,23 @@ $count = mysqli_num_rows($res);
 
 
                                     <?php    
-                                                     
-                                                    $sql = "SELECT * FROM subject Where Module_id = $menu_id";
+                                                    $project_id = $_GET['project_id'];
+                                                    $sql = "SELECT * FROM subject Where Module_id = $module_id";
                                                     $res2 = mysqli_query($con,$sql);
                                                     $count1 = mysqli_num_rows($res2);
                                                     if($count1 > 0){
                                                         while($row= mysqli_fetch_assoc($res2)){
-                                                            $id = $row['ID'];
+                                                            $subject_id = $row['ID'];
                                                             $subject_name = $row['Subject_name'];
                                                             ?>
                                     <li>
-
-                                        <!-- <a  href="/content.php?id=<?//php echo $id ?>" ><?php echo $module ?> </a> -->
-                                        <a href="content.php?id=<?php echo $id?>">
-                                            <?php echo $subject_name ?>
+                                        <a href="content.php?project_id=<?php echo $project_id ?>&subject_id=<?php echo $subject_id ?>" > <?php echo $subject_name ?> </a>
                                         </a>
 
 
 
                                     </li>
+                                    
                                     <?php
                                                             
                                                                                     

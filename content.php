@@ -8,7 +8,7 @@ include 'config/connection.php'; ?>
 <?php
 // Include the database configuration
 include 'config/connection.php';
-$Url_id = $_GET['id'];
+$Url_id = $_GET['subject_id'];
 // Fetch menu items from the database
 $sql = "SELECT subject.* , tags.Tag_name FROM subject LEFT JOIN tags ON subject.Tagged_id = tags.ID where subject.ID = $Url_id";
 $res = mysqli_query($con,$sql);
@@ -27,7 +27,8 @@ $count = mysqli_num_rows($res);
 
                       
                                 <?php   
-                                if (isset($_GET['id'])) {
+                                
+                                if (isset($_GET['subject_id'])) {
                                     if($count > 0){
                                         while($row= mysqli_fetch_assoc($res)){
                                             $id = $row['ID'];
@@ -57,11 +58,7 @@ $count = mysqli_num_rows($res);
                     
                       
 
-                            <div class="shortcode_title">
-                                <a class="btn" href="#">Elements</a>
-                                <h1>Tabs Widget</h1>
-                                <p>Welcome to Docy ! Get familiar with the Docy products and explore their features, guides, tips and tools.</p>
-                            </div>
+                           
  <!--
                             <div class="tab_shortcode">
                                 <div class="shortcode_title">
