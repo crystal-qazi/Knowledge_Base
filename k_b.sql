@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 05, 2023 at 12:20 PM
+-- Generation Time: Sep 06, 2023 at 09:45 AM
 -- Server version: 8.0.30
 -- PHP Version: 7.4.33
 
@@ -34,17 +34,17 @@ CREATE TABLE `main_menu` (
   `id` int NOT NULL,
   `title` varchar(250) COLLATE utf8mb4_general_ci NOT NULL,
   `description` text COLLATE utf8mb4_general_ci,
-  `dummy` text COLLATE utf8mb4_general_ci
+  `url` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `main_menu`
 --
 
-INSERT INTO `main_menu` (`id`, `title`, `description`, `dummy`) VALUES
-(1, 'Home', '', NULL),
-(2, 'Projects', '', NULL),
-(3, 'Help', NULL, NULL);
+INSERT INTO `main_menu` (`id`, `title`, `description`, `url`) VALUES
+(1, 'Home', '', 'index'),
+(2, 'Project', '', 'index'),
+(3, 'Help', 'help', 'help');
 
 -- --------------------------------------------------------
 
@@ -68,10 +68,11 @@ CREATE TABLE `module` (
 --
 
 INSERT INTO `module` (`ID`, `UID`, `Module_name`, `Description`, `Date`, `project_id`, `Dummy2`) VALUES
-(1, NULL, 'New Order', 'tt', '2023-09-01 17:55:02', 25, NULL),
-(2, NULL, 'All Orders', 'test', '2023-09-01 17:55:27', 25, NULL),
+(1, NULL, 'New Order', 'tt', '2023-09-01 17:55:02', 1, NULL),
+(2, NULL, 'All Orders', 'test', '2023-09-01 17:55:27', 1, NULL),
 (3, NULL, 'Reports', 'tt', '2023-09-05 10:22:41', 1, NULL),
-(4, NULL, 'Reports', 'test', '2023-09-05 16:30:23', 2, NULL);
+(4, NULL, 'Reports', 'test', '2023-09-05 16:30:23', 2, NULL),
+(5, NULL, 'Food Items', 'test', '2023-09-06 10:29:18', 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -87,7 +88,7 @@ CREATE TABLE `project` (
   `Description` text COLLATE utf8mb4_general_ci NOT NULL,
   `Date` datetime DEFAULT CURRENT_TIMESTAMP,
   `main_menu_id` int DEFAULT NULL,
-  `Dummy3` int DEFAULT NULL,
+  `url` varchar(150) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `Dummy4` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -95,8 +96,10 @@ CREATE TABLE `project` (
 -- Dumping data for table `project`
 --
 
-INSERT INTO `project` (`ID`, `UID`, `Project_name`, `Description`, `Date`, `main_menu_id`, `Dummy3`, `Dummy4`) VALUES
-(1, NULL, 'Pharmacy', 'test', '2023-09-01 17:54:16', 1, NULL, NULL);
+INSERT INTO `project` (`ID`, `UID`, `Project_name`, `Description`, `Date`, `main_menu_id`, `url`, `Dummy4`) VALUES
+(1, NULL, 'Pharmacy', 'test', '2023-09-01 17:54:16', 2, 'pharmacy', NULL),
+(2, NULL, 'Fast Food', 'test', '2023-09-06 10:28:16', 2, 'fast_food', NULL),
+(3, NULL, 'Play land', 'play land', '2023-09-06 12:42:53', 2, 'play_land', NULL);
 
 -- --------------------------------------------------------
 
@@ -244,13 +247,13 @@ ALTER TABLE `main_menu`
 -- AUTO_INCREMENT for table `module`
 --
 ALTER TABLE `module`
-  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `subject`
