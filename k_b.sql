@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 06, 2023 at 09:45 AM
+-- Generation Time: Sep 08, 2023 at 07:25 AM
 -- Server version: 8.0.30
 -- PHP Version: 7.4.33
 
@@ -71,7 +71,7 @@ INSERT INTO `module` (`ID`, `UID`, `Module_name`, `Description`, `Date`, `projec
 (1, NULL, 'New Order', 'tt', '2023-09-01 17:55:02', 1, NULL),
 (2, NULL, 'All Orders', 'test', '2023-09-01 17:55:27', 1, NULL),
 (3, NULL, 'Reports', 'tt', '2023-09-05 10:22:41', 1, NULL),
-(4, NULL, 'Reports', 'test', '2023-09-05 16:30:23', 2, NULL),
+(4, NULL, 'Reports', 'test', '2023-09-05 16:30:23', 3, NULL),
 (5, NULL, 'Food Items', 'test', '2023-09-06 10:29:18', 2, NULL);
 
 -- --------------------------------------------------------
@@ -115,7 +115,7 @@ CREATE TABLE `subject` (
   `Description` text COLLATE utf8mb4_general_ci NOT NULL,
   `Date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `Module_id` int DEFAULT '0',
-  `Tagged_id` int DEFAULT '0',
+  `Tagged_id` int NOT NULL,
   `project_id` int DEFAULT '0',
   `main_menu_id` int DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -125,22 +125,27 @@ CREATE TABLE `subject` (
 --
 
 INSERT INTO `subject` (`ID`, `UID`, `Subject_name`, `Description`, `Date`, `Module_id`, `Tagged_id`, `project_id`, `main_menu_id`) VALUES
-(10, NULL, 'help', 'help', '2023-09-05 16:54:36', 0, 0, 0, 3),
-(11, NULL, 'help', 'help', '2023-09-05 16:55:17', 0, 0, 0, 3),
-(12, NULL, 'Create oder process', 'how to create new order', '2023-09-05 16:56:30', 1, 0, 1, 0),
-(13, NULL, 'This article is from editor', '', '2023-09-05 17:04:14', 1, 0, 1, 0),
-(14, NULL, '', '', '2023-09-05 17:07:36', 0, 0, 0, 0),
-(15, NULL, '', '', '2023-09-05 17:09:12', 0, 0, 0, 0),
-(16, NULL, '', '', '2023-09-05 17:09:22', 0, 0, 0, 0),
-(17, NULL, '', '', '2023-09-05 17:09:34', 0, 0, 0, 0),
-(18, NULL, '', '', '2023-09-05 17:10:25', 0, 0, 0, 0),
-(19, NULL, 'asdf', '', '2023-09-05 17:10:31', 0, 0, 0, 0),
-(20, NULL, '', '', '2023-09-05 17:12:46', 0, 0, 0, 0),
-(21, NULL, 'All order from editor', '<p><strong>This article is from editor</strong></p><p>how am i look like</p>', '2023-09-05 17:13:50', 2, 0, 1, 0),
-(22, NULL, 'All order from editor', '', '2023-09-05 17:16:22', 2, 0, 1, 0),
-(23, NULL, 'All order from editor', '', '2023-09-05 17:16:33', 2, 0, 1, 0),
-(24, NULL, 'Order detail from editor', '<p><strong>Now this Order will Render in post</strong></p><p>&nbsp;</p><p>check out this</p>', '2023-09-05 17:17:24', 2, 0, 1, 0),
-(25, NULL, '', '<p>afsdfsdf</p>', '2023-09-05 17:18:24', 0, 0, 1, 0);
+(10, NULL, 'help', 'help', '2023-09-05 16:54:36', 4, 1, 0, 2),
+(11, NULL, 'help', 'help', '2023-09-05 16:55:17', 0, 1, 0, 3),
+(12, NULL, 'Create oder process', 'how to create new order', '2023-09-05 16:56:30', 1, 1, 1, 0),
+(13, NULL, 'This article is from editor', '', '2023-09-05 17:04:14', 1, 2, 1, 0),
+(14, NULL, '', '', '2023-09-05 17:07:36', 0, 2, 0, 0),
+(15, NULL, '', '', '2023-09-05 17:09:12', 0, 2, 0, 0),
+(16, NULL, '', '', '2023-09-05 17:09:22', 0, 2, 0, 0),
+(17, NULL, '', '', '2023-09-05 17:09:34', 0, 2, 0, 0),
+(18, NULL, '', '', '2023-09-05 17:10:25', 0, 2, 0, 0),
+(19, NULL, 'asdf', '', '2023-09-05 17:10:31', 0, 2, 0, 0),
+(20, NULL, '', '', '2023-09-05 17:12:46', 0, 2, 0, 0),
+(21, NULL, 'All order from editor', '<p><strong>This article is from editor</strong></p><p>how am i look like</p>', '2023-09-05 17:13:50', 2, 2, 1, 0),
+(22, NULL, 'All order from editor', '', '2023-09-05 17:16:22', 2, 2, 1, 0),
+(23, NULL, 'All order from editor', '', '2023-09-05 17:16:33', 2, 2, 1, 0),
+(24, NULL, 'Order detail from editor', '<p><strong>Now this Order will Render in post</strong></p><p>&nbsp;</p><p>check out this</p>', '2023-09-05 17:17:24', 2, 1, 1, 0),
+(25, NULL, '', '<p>afsdfsdf</p>', '2023-09-05 17:18:24', 0, 1, 1, 0),
+(26, NULL, 'This is to check Table of content', '', '2023-09-08 11:48:36', 2, 1, 1, 0),
+(27, NULL, 'Process Tab', '', '2023-09-08 11:59:08', 1, 1, 1, 0),
+(28, NULL, 'Process Tab', '', '2023-09-08 12:00:05', 2, 1, 1, 0),
+(29, NULL, 'sdfs', 'sdfsdf', '2023-09-08 12:03:05', 2, 1, 1, 0),
+(30, NULL, 'Process Tab', '<div class=\"shortcode_title\">\r\n<h4>Process Tab</h4>\r\n\r\n<p>Try the Docy API in seconds. Create your first customer, charge, and more by following the step below.</p>\r\n</div>\r\n', '2023-09-08 12:03:31', 2, 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -218,7 +223,9 @@ ALTER TABLE `project`
 --
 ALTER TABLE `subject`
   ADD PRIMARY KEY (`ID`),
-  ADD UNIQUE KEY `UID` (`UID`);
+  ADD UNIQUE KEY `UID` (`UID`),
+  ADD KEY `project_id` (`project_id`),
+  ADD KEY `Tagged_id` (`Tagged_id`);
 
 --
 -- Indexes for table `sub_menu`
@@ -259,7 +266,7 @@ ALTER TABLE `project`
 -- AUTO_INCREMENT for table `subject`
 --
 ALTER TABLE `subject`
-  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `sub_menu`
@@ -271,7 +278,7 @@ ALTER TABLE `sub_menu`
 -- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
-  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
@@ -282,6 +289,12 @@ ALTER TABLE `tags`
 --
 ALTER TABLE `project`
   ADD CONSTRAINT `project_ibfk_1` FOREIGN KEY (`main_menu_id`) REFERENCES `main_menu` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `subject`
+--
+ALTER TABLE `subject`
+  ADD CONSTRAINT `tag_id_ref` FOREIGN KEY (`Tagged_id`) REFERENCES `tags` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
