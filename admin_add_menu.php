@@ -252,7 +252,8 @@ $con->close();
             <tbody>
                 <?php
                 include 'config/connection.php'; 
-                        $sql2 = "SELECT * FROM project";
+                        $sql2 = "SELECT project.* , main_menu.title FROM project 
+                        LEFT JOIN main_menu ON project.main_menu_id = main_menu.id";
                         $result2=mysqli_query($con,$sql2);
                         if($result2){
                             while($row2=mysqli_fetch_assoc($result2)){
@@ -261,6 +262,7 @@ $con->close();
                                 $Project_name=$row2['Project_name'];
                                 $Description=$row2['Description'];
                                 $main_menu_id=$row2['main_menu_id'];
+                                $main_menu_name=$row2['title'];
                                 
 
                             echo   '<tr>
@@ -268,7 +270,8 @@ $con->close();
                                        
                                         <td>'.$Project_name.'</td>
                                         <td>'.$Description.'</td>
-                                        <td>'.$main_menu_id.'</td>
+                                        
+                                        <td>'.$main_menu_name.'</td>
                                         <td>
                                             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><a href="update.php?updateid='.$id.'" class="text-light">Update</a></button>
                                             <button class="btn btn-danger"><a href="delete.php?deleteid='.$subid.'" class="text-light">Delete</a></button>
@@ -387,7 +390,9 @@ $con->close();
                                         <tbody>
                                             <?php
                                                  include 'config/connection.php'; 
-                                                    $sql3 = "SELECT * FROM `module`";
+                                                 $sql3 = "SELECT module.* , project.project_name FROM module
+                                                            LEFT JOIN project ON module.project_id = project.id";
+                                                    //$sql3 = "SELECT * FROM `module`";
                                                     $result3=mysqli_query($con,$sql3);
                                                     if($result3){
                                                         while($row3=mysqli_fetch_assoc($result3)){
@@ -396,6 +401,7 @@ $con->close();
                                                             $Module_name=$row3['Module_name'];
                                                             $Fea_Description=$row3['Description'];
                                                             $project_id=$row3['project_id'];
+                                                            $project_name=$row3['project_name'];
                                                             
 
                                                         echo   '<tr>
@@ -403,7 +409,7 @@ $con->close();
                                                                     
                                                                     <td>'.$Module_name.'</td>
                                                                     <td>'.$FeaDescription.'</td>
-                                                                    <td>'.$project_id.'</td>
+                                                                    <td>'.$project_name.'</td>
                                                                     <td>
                                                                         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><a href="update.php?updateid='.$id.'" class="text-light">Update</a></button>
                                                                         <button class="btn btn-danger"><a href="delete.php?deleteid='.$id.'" class="text-light">Delete</a></button>

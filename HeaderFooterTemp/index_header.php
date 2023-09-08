@@ -117,12 +117,12 @@ $count = mysqli_num_rows($res);
                                 
                                     if($count > 0){
                                         while($row= mysqli_fetch_assoc($res)){
-                                            $id = $row['ID'];
+                                            $project_id = $row['ID'];
                                             $porject_name = $row['Project_name'];
                                             $url = $row['url'];
                                             ?>
                                 <li class="nav-item">
-                                    <a href="<?php echo $url?>.php?id=<?php echo $id ?>" class="nav-link">
+                                    <a href="<?php echo $url?>.php?project_id=<?php echo $project_id ?>" class="nav-link">
                                         <?php echo $porject_name ?>
                                     </a>
                                 </li>

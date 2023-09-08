@@ -112,7 +112,7 @@
             placeholder="Describe Feature"></textarea>
     </div> -->
 
-    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+    <!-- <script src="assets\ckeditor5\ckeditor.js"></script>
 
     <div class="mb-3">
         <strong>Description</strong>
@@ -126,6 +126,30 @@
                     console.error( error );
                 } );
         </script>
+       
+    </div> -->
+
+
+    <script src="assets\ckeditor\ckeditor.js"></script>
+
+    <div class="mb-3">
+        <strong>Description</strong>
+        
+        <textarea type="description" id='editor1' name='Description' ></textarea>
+        <!-- <textarea type="description" name="Description"  id="editor1" rows="10" cols="80" > -->
+                
+            </textarea>
+            <script>
+                CKEDITOR.replace( 'editor1' );
+            </script>
+       
+        <!-- <script>
+            ClassicEditor
+                .create( document.querySelector( '#editor') )
+                .catch( error => {
+                    console.error( error );
+                } );
+        </script> -->
         <!--  -->
     </div>
 

@@ -415,11 +415,11 @@ $count = mysqli_num_rows($res);
                         </div>
                         <div class="doc_rightsidebar scroll">
                             <div class="pageSideSection">
-                                <select id="mySelect" name="os">
+                                <!-- <select id="mySelect" name="os">
                                     <option value="windows" data-content="<ion-icon name='logo-windows'></ion-icon> Windows"> </option>
                                     <option value="ios" data-content="<ion-icon name='logo-apple'></ion-icon> Ios"> </option>
                                     <option value="linux" data-content="<ion-icon name='logo-tux'></ion-icon> Linux"> </option>
-                                </select>
+                                </select> -->
                                 <div id="font-switcher" class="d-flex justify-content-between align-items-center">
                                     <div id="rvfs-controllers" class="fontsize-controllers group"></div>
                                     <a href="javascript:window.print()" class="print"><i class="icon_printer"></i></a>
