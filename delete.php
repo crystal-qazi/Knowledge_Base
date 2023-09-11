@@ -80,3 +80,25 @@ if(isset($_GET['deleteid'])){
 $con->close();
 
 ?>
+
+
+<?php
+
+include 'config/connection.php';
+
+if(isset($_GET['deleteid'])){
+    $sub_id=$_GET['deleteid'];
+
+    $sql5="DELETE from `tags` where id=$id";
+    $result5 = mysqli_query($con,$sql5);
+    if($result5){
+        echo "Delete success"; 
+       header('location:admin_add_tag.php');
+    }
+    else{
+        die(mysqli_error($con));
+    }
+}
+$con->close();
+
+?>

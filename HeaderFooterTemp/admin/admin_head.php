@@ -29,10 +29,47 @@ $count = mysqli_num_rows($res);
     <link rel="stylesheet" href="assets/font-size/css/rvfs.css" />
     <!-- <link rel="stylesheet" href="assets/fontawesome-5/css/fontawesome.min.css"> -->
     <link rel="stylesheet" href="assets\fontawesome-5\css\all.min.css" />
-
+    <script scr="js/jquery-3.5.1.min.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
+    
+    <script>
+$(document).ready(function () {
+    $('#project').on('change', function () {
+        var projectID = $(this).val();
+        if (projectID) {
+            $.ajax({
+                type: 'POST',
+                url: 'ajaxData.php',
+                data: 'project=' + projectID,
+                success: function (html) {
+                    $('#module').html(html);
+                    $('#main_menu').html('<option value="">Select Main Menu</option>');
+                }
+            });
+        } else {
+            $('#module').html('<option value="">Select Module</option>');
+            $('#main_menu').html('<option value="">Select Main Menu</option>');
+        }
+    });
 
+    $('#module').on('change', function () {
+        var moduleID = $(this).val();
+        if (moduleID) {
+            $.ajax({
+                type: 'POST',
+                url: 'ajaxData.php',
+                data: 'module=' + moduleID,
+                success: function (html) {
+                    $('#main_menu').html(html);
+                }
+            });
+        } else {
+            $('#main_menu').html('<option value="">Select Main Menu</option>');
+        }
+    });
+});
+</script>
 
     <title>KBS</title>
 </head>
@@ -246,7 +283,7 @@ $count = mysqli_num_rows($res);
                                             <li>
 
                                             <!-- <a  href="/content.php?id=<?//php echo $id ?>" > </a> -->
-                                            <a href="content.php?id=2">Tags</a>
+                                            <a href="admin_add_tag.php">Tags</a>
 
 
 
