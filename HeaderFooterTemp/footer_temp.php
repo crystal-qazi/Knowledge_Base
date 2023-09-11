@@ -42,7 +42,7 @@
 
     <!-- Back to top button -->
 
-    <script src="js/jquery-3.5.1.min.js"></script>
+<script src="js/jquery-3.5.1.min.js"></script>
 <script src="js/pre-loader.js"></script>
 <script src="assets/bootstrap/js/popper.min.js"></script>
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>

@@ -1,3 +1,4 @@
+<!-- Main Menu Update start -->
 <?php
 include 'config/connection.php'; 
  
@@ -12,6 +13,7 @@ if(isset($_POST['custId'])){
  $id = $row['id'];
  $name = $row['title'];
  $description = $row['description'];
+ $url = $row['url'];
 
  
  $response .= "<form action='get_data.php' method='post'> ";
@@ -33,7 +35,7 @@ if(isset($_POST['custId'])){
 $response .= "<div class='row'>";
 $response .= "<div class='col-3'>URL : </div>
                 <div class='col-9'>
-                    <input name='url' class='form-control form-control-sm' type='text' value=".$name." >
+                    <input name='url' class='form-control form-control-sm' type='text' value=".$url." >
                     </div>";
 $response .= "</div>";
 
@@ -50,10 +52,97 @@ $response .= "</div>";
  $response .= "</div>";
  
  echo $response;
+ $con->close();
  exit;
 }
+
+// Main menu update 
+
+        if(isset($_POST['submit-update'])){
+
+        //include 'config/connection.php';
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+        // collect value of input field
+        $id = $_POST['modal_id'];
+        $title= $_POST['title'];
+        $description=$_POST['description'];
+        $main_url=$_POST['url'];
+
+        if (empty($title)) {
+        echo "data is empty";
+        } else {
+        $sql= "UPDATE main_menu SET  title = '$title', description = '$description', url='$main_url' where id = $id";
+        // UPDATE `k_b`.`main_menu` SET `description`='ss' WHERE  `id`=4;
+        $result= mysqli_query($con,$sql);
+        }
+        }
+        header("Location: /Knowledge_Base/admin_add_menu.php");}
+        // Closing the connection.
+        $con->close();
+       // 
+                                
 ?>
+
+
+<!-- Sub menu update -->
 <?php
+include 'config/connection.php'; 
+
+if(isset($_POST['subid'])){
+ $p_id = $_POST['subid'];
+ 
+ $sql3 = "SELECT * FROM project where id=$p_id ";
+ $result3 = mysqli_query($con,$sql3);
+ 
+ $response2 = "<div>";
+ while( $row3 = mysqli_fetch_array($result3) ){
+                                                $p_id = $row3['ID'];
+                                                $p_name = $row3['Project_name'];
+                                                $p_description = $row3['Description'];
+                                                $p_url = $row3['url'];
+                                                $p_main_menu_id = $row3['main_menu_id'];
+
+ 
+ $response2 .= "<form action='get_data.php' method='post'> ";
+ $response2 .= "<div class=''>";
+
+ $response2 .= "<div class='row'>";
+ $response2 .= "<div class='col-3'>ID : </div><div class='col-3'><input name='modal_id' class='form-control form-control-sm' type='text' value=".$p_id."></div>";
+ $response2 .= "</div>";
+ 
+ $response2 .= "<div class='row'>";
+ $response2 .= "<div class='col-3'>Title : </div><div class='col-3'><input name='title' class='form-control form-control-sm' type='text' value=".$p_name." ></div>";
+ $response2 .= "</div>";
+
+ $response2 .= "<div class='row'>";
+ $response2 .= "<div class='col-3'>Description : </div>                
+                <textarea type='description' name='description' ' class='form-control form-control-sm col-9' value=".$p_description." >$p_description</textarea>";
+ $response2 .= "</div>";
+
+$response2 .= "<div class='row'>";
+$response2 .= "<div class='col-3'>URL : </div>
+                <div class='col-9'>
+                    <input name='url' class='form-control form-control-sm' type='text' value=".$p_url." >
+                    </div>";
+$response2 .= "</div>";
+
+ 
+
+ $response2 .= "</div>";
+ $response2 .= "<div>";
+ $response2 .= "<button type='submit' class='btn btn-primary' name='submit-update' value='submit'>Submit</button>";
+ $response2 .= "</div>";
+ $response2 .= "</form>";
+ 
+
+ }
+ $response2 .= "</div>";
+ 
+ echo $response2;
+ exit;
+}
+
                             if(isset($_POST['submit-update'])){
                         
                                 //include 'config/connection.php';
@@ -72,10 +161,16 @@ $response .= "</div>";
                                        // UPDATE `k_b`.`main_menu` SET `description`='ss' WHERE  `id`=4;
                                         $result= mysqli_query($con,$sql);
                                     }
-                                }}
+                                }
+                                header("Location: /Knowledge_Base/admin_add_menu.php");
+                            }
                                 // Closing the connection.
                                $con->close();
-                               header("Location: /Knowledge_Base/admin_add_menu.php");
+                               
                                 ?>
+
+
+<!-- Sub Menu Update end -->
+
 
 

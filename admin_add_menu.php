@@ -323,8 +323,8 @@ $con->close();
                                         <td>'.$Description.'</td>
                                         
                                         <td>'.$main_menu_name.'</td>
-                                        <td>
-                                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><a href="update.php?updateid='.$id.'" class="text-light">Update</a></button>
+                                        <td> 
+                                        <button data-id="'.$subid.'" class="btn btn-info btn-sm pop2" id="pop2">Update</button>
                                             <button class="btn btn-danger"><a href="delete.php?deleteid='.$subid.'" class="text-light">Delete</a></button>
                                         </td>
                                     </tr>';
@@ -345,6 +345,53 @@ $con->close();
                         </div>
                     </div>
                 </div>
+
+
+                 <!--  start  modal -->
+                <!-- Modal -->
+                <div class="modal fade" id="custModal2" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Customer Details</h4>
+                                <!-- <button type="button" class="close" data-bs-dismiss="modal">×</button> -->
+                                <button type="button" class="btn-close" data-bs-dismiss="modal">Close</button>
+                            </div>
+                            <div class="modal-body">
+                                    
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <script type="text/javascript">
+                    $(document).ready(function () {
+
+                        $('.pop2').click(function () {
+                            var custId2 = $(this).data('id');
+                            $.ajax({
+                                url: 'get_data.php',
+                                type: 'post',
+                                data: { subid: custId2 },
+                                success: function (response2) {
+                                    $('.modal-body').html(response2);
+                                    $('#custModal2').modal('show');
+                                }
+                            });
+                        });
+
+                    });
+                </script>
+
+                <!-- end modal -->
+
+
+
 
                 <!--============================  Feature ============================-->
 
