@@ -7,7 +7,12 @@
 
 ?>
 
-
+<!-- <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet' type='text/css'> -->
+<!-- Script -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<!-- <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js' type='text/javascript'></script> -->
 
 <div class="col-lg-9 doc-middle-content">
 
@@ -35,30 +40,31 @@
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <div class="d-flex">
-                    <div class="col-lg-3 pt-5">
+                        <div class="col-lg-3 pt-5">
 
-                        <form  method="post">
+                            <form method="post">
 
-                            <div class="mb-3">
-                                <label class="form-label">Add Main Menu</label>
-                                <input name="title" class="form-control form-control-sm" type="text"
-                                    placeholder="Name Of Menu" aria-label=".form-control-sm example">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-                                <textarea type="description" name="description" class="form-control" rows="3"
-                                    placeholder="Describe Menu"></textarea>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Page Url</label>
-                                <input name="url" class="form-control form-control-sm" type="text"
-                                    placeholder="without space and .php" aria-label=".form-control-sm example">
-                            </div>
-                            
-                            <button type="submit" class="btn btn-primary" name="submit-a" value="submit">Submit</button>
-                          
-                            
-                        </form>
+                                <div class="mb-3">
+                                    <label class="form-label">Add Main Menu</label>
+                                    <input name="title" class="form-control form-control-sm" type="text"
+                                        placeholder="Name Of Menu" aria-label=".form-control-sm example">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                                    <textarea type="description" name="description" class="form-control" rows="3"
+                                        placeholder="Describe Menu"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Page Url</label>
+                                    <input name="url" class="form-control form-control-sm" type="text"
+                                        placeholder="without space and .php" aria-label=".form-control-sm example">
+                                </div>
+
+                                <button type="submit" class="btn btn-primary" name="submit-a"
+                                    value="submit">Submit</button>
+
+
+                            </form>
                             <?php
                             if(isset($_POST['submit-a'])){
                         
@@ -80,90 +86,133 @@
                                 // Closing the connection.
                                $con->close();
                                 ?>
-                    
-                    </div>
 
-                    <div class="col-lg-9">
-                        <article class="shortcode_info">
-                            <div class="shortcode_title">
-                                <h1>Menus</h1>
-                                <p><span>Main Menu</span></p>
-                            </div>
+                        </div>
 
-                            <div class="table">
-                                <table class="table basic_table_info">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Title</th>
-                                            <th>Description</th>
-                                            <th>Action</th>
+                        <div class="col-lg-9">
+                            <article class="shortcode_info">
+                                <div class="shortcode_title">
+                                    <h1>Menus</h1>
+                                    <p><span>Main Menu</span></p>
+                                </div>
 
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
+                                <div class="table">
+                                    <table class="table basic_table_info">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Title</th>
+                                                <th>Description</th>
+                                                <th>Action</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
                                
                                         // Include the database configuration
-                                       include 'config/connection.php'; 
-                                        
-                                        
-                                       
+                                       include 'config/connection.php';                                                                             
                                                         $sql1 = "SELECT * FROM main_menu";
                                                         $result1=mysqli_query($con,$sql1);
+                                                        $i = 1;  
                                                         if($result1){
                                                             while($row1=mysqli_fetch_assoc($result1)){
                                                                 $id=$row1['id'];
                                                                 $title=$row1['title'];
-                                                                $description=$row1['description'];
-
-                                                            echo   '<tr>
-                                                                        <th scope="row">'.$id.'</th>
-                                                                        <td>'.$title.'</td>
-                                                                        <td>'.$description.'</td>
-                                                                        <td>
-                                                                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><a href="update.php?updateid='.$id.'" class="text-light">Update</a></button>
-                                                                            <button class="btn btn-danger"><a href="delete.php?deleteid='.$id.'" class="text-light">Delete</a></button>
-                                                                        </td>
-                                                                    </tr>';
-                                                                }
+                                                                $description=$row1['description'];                                                               
+                                                                ?>
+                                            <tr>
+                                                <th scope="row"><?php echo $id; ?></th>
+                                                <td><?php echo $title; ?></td>
+                                                <td><?php echo $description; ?></td>
+                                                <td>
+                                                    <button data-id="<?php echo $id ?>"class='btn btn-info btn-sm btn-popup'>Update</button>
+                                                    <button class="btn btn-danger"><a href="delete.php?deleteid=<?php echo $id ?>" class="text-light">Delete</a></button>
+                                                </td>
+                                            </tr>
+                                            <?php                                                                   
+                                                                }                                                                
                                                             }
                                                             $con->close();
                                                         ?>
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </article>
-                    </div>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </article>
+                        </div>
                     </div>
                 </div>
+
+
+
+                <!--  start  modal -->
+                <!-- Modal -->
+                <div class="modal fade" id="custModal" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Customer Details</h4>
+                                <!-- <button type="button" class="close" data-bs-dismiss="modal">×</button> -->
+                                <button type="button" class="btn-close" data-bs-dismiss="modal">Close</button>
+                            </div>
+                            <div class="modal-body">
+                                    
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <script type="text/javascript">
+                    $(document).ready(function () {
+
+                        $('.btn-popup').click(function () {
+                            var custId = $(this).data('id');
+                            $.ajax({
+                                url: 'get_data.php',
+                                type: 'post',
+                                data: { custId: custId },
+                                success: function (response) {
+                                    $('.modal-body').html(response);
+                                    $('#custModal').modal('show');
+                                }
+                            });
+                        });
+
+                    });
+                </script>
+
+                <!-- end modal -->
 
 
                 <div class="tab-pane " id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <div class="d-flex">
                         <div class="col-lg-3 pt-5">
-                     
 
-    <form action="" method="post">
-    
-   
-    <div class="mb-3">
-        <label class="form-label">Add Project</label>
-        <input name="Project_name" class="form-control form-control-sm" type="text"
-            placeholder="Name Of Project" aria-label=".form-control-sm example">
-    </div>
-    <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-        <textarea type="Description" name="Description" class="form-control" rows="3"
-            placeholder="Describe Menu"></textarea>
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Page Url</label>
-        <input name="project_url" class="form-control form-control-sm" type="text"
-            placeholder="Name Of Project" aria-label=".form-control-sm example">
-    </div>
-    <?php
+
+                            <form action="" method="post">
+
+
+                                <div class="mb-3">
+                                    <label class="form-label">Add Project</label>
+                                    <input name="Project_name" class="form-control form-control-sm" type="text"
+                                        placeholder="Name Of Project" aria-label=".form-control-sm example">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                                    <textarea type="Description" name="Description" class="form-control" rows="3"
+                                        placeholder="Describe Menu"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Page Url</label>
+                                    <input name="project_url" class="form-control form-control-sm" type="text"
+                                        placeholder="Name Of Project" aria-label=".form-control-sm example">
+                                </div>
+                                <?php
 include 'config/connection.php'; 
 
 
@@ -175,36 +224,38 @@ include 'config/connection.php';
 
     ?>
 
-    <div class="mb-3">
-        <label class="form-label">Add Main_Menu_ID</label>
-        <select name="main_menu_id" class="form-control form-control-sm" 
-        placeholder="main_menu_id" aria-label=".form-control-sm example">
-    <option selected>Select Any</option>
-    <?php
+                                <div class="mb-3">
+                                    <label class="form-label">Add Main_Menu_ID</label>
+                                    <select name="main_menu_id" class="form-control form-control-sm"
+                                        placeholder="main_menu_id" aria-label=".form-control-sm example">
+                                        <option selected>Select Any</option>
+                                        <?php
     if($count > 0){
         while($row= mysqli_fetch_assoc($res)){
             $id = $row['id'];
             $Module_name = $row['title'];
             ?>
-            <option class="nav-item" value="<?php echo $id; ?>"><?php echo $Module_name; ?></option>
-            <?php                                     
+                                        <option class="nav-item" value="<?php echo $id; ?>">
+                                            <?php echo $Module_name; ?>
+                                        </option>
+                                        <?php                                     
         }
     }
     
     
 
 ?>
-</select>
-    </div>
-   
+                                    </select>
+                                </div>
 
-<?php
+
+                                <?php
 $con->close();
 ?>
-    <button type="submit" class="btn btn-primary" name="submit-b">Submit</button>
+                                <button type="submit" class="btn btn-primary" name="submit-b">Submit</button>
 
 
-<?php
+                                <?php
  include 'config/connection.php'; 
                     if(isset($_POST['submit-b'])){
                         
@@ -226,31 +277,31 @@ $con->close();
                     }
                     $con->close();
                 ?>
-    </form>
-</div>
+                            </form>
+                        </div>
 
-<div class="col-lg-9">
-<article class="shortcode_info">
-    <div class="shortcode_title">
-        <h1>SUb_MENU</h1>
-        <p><span>SubMenu</span></p>
-    </div>
+                        <div class="col-lg-9">
+                            <article class="shortcode_info">
+                                <div class="shortcode_title">
+                                    <h1>SUb_MENU</h1>
+                                    <p><span>SubMenu</span></p>
+                                </div>
 
-    <div class="table">
-        <table class="table basic_table_info">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                  
-                    <th>Project_name</th>
-                    <th>Description</th>
-                    <th>main_menu_id</th>
-                    <th>Action</th>
+                                <div class="table">
+                                    <table class="table basic_table_info">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
 
-                </tr>
-            </thead>
-            <tbody>
-                <?php
+                                                <th>Project_name</th>
+                                                <th>Description</th>
+                                                <th>main_menu_id</th>
+                                                <th>Action</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
                 include 'config/connection.php'; 
                         $sql2 = "SELECT project.* , main_menu.title FROM project 
                         LEFT JOIN main_menu ON project.main_menu_id = main_menu.id";
@@ -283,16 +334,16 @@ $con->close();
                             $con->close();
                         ?>
 
-            </tbody>
-        </table>   
+                                        </tbody>
+                                    </table>
 
-    </div>
-</article>
+                                </div>
+                            </article>
 
 
-                           
+
                         </div>
-                        </div>
+                    </div>
                 </div>
 
                 <!--============================  Feature ============================-->
@@ -300,10 +351,10 @@ $con->close();
                 <div class="tab-pane " id="contact" role="tabpanel" aria-labelledby="contact-tab">
                     <div class="d-flex">
                         <div class="col-lg-3 pt-5">
-    
+
                             <form action="" method="post">
-    
-                               <div class="mb-3">
+
+                                <div class="mb-3">
                                     <label class="form-label">Add Module</label>
                                     <input name="Module_name" class="form-control form-control-sm" type="text"
                                         placeholder="Name Of Module" aria-label=".form-control-sm example">
@@ -324,26 +375,27 @@ $con->close();
                                     <label class="form-label">Add Project_ID</label>
                                     <select name="project_id" class="form-control form-control-sm" type="text"
                                         placeholder="Project_ID" aria-label=".form-control-sm example">
-                                        <option >Select Any</option>
-                                            <?php
+                                        <option>Select Any</option>
+                                        <?php
                                                 if($count > 0){
                                                     while($row= mysqli_fetch_assoc($res)){
                                                         $id = $row['ID'];
                                                         $project_name = $row['Project_name'];
                                                         
                                                         ?>
-                                                        <option class="nav-item" value="<?php echo $id; ?>"><?php echo $project_name; ?>
-                                                            </option> 
-                                                        <?php                                     
+                                        <option class="nav-item" value="<?php echo $id; ?>">
+                                            <?php echo $project_name; ?>
+                                        </option>
+                                        <?php                                     
                                                     }
                                                 }
                                               
                                             ?>
 
-                           </select>
+                                    </select>
                                 </div>
                                 <button type="submit" class="btn btn-primary" name="submit-c">Submit</button>
-                            
+
                                 <?php
                                 include 'config/connection.php'; 
                                 if(isset($_POST['submit-c'])){
@@ -362,29 +414,29 @@ $con->close();
                                 }
                                 }
                                  ?>
-                          
-                        </form>
-    
+
+                            </form>
+
                         </div>
-    
+
                         <div class="col-lg-9">
-                        <article class="shortcode_info">
+                            <article class="shortcode_info">
                                 <div class="shortcode_title">
                                     <h1>Feature_MENU</h1>
                                     <p><span>FeaMenu</span></p>
                                 </div>
-    
+
                                 <div class="table">
                                     <table class="table basic_table_info">
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                
+
                                                 <th>Module_name</th>
                                                 <th>Description</th>
                                                 <th>Project_Id</th>
                                                 <th>Action</th>
-    
+
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -419,14 +471,14 @@ $con->close();
                                                         }
                                                         $con->close();
                                                     ?>
-    
+
                                         </tbody>
-                                    </table>   
-    
+                                    </table>
+
                                 </div>
                             </article>
                         </div>
-                        </div>
+                    </div>
                 </div>
             </div>
         </div>
