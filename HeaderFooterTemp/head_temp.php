@@ -28,6 +28,7 @@ $count = mysqli_num_rows($res);
     <link rel="stylesheet" href="assets/font-size/css/rvfs.css" />
     <!-- <link rel="stylesheet" href="assets/fontawesome-5/css/fontawesome.min.css"> -->
     <link rel="stylesheet" href="assets\fontawesome-5\css\all.min.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
     <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>

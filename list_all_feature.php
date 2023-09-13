@@ -59,7 +59,7 @@
                                                                         <td>'.$title.'</td>
                                                                         <td>'.$description.'</td>
                                                                         <td>
-                                                                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><a href="update.php?updateid='.$id.'" class="text-light">Update</a></button>
+                                                                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><a href="update_admin_add_feature.php?updateid='.$id.'" class="text-light">Update</a></button>
                                                                             <button class="btn btn-danger"><a href="delete.php?deleteid='.$id.'" class="text-light">Delete</a></button>
                                                                         </td>
                                                                     </tr>';

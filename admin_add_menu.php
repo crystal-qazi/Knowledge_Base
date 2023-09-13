@@ -495,7 +495,7 @@ $con->close();
                                                     $result3=mysqli_query($con,$sql3);
                                                     if($result3){
                                                         while($row3=mysqli_fetch_assoc($result3)){
-                                                            $id=$row3['ID'];
+                                                            $feaid=$row3['ID'];
                                                             
                                                             $Module_name=$row3['Module_name'];
                                                             $Fea_Description=$row3['Description'];
@@ -504,14 +504,14 @@ $con->close();
                                                             
 
                                                         echo   '<tr>
-                                                                    <th scope="row">'.$id.'</th>
+                                                                    <th scope="row">'.$feaid.'</th>
                                                                     
                                                                     <td>'.$Module_name.'</td>
-                                                                    <td>'.$FeaDescription.'</td>
+                                                                    <td>'.$Fea_Description.'</td>
                                                                     <td>'.$project_name.'</td>
                                                                     <td>
-                                                                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><a href="update.php?updateid='.$id.'" class="text-light">Update</a></button>
-                                                                        <button class="btn btn-danger"><a href="delete.php?deleteid='.$id.'" class="text-light">Delete</a></button>
+                                                                    <button data-id="'.$feaid.'" class="btn btn-info btn-sm pop3" id="pop3">Update</button>
+                                                                        <button class="btn btn-danger"><a href="delete.php?deleteid='.$feaid.'" class="text-light">Delete</a></button>
                                                                     </td>
                                                                 </tr>';
                                                             }
@@ -527,6 +527,44 @@ $con->close();
                         </div>
                     </div>
                 </div>
+                <div class="modal fade" id="custModal3" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Customer Details</h4>
+                                <!-- <button type="button" class="close" data-bs-dismiss="modal">×</button> -->
+                                <button type="button" class="btn-close" data-bs-dismiss="modal">Close</button>
+                            </div>
+                            <div class="modal-body">
+                                    
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    $(document).ready(function () {
+
+                        $('.pop3').click(function () {
+                            var custId3 = $(this).data('id');
+                            $.ajax({
+                                url: 'get_data.php',
+                                type: 'post',
+                                data: { feaid: custId3 },
+                                success: function (response3) {
+                                    $('.modal-body').html(response3);
+                                    $('#custModal3').modal('show');
+                                }
+                            });
+                        });
+
+                    });
+                    
+                    </script>
             </div>
         </div>
     </div>

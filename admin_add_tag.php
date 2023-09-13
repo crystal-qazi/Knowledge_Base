@@ -102,17 +102,17 @@ include 'config/connection.php';
                                                         $result9=mysqli_query($con,$sql9);
                                                         if($result9){
                                                             while($row9=mysqli_fetch_assoc($result9)){
-                                                                $id=$row9['ID'];
+                                                                $tagid=$row9['ID'];
                                                                 $Tag_name=$row9['Tag_name'];
                                                                 $Description=$row9['Description'];
 
                                                             echo   '<tr>
-                                                                        <th scope="row">'.$id.'</th>
+                                                                        <th scope="row">'.$tagid.'</th>
                                                                         <td>'.$Tag_name.'</td>
                                                                         <td>'.$Description.'</td>
                                                                         <td>
-                                                                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><a href="update.php?updateid='.$id.'" class="text-light">Update</a></button>
-                                                                            <button class="btn btn-danger"><a href="delete.php?deleteid='.$id.'" class="text-light">Delete</a></button>
+                                                                        <button data-id="'.$tagid.'" class="btn btn-info btn-sm pop4" id="pop4">Update</button>
+                                                                            <button class="btn btn-danger btn-sm"><a href="delete.php?deleteid='.$id.'" class="text-light">Delete</a></button>
                                                                         </td>
                                                                     </tr>';
                                                                 }
@@ -127,10 +127,47 @@ include 'config/connection.php';
                     </div>
                     </div>
                 </div>
+                <div class="modal fade" id="custModal4" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Customer Details</h4>
+                                <!-- <button type="button" class="close" data-bs-dismiss="modal">×</button> -->
+                                <button type="button" class="btn-close" data-bs-dismiss="modal">Close</button>
+                            </div>
+                            <div class="modal-body">
+                                    
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    $(document).ready(function () {
+
+                        $('.pop4').click(function () {
+                            var custId4 = $(this).data('id');
+                            $.ajax({
+                                url: 'get_data.php',
+                                type: 'post',
+                                data: { tagid: custId4 },
+                                success: function (response4) {
+                                    $('.modal-body').html(response4);
+                                    $('#custModal4').modal('show');
+                                }
+                            });
+                        });
+
+                    });
+                    
+                    </script>
 
 
                
-                <!--============================  Feature ============================-->
 
                
             </div>
