@@ -46,12 +46,12 @@
                                         
                                         
                                        
-                                                        $sql1 = "SELECT * FROM tags";
+                                                        $sql1 = "SELECT * FROM subject";
                                                         $result1=mysqli_query($con,$sql1);
                                                         if($result1){
                                                             while($row1=mysqli_fetch_assoc($result1)){
                                                                 $id=$row1['ID'];
-                                                                $title=$row1['Tag_name'];
+                                                                $title=$row1['Subject_name'];
                                                                 $description=$row1['Description'];
 
                                                             echo   '<tr>

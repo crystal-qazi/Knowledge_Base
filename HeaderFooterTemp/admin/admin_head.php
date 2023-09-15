@@ -1,16 +1,11 @@
 <?php
 include 'config/connection.php';
-
 $sql = "SELECT * FROM project";
 $res = mysqli_query($con,$sql);
 $count = mysqli_num_rows($res);
-
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -45,30 +40,40 @@ $(document).ready(function () {
                 data: 'project=' + projectID,
                 success: function (html) {
                     $('#module').html(html);
-                    $('#main_menu').html('<option value="">Select Main Menu</option>');
+                   // $('#main_menu_display').html(html);
                 }
             });
         } else {
-            $('#module').html('<option value="">Select Module</option>');
-            $('#main_menu').html('<option value="">Select Main Menu</option>');
+            $('#module').html('<option value="" >Select Module</option>');
+            // $('#main_menu').html('<option value="">Select Main Menu</option>');
         }
     });
 
-    $('#module').on('change', function () {
-        var moduleID = $(this).val();
-        if (moduleID) {
+
+});
+</script>
+ <script>
+$(document).ready(function () {
+    $('#project').on('change', function () {
+        var projectID = $(this).val();
+        if (projectID) {
             $.ajax({
                 type: 'POST',
                 url: 'ajaxData.php',
-                data: 'module=' + moduleID,
+                data: 'project2=' + projectID,
                 success: function (html) {
-                    $('#main_menu').html(html);
+                   // $('#module').html(html);
+                    $('#main_menu_display').html(html);
                 }
             });
-        } else {
-            $('#main_menu').html('<option value="">Select Main Menu</option>');
-        }
+        } 
+        // else {
+        //     $('#module').html('<option value="" >Select Module</option>');
+        //     // $('#main_menu').html('<option value="">Select Main Menu</option>');
+        // }
     });
+
+
 });
 </script>
 

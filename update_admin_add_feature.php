@@ -1,48 +1,37 @@
-<?php ini_set('display_errors', 0); ?>
+<?php ini_set('display_errors', 1); ?>
 <?php include('headerfootertemp/admin/admin_head.php') ?>
 <?php
 // Include the database configuration
 include 'config/connection.php'; 
 
-
-?>
-<?php
-    $id=$_GET['updateid'];
-    $sql = "SELECT * FROM `subject` where id=$id";
-    $result=mysqli_query($con,$sql);
-    $row=mysqli_fetch_assoc($result);
+    $f_id=$_GET['updateid'];
+    $sql1 = "SELECT subject.*, 
+    project.Project_name,project.ID,
+    module.Module_name, module.ID,
+    main_menu.title, main_menu.id,
+    tags.Tag_name, tags.ID  
+                                    FROM subject 
+    LEFT JOIN tags ON tags.ID = subject.Tagged_id
+    LEFT JOIN project ON project.ID = subject.project_id
+    LEFT JOIN module ON module.ID = subject.Module_id
+    LEFT JOIN main_menu ON main_menu.id = subject.main_menu_id
+    where subject.ID=$f_id";
+    $result1=mysqli_query($con,$sql1);
+    $row=mysqli_fetch_assoc($result1);
     $id=$row['ID'];
     $Subject_name=$row['Subject_name'];
-    $Description=$row['Description'];
+    $Subect_description=$row['Description'];
     $Module_id=$row['Module_id'];
     $project_id=$row['project_id'];
     $main_menu_id=$row['main_menu_id'];
     $Tagged_id=$row['Tagged_id'];
+    $Tagged_name=$row['Tag_name'];
+    $Project_name=$row['Project_name'];
+    $Module_name=$row['Module_name'];
+    $Main_menu_name=$row['title'];
     
-    
+       
 
-
-    if(isset($_POST['submit'])){
-
-        
-        $Subject_name=$row['Subject_name'];
-        $description=$row['Description'];
-        $Module_id=$row['Module_id'];
-        $project_id=$row['project_id'];
-        $main_menu_id=$row['main_menu_id'];
-        $Tagged_id=$row['Tagged_id'];
-
-        $sql= "UPDATE `subject` set id=$id, Subject_name='$Subject_name', Description='$Description', Module_id='$Module_id',project_id='$project_id', main_menu_id='$main_menu_id', Tagged_id='$Tagged_id' where id=$id";
-        $result= mysqli_query($con,$sql);
-
-        if($result){
-           // echo "updated inseted successfully";
-            header('location:list_all_feature.php');
-        }
-        else{
-            die(mysqli_error($con));
-        }
-    }
 ?>
 
 
@@ -50,21 +39,31 @@ include 'config/connection.php';
 <div class="col-lg-9 doc-middle-content">
 
     <div class="tab_shortcode">
+        
+        <div class="row border-bottom">
+            <div class="col-12 d-flex">
+            <div class="text-capitalize bold pr-5 pb-4">Feature of menu:</div>
 
+            <div><?php echo $Main_menu_name ?></div>
+            </div>
+        </div>
         <form action="" method="POST">
             <div class="row">
                 <div class="col-12 d-flex">
                     <div class="col-3">
+                        
+
                         <?php
+                        
                             include 'config/connection.php';
-                            $sql = "SELECT * FROM project";
-                            $res = mysqli_query($con,$sql);
+                            $sql1 = "SELECT * FROM project";
+                            $res = mysqli_query($con,$sql1);
                             $count = mysqli_num_rows($res);
                              ?>
 
                         <label for="project">Select Project</label>
-                        <select class="form-select form-select-sm form-control" id="project" name="project_id" aria-label="Default select example">
-                            <option selected value="0">Select Any</option>
+                        <select class="form-select form-select-sm form-control dropdown-toggle" id="project" name="project_id" aria-label="Default select example">
+                            <option selected value="<?php echo $project_id ?>" class="dropdown-menu" ><?php echo $Project_name ?></option>
 
                             <?php
                                 if($count > 0){
@@ -79,6 +78,7 @@ include 'config/connection.php';
                                     <?php                                     
                                     }
                                 }
+                                $con->close();
                                 ?>
 
                         </select>
@@ -86,13 +86,13 @@ include 'config/connection.php';
                     <div class="col-3">
                         <?php
                                 include 'config/connection.php';
-                                $sql = "SELECT * FROM module ";
-                                $res = mysqli_query($con,$sql);
+                                $sql2 = "SELECT * FROM module";
+                                $res = mysqli_query($con,$sql2);
                                 $count = mysqli_num_rows($res);
                             ?>
                         <label for="module">Select Module</label>
-                        <select class="form-select form-select-sm form-control" id="module" name="Module_id" aria-label="Default select example">
-                            <option selected value="0">Select Any</option>
+                        <select class="form-select form-select-sm form-control dropdown-toggle" id="module" name="Module_id" aria-label="Default select example">
+                            <option selected value="<?php echo $Module_id ?>" class="dropdown-menu"><?php echo $Module_name ?></option>
                             <?php
                                 if($count > 0){
                                     while($row= mysqli_fetch_assoc($res)){
@@ -105,105 +105,86 @@ include 'config/connection.php';
                                     <?php                                     
                                     }
                                 }
+                                $con->close();
                                 ?>
                         </select>
 
                     </div>
 
                     
-                    <div class="col-3">
-                        <?php
+                    <!-- <div class="col-3">
+                        <?php/*
                             include 'config/connection.php';
-                            $sql = "SELECT * FROM main_menu";
-                            $res = mysqli_query($con,$sql);
-                            $count = mysqli_num_rows($res);
+                            $sql3 = "SELECT * FROM main_menu";
+                            $res = mysqli_query($con,$sql3);
+                            $count = mysqli_num_rows($res);*/
                         ?>
                         <label for="main-menu">Select Main Menu</label>
                         <select class="form-select form-select-sm form-control" id="main_menu" name="main_menu_id" aria-label="Default select example">
-                            <option selected value="0">Select Any</option>
+                            <option selected value="<?//php echo $main_menu_id ?>"><?php // echo $Main_menu_name ?></option>
 
-                            <?php
+                            <?php/*
                                 if($count > 0){
                                     while($row= mysqli_fetch_assoc($res)){
                                         $id = $row['id'];
                                         $title = $row['title'];
+                                        */
                                   ?>
-                            <option class="nav-item" value="<?php echo $id; ?>"> <?php echo $title; ?> </option>
-                            <?php                                     
+                            <option class="nav-item" value="<?php // echo $id; ?>"> <?php //echo $title; ?> </option>
+                            <?php  /*                                   
                               }
                           }
+                          $con->close(); */
                         ?>
                         </select>
-                    </div>
+                    </div> -->
                 </div>
             </div>
     </div>
 
-
+ 
+                                 
+                 
     <div class="mb-3">
         <label class="form-label">Add Feature</label>
+       
         <input name="Subject_name" class="form-control form-control-sm" type="text" placeholder="Name Of Feature"
-            aria-label=".form-control-sm example">
+            aria-label=".form-control-sm example" value="<?php echo $Subject_name?>">
     </div>
-    <!-- <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-        <textarea type="description" name="Description" class="form-control" rows="3"
-            placeholder="Describe Feature"></textarea>
-    </div> -->
+   
 
-    <!-- <script src="assets\ckeditor5\ckeditor.js"></script>
-
-    <div class="mb-3">
-        <strong>Description</strong>
-        
-        <textarea id='editor' name='Description' ></textarea>
-       
-        <script>
-            ClassicEditor
-                .create( document.querySelector( '#editor') )
-                .catch( error => {
-                    console.error( error );
-                } );
-        </script>
-       
-    </div> -->
-
-
+    
     <script src="assets\ckeditor\ckeditor.js"></script>
 
     <div class="mb-3">
         <strong>Description</strong>
         
-        <textarea type="description" id='editor1' name='Description' ></textarea>
-        <!-- <textarea type="description" name="Description"  id="editor1" rows="10" cols="80" > -->
+        <textarea type="description" id='editor1' name='Description' ><?php echo $Subect_description ?></textarea>
+       
                 
             </textarea>
             <script>
                 CKEDITOR.replace( 'editor1' );
             </script>
-       
-        <!-- <script>
-            ClassicEditor
-                .create( document.querySelector( '#editor') )
-                .catch( error => {
-                    console.error( error );
-                } );
-        </script> -->
-        <!--  -->
+                                           
+                         
+    
     </div>
+
+   
 
     <div class="col-6 d-flex">
         <div class="col-3">
             <?php
                     include 'config/connection.php';
-                    $sql = "SELECT * FROM tags";
-                    $res = mysqli_query($con,$sql);
+                    $sql4 = "SELECT * FROM tags";
+                    $res = mysqli_query($con,$sql4);
                     $count = mysqli_num_rows($res);
 
                   ?>
 
             <select class="form-select form-select-sm form-control" id="main-menu" name="Tagged_id" aria-label="Default select example">
-                <option selected value="0">Tag</option>
+                <option selected value="<?php echo $Tagged_id ?>"><?php echo $Tagged_name ?> </option>
 
                 <?php
                           if($count > 0){
@@ -217,41 +198,45 @@ include 'config/connection.php';
                 <?php                                     
                               }
                           }
+                          $con->close();
                         ?>
             </select>
         </div>
 
         <div class="col-3">
-            <button type="submit" class="btn btn-primary" name="submit" value="submit">Submit</button>
+            <button type="submit" class="btn btn-primary" name="submit2" value="submit2">Submit</button>
 
         </div>
     </div>
-    </form>
     <?php
-                if(isset($_POST['submit'])){
-            
-                    //include 'config/connection.php';
-                    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    
-                        // collect value of input field
+                    if(isset($_POST['submit2'])){
+                        include 'config/connection.php';             
+                    $f_id2=$_GET['updateid'];                
                         $Subject_name= $_POST['Subject_name'];
                         $description=$_POST['Description'];
                         $Module_id=$_POST['Module_id'];
                         $project_id=$_POST['project_id'];
-                        $main_menu_id=$_POST['main_menu_id'];
-                        $Tagged_id=$_POST['Tagged_id'];
+                        //$main_menu_id=$_POST['main_menu_id'];
+                        $Tagged_id=$_POST['Tagged_id'];            
+                    $sql5= "UPDATE `subject` set Subject_name='$Subject_name', Description='$description', Module_id=$Module_id,project_id=$project_id, Tagged_id=$Tagged_id where ID=$f_id2";
+                    $result2= mysqli_query($con,$sql5);            
+                    if($result2){
+                        echo "updated inseted successfully";
+                        //header('location:list_all_feature.php');                        
+                    }
+                    else{
+                        die(mysqli_error($con));
+                    }
                     
-                        if (empty($title)) {
-                            echo "data is empty";
-                        } else {
-                            $sql= "INSERT into subject (Subject_name, Description,Module_id,project_id,main_menu_id,Tagged_id) VALUES ('$Subject_name','$description','$Module_id','$project_id','$main_menu_id','$Tagged_id')";
-                            $result= mysqli_query($con,$sql);
-                        }
-                    }}
-                    // Closing the connection.
-                    $con->close();
+                }                            
             ?>
+    </form>
+  
+    
 </div>
+
+
+
 
 </div>
 </div>
