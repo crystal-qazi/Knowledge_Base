@@ -1,4 +1,4 @@
-<?php ini_set('display_errors', 0); ?>
+<?php ini_set('display_errors', 1); ?>
 <?php include('headerfootertemp/admin/admin_head.php') ?>
 <?php
 // Include the database configuration
@@ -12,7 +12,14 @@
 <div class="col-lg-9 doc-middle-content">
 
     <div class="tab_shortcode">
+        <div ></div>
+        <div  class="row border-bottom">
+            <div class="col-12 d-flex">
+            <div class="text-capitalize bold pr-5 pb-4">Part Of Main Menu:</div>
 
+            <div id="main_menu_display"><?php echo $Main_menu_name ?></div>
+            </div>
+        </div>
         <form action="" method="POST">
             <div class="row">
                 <div class="col-12 d-flex">
@@ -33,6 +40,7 @@
                                     while($row= mysqli_fetch_assoc($res)){
                                         $id = $row['ID'];
                                         $Project_name = $row['Project_name'];
+                                        $Project_Description = $row['Description'];
                                   ?>
                             <option class="nav-item" value="<?php echo $id; ?>">
                                 <?php echo $Project_name; ?>
@@ -72,30 +80,30 @@
                     </div>
 
                     
-                    <div class="col-3">
-                        <?php
+                    <!-- <div class="col-3">
+                        <?php/*
                             include 'config/connection.php';
                             $sql = "SELECT * FROM main_menu";
                             $res = mysqli_query($con,$sql);
-                            $count = mysqli_num_rows($res);
+                            $count = mysqli_num_rows($res);*/
                         ?>
                         <label for="main-menu">Select Main Menu</label>
                         <select class="form-select form-select-sm form-control" id="main_menu" name="main_menu_id" aria-label="Default select example">
                             <option selected value="0">Select Any</option>
 
-                            <?php
+                            <?php/*
                                 if($count > 0){
                                     while($row= mysqli_fetch_assoc($res)){
                                         $id = $row['id'];
-                                        $title = $row['title'];
+                                        $title = $row['title'];*/
                                   ?>
-                            <option class="nav-item" value="<?php echo $id; ?>"> <?php echo $title; ?> </option>
-                            <?php                                     
+                            <option class="nav-item" value="<?php // echo $id; ?>"> <?php // echo $title; ?> </option>
+                            <?php  /*                                   
                               }
-                          }
+                          }*/
                         ?>
                         </select>
-                    </div>
+                    </div> -->
                 </div>
             </div>
     </div>
@@ -164,7 +172,7 @@
                   ?>
 
             <select class="form-select form-select-sm form-control" id="main-menu" name="Tagged_id" aria-label="Default select example">
-                <option selected value="0">Tag</option>
+                <option selected value="">Tag</option>
 
                 <?php
                           if($count > 0){
@@ -199,13 +207,14 @@
                         $description=$_POST['Description'];
                         $Module_id=$_POST['Module_id'];
                         $project_id=$_POST['project_id'];
-                        $main_menu_id=$_POST['main_menu_id'];
+                       // $main_menu_id=$_POST['main_menu_id'];
                         $Tagged_id=$_POST['Tagged_id'];
                     
-                        if (empty($title)) {
+                        if (empty($Subject_name)) {
                             echo "data is empty";
                         } else {
-                            $sql= "INSERT into subject (Subject_name, Description,Module_id,project_id,main_menu_id,Tagged_id) VALUES ('$Subject_name','$description','$Module_id','$project_id','$main_menu_id','$Tagged_id')";
+                           
+                            $sql= "INSERT into subject (Subject_name, Description, Module_id, project_id, Tagged_id) VALUES ('$Subject_name','$description','$Module_id','$project_id','$Tagged_id')";
                             $result= mysqli_query($con,$sql);
                         }
                     }}
