@@ -28,12 +28,12 @@
                             </div>
 
                             <div class="table">
-                                <table class="table basic_table_info">
+                                <table class="table basic_table_info ">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
                                             <th>Title</th>
-                                            <th>Description</th>
+                                            <!-- <th>Description</th> -->
                                             <th>Action</th>
 
                                         </tr>
@@ -57,7 +57,7 @@
                                                             echo   '<tr>
                                                                         <th scope="row">'.$id.'</th>
                                                                         <td>'.$title.'</td>
-                                                                        <td>'.$description.'</td>
+                                                                       
                                                                         <td>
                                                                             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><a href="update_admin_add_feature.php?updateid='.$id.'" class="text-light">Update</a></button>
                                                                             <button class="btn btn-danger"><a href="delete.php?deleteid='.$id.'" class="text-light">Delete</a></button>

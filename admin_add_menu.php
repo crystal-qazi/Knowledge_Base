@@ -1,4 +1,4 @@
-<?php ini_set('display_errors', 0); ?>
+<?php ini_set('display_errors', 1); ?>
 <?php include('headerfootertemp/admin/admin_head.php') ?>
 <?php
 // Include the database configuration
@@ -56,7 +56,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Page Url</label>
-                                    <input name="url" class="form-control form-control-sm" type="text"
+                                    <input name="url" value=""class="form-control form-control-sm" type="text"
                                         placeholder="without space and .php" aria-label=".form-control-sm example">
                                 </div>
 
@@ -75,13 +75,21 @@
                                     $title= $_POST['title'];
                                     $description=$_POST['description'];
                                     $main_url=$_POST['url'];
-                                
+                                    //$main_url=$_POST['url'] ? $_POST['url'] : null;
+                                   
                                     if (empty($title)) {
                                         echo "data is empty";
                                     } else {
-                                        $sql= "INSERT into main_menu (title, description, url) VALUES ('$title','$description', '$main_url')";
-                                        $result= mysqli_query($con,$sql);
+                                        
+                                            if (empty($main_url)) {
+                                                $sql= "INSERT into main_menu (title, description) VALUES ('$title','$description')";
+                                                $result= mysqli_query($con,$sql);
+                                            } else {
+                                                $sql= "INSERT into main_menu (title, description, url) VALUES ('$title','$description',  '$main_url')";
+                                                $result= mysqli_query($con,$sql);
                                     }
+                                    }
+                                    
                                 }}
                                 // Closing the connection.
                                $con->close();
@@ -207,11 +215,11 @@
                                     <textarea type="Description" name="Description" class="form-control" rows="3"
                                         placeholder="Describe Menu"></textarea>
                                 </div>
-                                <div class="mb-3">
+                                <!-- <div class="mb-3">
                                     <label class="form-label">Page Url</label>
                                     <input name="project_url" class="form-control form-control-sm" type="text"
                                         placeholder="Name Of Project" aria-label=".form-control-sm example">
-                                </div>
+                                </div> -->
                                 <?php
 include 'config/connection.php'; 
 
@@ -269,7 +277,7 @@ $con->close();
 
                             echo "data is empty";
                     }else{
-                        $sql5 = "INSERT into project ( Project_name,Description,main_menu_id,url) VALUES ('$Project_name','$sub_Description', '$main_menu_id','$Project_url');";
+                        $sql5 = "INSERT into project ( Project_name,Description,main_menu_id) VALUES ('$Project_name','$sub_Description', '$main_menu_id');";
                         $result= mysqli_query($con,$sql5);
                     }
 

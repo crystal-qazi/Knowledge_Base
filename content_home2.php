@@ -1,4 +1,3 @@
-<?php ini_set('display_errors', 0); ?>
 <?php include('headerfootertemp/head_temp.php') ?>
 
 <?php
@@ -8,12 +7,12 @@ include 'config/connection.php'; ?>
 <?php
 // Include the database configuration
 include 'config/connection.php';
-$Url_id = $_GET['subject_id'];
+$Url_id = $_GET['module_id'];
 // Fetch menu items from the database
-$sql = "SELECT subject.* , tags.Tag_name FROM subject LEFT JOIN tags ON subject.Tagged_id = tags.ID where subject.ID = $Url_id";
+$sql = "SELECT subject.* , tags.Tag_name FROM subject LEFT JOIN tags ON subject.Tagged_id = tags.ID where Module_id = $Url_id";
+// $sql = "SELECT subject.* , tags.Tag_name FROM subject LEFT JOIN tags ON subject.Tagged_id = tags.ID where subject.ID = $Url_id";
 $res = mysqli_query($con,$sql);
 $count = mysqli_num_rows($res);
-
 ?>
 
              
@@ -24,11 +23,9 @@ $count = mysqli_num_rows($res);
                         <div id="post" class="shortcode_info">
 
                       
-
+                        
                       
                                 <?php   
-                                
-                                if (isset($_GET['subject_id'])) {
                                     if($count > 0){
                                         while($row= mysqli_fetch_assoc($res)){
                                             $id = $row['ID'];
@@ -38,21 +35,12 @@ $count = mysqli_num_rows($res);
                                             ?>
                                             <div class="shortcode_title">
                                                 <a class="btn" href="#"><?php echo $Element ?></a>
-                                                <h1> <?php echo $porject_name ?></h1>
+                                                <H2> <?php echo $porject_name ?></H2>
                                                 <p> <?php echo $porject_Description ?></p>
                                             </div>
                                             <?php                                     
                                         }
                                     }
-                                    else{
-                                        echo "<h2> ID not Present</h2>";
-                                    }
-                                  }
-                                  else
-                                  {
-                                    echo "<h2> No ID</h2>";
-                                  }
-                                    
                                 ?>
                             
                     

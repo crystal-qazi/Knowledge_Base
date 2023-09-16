@@ -104,6 +104,7 @@ $count = mysqli_num_rows($res);
                             ?>
                         <li class="nav-item dropdown submenu">
                             <a href="<?php echo $url ?>.php" class="nav-link dropdown-toggle">
+                            
                                 <?php echo $title ?>
                             </a>
                             <i class="arrow_carrot-down_alt2 mobile_dropdown_icon" aria-hidden="false"
@@ -123,7 +124,7 @@ $count = mysqli_num_rows($res);
                                             $url = $row['url'];
                                             ?>
                                 <li class="nav-item">
-                                    <a href="<?php echo $url?>.php?project_id=<?php echo $project_id ?>" class="nav-link">
+                                    <a href="<?php echo $url?>.php?project_id=<?php echo $project_id ?>&module_id=<?php echo $module_id?>" class="nav-link">
                                         <?php echo $porject_name ?>
                                     </a>
                                 </li>
