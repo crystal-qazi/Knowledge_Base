@@ -9,6 +9,8 @@ include 'config/connection.php'; ?>
 // Include the database configuration
 include 'config/connection.php';
 $Url_id = $_GET['subject_id'];
+$m_Url_id = $_GET['module_id'];
+echo $m_Url_id;
 // Fetch menu items from the database
 $sql = "SELECT subject.* , tags.Tag_name FROM subject LEFT JOIN tags ON subject.Tagged_id = tags.ID where subject.ID = $Url_id";
 $res = mysqli_query($con,$sql);
@@ -50,7 +52,30 @@ $count = mysqli_num_rows($res);
                                   }
                                   else
                                   {
-                                    echo "<h2> No ID</h2>";
+                                   // if (isset($_GET['module_id'])) {
+                                        $m_Url_id = $_GET['module_id'];
+                                        $sql2 = "SELECT * from module WHERE project_id = $m_Url_id";
+                                        $res2 = mysqli_query($con,$sql2);
+                                        $count = mysqli_num_rows($res2);
+                                        if($count > 0){
+                                            while($row2= mysqli_fetch_assoc($res2)){
+                                                $m_id = $row2['ID'];
+                                                $m_porject_name = $row2['Module_name'];
+                                                $m_porject_Description = $row2['Description'];
+                                                //$Element = $row['Tag_name'];
+                                                ?>
+                                                <div class="shortcode_title">
+                                                  
+                                                    <h1> <?php echo $m_porject_name ?></h1>
+                                                  
+                                                </div>
+                                                <?php                                     
+                                            }
+                                      //  }
+                                        //else{
+                                          //  echo "<h2> ID not Present2</h2>";
+                                       // }
+                                      }
                                   }
                                     
                                 ?>
