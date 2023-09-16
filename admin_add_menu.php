@@ -510,7 +510,7 @@ $con->close();
                                                                     <td>'.$Fea_Description.'</td>
                                                                     <td>'.$project_name.'</td>
                                                                     <td>
-                                                                    <button data-id="'.$feaid.'" class="btn btn-info btn-sm pop3" id="pop3">Update</button>
+                                                                        <button data-id="'.$feaid.'" class="btn btn-info btn-sm pop3" id="pop3">Update</button>
                                                                         <button class="btn btn-danger btn-sm"><a href="delete.php?deleteid='.$feaid.'" class="text-light">Delete</a></button>
                                                                     </td>
                                                                 </tr>';
