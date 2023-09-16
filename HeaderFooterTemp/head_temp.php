@@ -92,7 +92,11 @@ $count = mysqli_num_rows($res);
                        
 
                         <?php
+<<<<<<< HEAD
                             $sql2 = "SELECT * FROM main_menu ORDER	BY menu_order ASC";
+=======
+                            $sql2 = "SELECT * FROM main_menu ORDER BY menu_order ASC;";
+>>>>>>> b97f742c5452110b8d91a975a07b2b5faa058fb0
                             $res2 = mysqli_query($con, $sql2);
                             $count2 = mysqli_num_rows($res2);
 

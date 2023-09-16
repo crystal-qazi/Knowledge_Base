@@ -127,6 +127,12 @@ $response2 .= "<div class='col-3'>URL : </div>
                     <input name='url' class='form-control form-control-sm' type='text' value=".$p_url." >
                     </div>";
 $response2 .= "</div>";
+$response2 .= "<div class='row'>";
+$response2 .= "<div class='col-3'>main_menu_id: </div>
+                <div class='col-9'>
+                    <input name='main_menu_id' class='form-control form-control-sm' type='text' value=".$p_main_menu_id." >
+                    </div>";
+$response2 .= "</div>";
 
  
 
@@ -217,6 +223,7 @@ $response3 .= "<div class='col-3'>URL : </div>
                     <input name='url' class='form-control form-control-sm' type='text' value=".$m_Project_id." >
                     </div>";
 $response3 .= "</div>";
+
 
  
 
