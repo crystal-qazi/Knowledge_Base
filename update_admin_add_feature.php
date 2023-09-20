@@ -185,6 +185,7 @@ include 'config/connection.php';
 
             <select class="form-select form-select-sm form-control" id="main-menu" name="Tagged_id" aria-label="Default select example">
                 <option selected value="<?php echo $Tagged_id ?>"><?php echo $Tagged_name ?> </option>
+                <option value="">None </option>
 
                 <?php
                           if($count > 0){
@@ -217,16 +218,23 @@ include 'config/connection.php';
                         $Module_id=$_POST['Module_id'];
                         $project_id=$_POST['project_id'];
                         //$main_menu_id=$_POST['main_menu_id'];
-                        $Tagged_id=$_POST['Tagged_id'];            
-                    $sql5= "UPDATE `subject` set Subject_name='$Subject_name', Description='$description', Module_id=$Module_id,project_id=$project_id, Tagged_id=$Tagged_id where ID=$f_id2";
-                    $result2= mysqli_query($con,$sql5);            
-                    if($result2){
-                        echo "updated inseted successfully";
-                        //header('location:list_all_feature.php');                        
-                    }
-                    else{
-                        die(mysqli_error($con));
-                    }
+                        $Tagged_id=$_POST['Tagged_id']; 
+
+                        if (empty($Tagged_id)) {
+                            $sql5= "UPDATE `subject` set Subject_name='$Subject_name', Description='$description', Module_id=$Module_id,project_id=$project_id, Tagged_id=NULL where ID=$f_id2";
+                            $result2= mysqli_query($con,$sql5);
+                        } else {
+                            $sql5= "UPDATE `subject` set Subject_name='$Subject_name', Description='$description', Module_id=$Module_id,project_id=$project_id, Tagged_id=$Tagged_id where ID=$f_id2";
+                            $result2= mysqli_query($con,$sql5);
+                }           
+                                  
+                        if($result2){
+                            echo "updated inseted successfully";
+                            //header('location:list_all_feature.php');                        
+                        }
+                        else{
+                            die(mysqli_error($con));
+                        }
                     
                 }                            
             ?>

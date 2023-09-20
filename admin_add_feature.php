@@ -214,13 +214,31 @@
                             echo "data is empty";
                         } else {
                            
-                            $sql= "INSERT into subject (Subject_name, Description, Module_id, project_id, Tagged_id) VALUES ('$Subject_name','$description','$Module_id','$project_id','$Tagged_id')";
-                            $result= mysqli_query($con,$sql);
+                            if (empty($Tagged_id)) {
+                                $sql= "INSERT into subject (Subject_name, Description, Module_id, project_id) VALUES ('$Subject_name','$description','$Module_id','$project_id')";
+                                $result= mysqli_query($con,$sql);
+                            } else {
+                                $sql= "INSERT into subject (Subject_name, Description, Module_id, project_id, Tagged_id) VALUES ('$Subject_name','$description','$Module_id','$project_id','$Tagged_id')";
+                                $result= mysqli_query($con,$sql);
+                    }
+                           // $sql= "INSERT into subject (Subject_name, Description, Module_id, project_id, Tagged_id) VALUES ('$Subject_name','$description','$Module_id','$project_id','$Tagged_id')";
+                           // $result= mysqli_query($con,$sql);
                         }
                     }}
                     // Closing the connection.
                     $con->close();
             ?>
+
+
+                                 <?php       
+                                //         if (empty($main_url)) {
+                                //             $sql= "INSERT into main_menu (title, description) VALUES ('$title','$description')";
+                                //             $result= mysqli_query($con,$sql);
+                                //         } else {
+                                //             $sql= "INSERT into main_menu (title, description, url) VALUES ('$title','$description',  '$main_url')";
+                                //             $result= mysqli_query($con,$sql);
+                                // }
+                                ?>
 </div>
 
 </div>
