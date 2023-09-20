@@ -101,7 +101,7 @@
                             <article class="shortcode_info">
                                 <div class="shortcode_title">
                                     <h1>Menus</h1>
-                                    <p><span>Main Menu</span></p>
+                                <!--<p><span>Main Menu</span></p>-->
                                 </div>
 
                                 <div class="table">
@@ -291,8 +291,8 @@ $con->close();
                         <div class="col-lg-9">
                             <article class="shortcode_info">
                                 <div class="shortcode_title">
-                                    <h1>SUb_MENU</h1>
-                                    <p><span>SubMenu</span></p>
+                                    <h1>Sub_Menu</h1>
+                                 <!--   <p><span>SubMenu</span></p>-->
                                 </div>
 
                                 <div class="table">
@@ -477,8 +477,8 @@ $con->close();
                         <div class="col-lg-9">
                             <article class="shortcode_info">
                                 <div class="shortcode_title">
-                                    <h1>Feature_MENU</h1>
-                                    <p><span>FeaMenu</span></p>
+                                    <h1>Feature_Menu</h1>
+                                 <!--   <p><span>FeaMenu</span></p>-->
                                 </div>
 
                                 <div class="table">

@@ -76,7 +76,7 @@ include 'config/connection.php';
                         <article class="shortcode_info">
                             <div class="shortcode_title">
                                 <h1>Tags</h1>
-                                <p><span>Add Tags</span></p>
+                              <!--  <p><span>Add Tags</span></p>-->
                             </div>
 
                             <div class="table">

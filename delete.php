@@ -93,7 +93,7 @@ if(isset($_GET['deleteid'])){
     $result5 = mysqli_query($con,$sql5);
     if($result5){
         echo "Delete success"; 
-       header('location:admin_add_tag.php');
+       header('location:admin_add_menu.php');
     }
     else{
         die(mysqli_error($con));

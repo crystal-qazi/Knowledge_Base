@@ -29,7 +29,7 @@ if(isset($_POST['custId'])){
 
  $response .= "<div class='row'>";
  $response .= "<div class='col-3'>Description : </div>                
-                <textarea type='description' name='description' ' class='form-control form-control-sm col-9' value=".$description." >$description</textarea>";
+                <textarea type='description' name='description'  class='form-control form-control-sm col-9' value=".$description." >$description</textarea>";
  $response .= "</div>";
 
 $response .= "<div class='row'>";
