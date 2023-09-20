@@ -56,7 +56,7 @@ $count = mysqli_num_rows($res);
     <div class="body_wrapper">
         <nav class="navbar navbar-expand-lg menu_one dark_menu display_none sticky-nav">
             <div class="container custom_container">
-                <a class="navbar-brand header_logo" href="index.html">
+                <a class="navbar-brand header_logo" href="index.php">
                     <img class="first_logo sticky_logo main_logo" src="img/logo.png" srcset="img/logo-2x.png 2x"
                         alt="logo">
                     <img class="white_logo" src="img/logo-w.png" srcset="img/logo-w2x.png 2x" alt="logo">
@@ -83,13 +83,7 @@ $count = mysqli_num_rows($res);
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav menu ml-auto">
-                        <!-- <li class="nav-item dropdown submenu">
-                            <a href="index.php" class="nav-link dropdown-toggle">Home</a>
-                            <i class="arrow_carrot-down_alt2 mobile_dropdown_icon" aria-hidden="false"
-                                data-toggle="dropdown"></i>
-
-                        </li> -->
-                       
+                                         
 
                         <?php
                             $sql2 = "SELECT * FROM main_menu ORDER BY menu_order ASC;";
@@ -125,7 +119,7 @@ $count = mysqli_num_rows($res);
                                             $url = $row['url'];
                                             ?>
                                 <li class="nav-item">
-                                    <a href="<?php echo $url?>.php?project_id=<?php echo $project_id ?>&module_id=<?php echo $module_id?>" class="nav-link">
+                                    <a href="<?php echo $url?>.php?project_id=<?php echo $project_id ?>" class="nav-link">
                                         <?php echo $porject_name ?>
                                     </a>
                                 </li>
@@ -142,13 +136,7 @@ $count = mysqli_num_rows($res);
                                 }
                             }
                             ?>
-                        <!-- <li class="nav-item dropdown submenu">
-                            <a href="index.php" class="nav-link dropdown-toggle">Help</a>
-                            <i class="arrow_carrot-down_alt2 mobile_dropdown_icon" aria-hidden="false"
-                                data-toggle="dropdown"></i>
-
-                        </li> -->
-
+                     
 
 
 
@@ -317,48 +305,17 @@ $count = mysqli_num_rows($res);
 
 
 
-                                <!-- <li class="nav-item">
-                                        <a href="doc-ref-cheatsheet.html" class="nav-link"><img src="img/side-nav/chat1.png" alt="">Reference</a>
-                                        <span class="icon"><i class="arrow_carrot-down"></i></span>
-                                        <ul class="list-unstyled dropdown_nav">
-                                            <li><a href="doc-ref-cheatsheet.html">Cheatsheet</a></li>
-                                            <li><a href="doc-ref-footnote.html">Footnotes</a></li>
-                                            <li><a href="doc-tour.html">Interface Tour</a></li>
-                                            <li><a href="doc-ref-can-use.html">Can I Use</a></li>
-                                            <li><a href="doc-content-tooltip.html">Tooltips & Direction</a></li>
-                                            <li><a href="doc-ref-shortcuts.html">Keyboard Shortcuts</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="doc-content-video.html" class="nav-link"><img src="img/side-nav/layout.png" alt="">Layouts</a>
-                                        <span class="icon"><i class="arrow_carrot-down"></i></span>
-                                        <ul class="list-unstyled dropdown_nav">
-                                            <li><a href="doc-content-video.html">Full-width</a></li>
-                                            <li><a href="doc-element-hotspots.html">Left Sidebar</a></li>
-                                            <li><a href="doc-layout-banner-gradient.html">Gradient Banner</a></li>
-                                            <li><a href="doc-layout-banner-empty.html">Without Banner</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="doc-changelog.html" class="nav-link"><img src="img/side-nav/clock.png" alt="">Change Log</a>
-                                    </li> -->
+                               
                                 </ul>
                                 <ul class="list-unstyled nav-sidebar coding_nav">
                                     <li class="nav-item">
                                         <a href="#" class="nav-link"><img src="img/side-nav/account.png"
                                                 alt="">Account</a>
                                     </li>
-                                    <!-- <li class="nav-item">
-                                        <a href="doc-element-code.html" class="nav-link"><img src="img/side-nav/coding.png" alt="">Development</a>
-                                    </li> -->
+                                   
                                 </ul>
                                 <ul class="list-unstyled nav-sidebar bottom_nav">
-                                    <!-- <li class="nav-item">
-                                        <a href="#" class="nav-link"><img src="img/side-nav/united-states.png" alt="">United States</a>
-                                    </li> -->
-                                    <!-- <li class="nav-item">
-                                        <a href="#" class="nav-link"><img src="img/side-nav/edit.png" alt="">English </a>
-                                    </li> -->
+                                  
                                     <li class="nav-item">
                                         <a href="#" class="nav-link"><img src="img/side-nav/users.png" alt="">Sign In <i
                                                 class="arrow_right"></i></a>

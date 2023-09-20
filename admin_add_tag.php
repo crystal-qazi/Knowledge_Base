@@ -112,7 +112,7 @@ include 'config/connection.php';
                                                                         <td>'.$Description.'</td>
                                                                         <td>
                                                                         <button  data-id="'.$tagid.'" class="btn btn-info btn-sm pop4" id="pop4">Update</button>
-                                                                        <button class="btn btn-danger btn-sm"><a href="delete.php?deleteid='.$id.'" class="text-light">Delete</a></button>
+                                                                        <button class="btn btn-danger btn-sm"><a href="delete.php?t_deleteid='.$tagid.'" class="text-light">Delete</a></button>
                                                                         </td>
                                                                     </tr>';
                                                                 }
