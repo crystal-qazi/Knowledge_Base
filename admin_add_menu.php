@@ -271,7 +271,7 @@ $con->close();
                         $Project_name=$_POST['Project_name'];
                         $sub_Description=$_POST['Description'];
                         $main_menu_id=$_POST['main_menu_id'];
-                        $Project_url=$_POST['project_url'];
+                       // $Project_url=$_POST['project_url'];
                         
                         if(empty($Project_name)){
 
@@ -333,7 +333,7 @@ $con->close();
                                         <td>'.$main_menu_name.'</td>
                                         <td> 
                                         <button data-id="'.$subid.'" class="btn btn-info btn-sm pop2" id="pop2">Update</button>
-                                            <button class="btn btn-danger btn-sm"><a href="delete.php?deleteid='.$subid.'" class="text-light">Delete</a></button>
+                                            <button class="btn btn-danger btn-sm"><a href="delete.php?p_deleteid='.$subid.'" class="text-light">Delete</a></button>
                                         </td>
                                     </tr>';
                                 }
@@ -519,7 +519,7 @@ $con->close();
                                                                     <td>'.$project_name.'</td>
                                                                     <td>
                                                                         <button data-id="'.$feaid.'" class="btn btn-info btn-sm pop3" id="pop3">Update</button>
-                                                                        <button class="btn btn-danger btn-sm"><a href="delete.php?deleteid='.$feaid.'" class="text-light">Delete</a></button>
+                                                                        <button class="btn btn-danger btn-sm"><a href="delete.php?fm_deleteid='.$feaid.'" class="text-light">Delete</a></button>
                                                                     </td>
                                                                 </tr>';
                                                             }

@@ -294,8 +294,7 @@ if(isset($_POST['tagid'])){
                                                 $t_id = $row5['ID'];
                                                 $t_name = $row5['Tag_name'];
                                                 $t_description = $row5['Description'];
-                                              //  $m_Project_id = $row5['project_id'];
-                                              //  $m_url = $row4['url'];
+                                             
                                                 
 
  
@@ -326,7 +325,7 @@ $response3 .= "</div>";
 
  $response4 .= "</div>";
  $response4 .= "<div>";
- $response4 .= "<button type='submit' class='btn btn-primary' name='submit-update' value='submit'>Submit</button>";
+ $response4 .= "<button type='submit' class='btn btn-primary' name='tag-update' value='submit'>Submit</button>";
  $response4 .= "</div>";
  $response4 .= "</form>";
  
@@ -338,27 +337,26 @@ $response3 .= "</div>";
  exit;
 }
 
-                            if(isset($_POST['submit-update'])){
+                            if(isset($_POST['tag-update'])){
                         
                                 //include 'config/connection.php';
                                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 
                                     // collect value of input field
-                                    $id = $_POST['ID'];
-                                    $Tag_name= $_POST['Tag_name'];
-                                    $Description=$_POST['Description'];
-                                  //  $Project_id=$_POST['Project_id'];
-                                 //   $module_url=$_POST['url'];
+                                    $id = $_POST['modal_id'];
+                                    $Tag_name= $_POST['title'];
+                                    $Description=$_POST['description'];
                                 
-                                    if (empty($title)) {
+                                
+                                    if (empty($Tag_name)) {
                                         echo "data is empty";
                                     } else {
-                                        $sql= "UPDATE project SET  Module_name = '$Module_name', Description = '$Description' where ID = $id";
-                                       // UPDATE `k_b`.`main_menu` SET `description`='ss' WHERE  `id`=4;
+                                        $sql= "UPDATE tags SET  Tag_name = '$Tag_name', DESCRIPTION = '$Description' where ID = $id";
+                                     
                                         $result= mysqli_query($con,$sql);
                                     }
                                 }
-                                header("Location: /Knowledge_Base/admin_add_menu.php");
+                                header("Location: /Knowledge_Base/admin_add_tag.php");
                             }
                                 // Closing the connection.
                                $con->close();
