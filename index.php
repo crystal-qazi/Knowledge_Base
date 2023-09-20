@@ -33,7 +33,7 @@
                                                     $id = $row['ID'];
                                                     $Project_name = $row['Project_name'];
                                                     $Project_Description = $row['Description'];
-                                                    $Project_url = $row['Description'];
+                                                    $Project_url = $row['url'];
                                                     ?>
                                 <div class="col-xl-4 col-sm-6">                                    
                                     <div class="media documentation_item">
@@ -41,7 +41,7 @@
                                             <img src="img/home_one/icon/folder.png" alt="">
                                         </div>
                                         <div class="media-body">
-                                            <a href="<?php echo $url?>.php?project_id=<?php echo $id ?>">
+                                            <a href="<?php echo $Project_url?>.php?project_id=<?php echo $id ?>">
                                                 <h5> <?php echo $Project_name; ?></h5>
                                             </a>
                                             <p><?php echo $Project_Description; ?></p>

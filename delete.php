@@ -93,11 +93,7 @@ if(isset($_GET['f_deleteid'])){
     $result5 = mysqli_query($con,$sql5);
     if($result5){
         echo "Delete success"; 
-<<<<<<< HEAD
-       header('location:admin_add_menu.php');
-=======
        header('location:list_all_feature.php');
->>>>>>> ba81136a27c01ec741ffb212c4a1228b4e94dc9c
     }
     else{
         die(mysqli_error($con));

@@ -327,7 +327,7 @@ $(document).ready(function () {
                                 <li>
                                                 
                                                 <!-- <a  href="/content.php?id=<?//php echo $id ?>" > </a> -->
-                                                <a  href="list_all_feature.php">Add All Feature</a>
+                                                <a  href="list_all_feature.php">All Features</a>
                                                 
                                                 
 

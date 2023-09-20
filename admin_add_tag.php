@@ -133,9 +133,9 @@ include 'config/connection.php';
                         <!-- Modal content-->
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h4 class="modal-title">Customer Details</h4>
+                                <h4 class="modal-title">Tags Update</h4>
                                 <!-- <button type="button" class="close" data-bs-dismiss="modal">×</button> -->
-                                <button type="button" class="btn-close" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">X</button>
                             </div>
                             <div class="modal-body">
                                     

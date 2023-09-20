@@ -29,7 +29,7 @@ if(isset($_POST['custId'])){
 
  $response .= "<div class='row'>";
  $response .= "<div class='col-3'>Description : </div>                
-                <textarea type='description' name='description'  class='form-control form-control-sm col-9' value=".$description." >$description</textarea>";
+                <textarea type='description' name='description'  class='form-control form-control-sm col-8 ml-3 ' style='max-width: 50%;' value=".$description." >$description</textarea>";
  $response .= "</div>";
 
 $response .= "<div class='row'>";
@@ -119,12 +119,12 @@ if(isset($_POST['subid'])){
  */
  
  $response2 .= "<div class='row'>";
- $response2 .= "<div class='col-3'>Title : </div><div class='col-3'><input name='title' class='form-control form-control-sm' type='text' value=".$p_name." ></div>";
+ $response2 .= "<div class='col-4'>Title : </div><div class='col-3'><input name='title' class='form-control form-control-sm' type='text' value=".$p_name." ></div>";
  $response2 .= "</div>";
 
  $response2 .= "<div class='row'>";
- $response2 .= "<div class='col-3'>Description : </div>                
-                <textarea type='description' name='description' ' class='form-control form-control-sm col-9' value=".$p_description." >$p_description</textarea>";
+ $response2 .= "<div class='col-4'>Description : </div>                
+                <textarea type='description' name='description' ' class='form-control form-control-sm col-8 ml-3 ' style='max-width: 50%;' value=".$p_description." >$p_description</textarea>";
  $response2 .= "</div>";
 /*
 $response2 .= "<div class='row'>";
@@ -135,8 +135,8 @@ $response2 .= "<div class='col-3'>URL : </div>
 $response2 .= "</div>";
 */
 $response2 .= "<div class='row'>";
-$response2 .= "<div class='col-3'>main_menu_id: </div>
-                <div class='col-9'>
+$response2 .= "<div class='col-4'>Main Menu id: </div>
+                <div class='col-8'>
                     <input name='main_menu_id' class='form-control form-control-sm' type='text' value=".$p_main_menu_id." >
                     </div>";
 $response2 .= "</div>";
@@ -221,7 +221,7 @@ if(isset($_POST['feaid'])){
 
  $response3 .= "<div class='row'>";
  $response3 .= "<div class='col-3'>Description : </div>                
-                <textarea type='description' name='description' ' class='form-control form-control-sm col-9' value=".$m_description." >$m_description</textarea>";
+                <textarea type='description' name='description' ' class='form-control form-control-sm col-8 ml-3 ' style='max-width: 50%;' value=".$m_description." >$m_description</textarea>";
  $response3 .= "</div>";
 /*
 $response3 .= "<div class='row'>";
@@ -311,7 +311,7 @@ if(isset($_POST['tagid'])){
 
  $response4 .= "<div class='row'>";
  $response4 .= "<div class='col-3'>Description : </div>                
-                <textarea type='description' name='description' ' class='form-control form-control-sm col-9' value=".$t_description." >$t_description</textarea>";
+                <textarea type='description' name='description' ' class='form-control form-control-sm col-8 ml-3 ' style='max-width: 50%;' value=".$t_description." >$t_description</textarea>";
  $response4 .= "</div>";
 /*
 $response3 .= "<div class='row'>";

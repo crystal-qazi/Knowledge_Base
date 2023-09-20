@@ -161,9 +161,9 @@
                         <!-- Modal content-->
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h4 class="modal-title">Customer Details</h4>
+                                <h4 class="modal-title">Main Menu Update</h4>
                                 <!-- <button type="button" class="close" data-bs-dismiss="modal">×</button> -->
-                                <button type="button" class="btn-close" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">X</button>
                             </div>
                             <div class="modal-body">
                                     
@@ -233,7 +233,7 @@ include 'config/connection.php';
     ?>
 
                                 <div class="mb-3">
-                                    <label class="form-label">Add Main_Menu_ID</label>
+                                    <label class="form-label">Main Menu Attachment</label>
                                     <select name="main_menu_id" class="form-control form-control-sm"
                                         placeholder="main_menu_id" aria-label=".form-control-sm example">
                                         <option selected>Select Any</option>
@@ -291,7 +291,7 @@ $con->close();
                         <div class="col-lg-9">
                             <article class="shortcode_info">
                                 <div class="shortcode_title">
-                                    <h1>Sub_Menu</h1>
+                                    <h1>Sub Menu</h1>
                                  <!--   <p><span>SubMenu</span></p>-->
                                 </div>
 
@@ -301,9 +301,9 @@ $con->close();
                                             <tr>
                                                 <th>Sr.</th>
 
-                                                <th>Project_name</th>
+                                                <th>Project Name</th>
                                                 <th>Description</th>
-                                                <th>main_menu_id</th>
+                                                <th>Main Menu Name</th>
                                                 <th>Action</th>
 
                                             </tr>
@@ -363,9 +363,9 @@ $con->close();
                         <!-- Modal content-->
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h4 class="modal-title">Customer Details</h4>
+                                <h4 class="modal-title">Project / Sub Menu Update</h4>
                                 <!-- <button type="button" class="close" data-bs-dismiss="modal">×</button> -->
-                                <button type="button" class="btn-close" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">X</button>
                             </div>
                             <div class="modal-body">
                                     
@@ -427,7 +427,7 @@ $con->close();
                                     $count = mysqli_num_rows($res);
                                     ?>
                                 <div class="mb-3">
-                                    <label class="form-label">Add Project_ID</label>
+                                    <label class="form-label">Attach Project</label>
                                     <select name="project_id" class="form-control form-control-sm" type="text"
                                         placeholder="Project_ID" aria-label=".form-control-sm example">
                                         <option>Select Any</option>
@@ -477,7 +477,7 @@ $con->close();
                         <div class="col-lg-9">
                             <article class="shortcode_info">
                                 <div class="shortcode_title">
-                                    <h1>Feature_Menu</h1>
+                                    <h1>Feature Menu</h1>
                                  <!--   <p><span>FeaMenu</span></p>-->
                                 </div>
 
@@ -487,9 +487,9 @@ $con->close();
                                             <tr>
                                                 <th>Sr.</th>
 
-                                                <th>Module_name</th>
+                                                <th>Feature Name</th>
                                                 <th>Description</th>
-                                                <th>Project_Id</th>
+                                                <th>Project Name</th>
                                                 <th>Action</th>
 
                                             </tr>
@@ -541,9 +541,9 @@ $con->close();
                         <!-- Modal content-->
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h4 class="modal-title">Customer Details</h4>
+                                <h4 class="modal-title">Feature Update</h4>
                                 <!-- <button type="button" class="close" data-bs-dismiss="modal">×</button> -->
-                                <button type="button" class="btn-close" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">X</button>
                             </div>
                             <div class="modal-body">
                                     
