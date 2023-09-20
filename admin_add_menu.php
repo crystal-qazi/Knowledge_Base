@@ -108,7 +108,7 @@
                                     <table class="table basic_table_info">
                                         <thead>
                                             <tr>
-                                                <th>ID</th>
+                                                <th>Sr.</th>
                                                 <th>Title</th>
                                                 <th>Description</th>
                                                 <th>Action</th>
@@ -299,7 +299,7 @@ $con->close();
                                     <table class="table basic_table_info">
                                         <thead>
                                             <tr>
-                                                <th>ID</th>
+                                                <th>Sr.</th>
 
                                                 <th>Project_name</th>
                                                 <th>Description</th>
@@ -485,7 +485,7 @@ $con->close();
                                     <table class="table basic_table_info">
                                         <thead>
                                             <tr>
-                                                <th>ID</th>
+                                                <th>Sr.</th>
 
                                                 <th>Module_name</th>
                                                 <th>Description</th>

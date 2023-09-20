@@ -83,7 +83,7 @@ include 'config/connection.php';
                                 <table class="table basic_table_info">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
+                                            <th>Sr.</th>
                                             <th>Title</th>
                                             <th>Description</th>
                                             <th>Action</th>
@@ -111,8 +111,8 @@ include 'config/connection.php';
                                                                         <td>'.$Tag_name.'</td>
                                                                         <td>'.$Description.'</td>
                                                                         <td>
-                                                                        <button data-id="'.$tagid.'" class="btn btn-info btn-sm pop4" id="pop4">Update</button>
-                                                                            <button class="btn btn-danger btn-sm"><a href="delete.php?deleteid='.$id.'" class="text-light">Delete</a></button>
+                                                                        <button  data-id="'.$tagid.'" class="btn btn-info btn-sm pop4" id="pop4">Update</button>
+                                                                        <button class="btn btn-danger btn-sm"><a href="delete.php?deleteid='.$id.'" class="text-light">Delete</a></button>
                                                                         </td>
                                                                     </tr>';
                                                                 }

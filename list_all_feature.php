@@ -31,7 +31,7 @@
                                 <table class="table basic_table_info ">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
+                                            <th>Sr.</th>
                                             <th>Title</th>
                                             <!-- <th>Description</th> -->
                                             <th>Action</th>

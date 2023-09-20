@@ -10,7 +10,7 @@ if(isset($_POST['custId'])){
  
  $response = "<div>";
  while( $row = mysqli_fetch_array($result) ){
- $id = $row['id'];
+ //$id = $row['id'];
  $name = $row['title'];
  $description = $row['description'];
  $url = $row['url'];
@@ -18,11 +18,11 @@ if(isset($_POST['custId'])){
  
  $response .= "<form action='get_data.php' method='post'> ";
  $response .= "<div class=''>";
-
+/*
  $response .= "<div class='row'>";
  $response .= "<div class='col-3'>ID : </div><div class='col-3'><input name='modal_id' class='form-control form-control-sm' type='text' value=".$id."></div>";
  $response .= "</div>";
- 
+ */
  $response .= "<div class='row'>";
  $response .= "<div class='col-3'>Title : </div><div class='col-3'><input name='title' class='form-control form-control-sm' type='text' value=".$name." ></div>";
  $response .= "</div>";
@@ -43,7 +43,7 @@ $response .= "</div>";
 
  $response .= "</div>";
  $response .= "<div>";
- $response .= "<button type='submit' class='btn btn-primary' name='submit-update' value='submit'>Submit</button>";
+ $response .= "<button href='delete.php' type='submit' class='btn btn-primary' name='submit-update' value='submit'>Submit</button>";
  $response .= "</div>";
  $response .= "</form>";
  
@@ -70,11 +70,16 @@ $response .= "</div>";
         $main_url=$_POST['url'];
 
         if (empty($title)) {
-        echo "data is empty";
+            echo "data is empty";
         } else {
-        $sql= "UPDATE main_menu SET  title = '$title', description = '$description', url='$main_url' where id = $id";
-        // UPDATE `k_b`.`main_menu` SET `description`='ss' WHERE  `id`=4;
-        $result= mysqli_query($con,$sql);
+            
+                if (empty($main_url)) {
+                    $sql= "INSERT into main_menu (title, description) VALUES ('$title','$description')";
+                    $result= mysqli_query($con,$sql);
+                } else {
+                    $sql= "INSERT into main_menu (title, description, url) VALUES ('$title','$description',  '$main_url')";
+                    $result= mysqli_query($con,$sql);
+        }
         }
         }
         header("Location: /Knowledge_Base/admin_add_menu.php");}
@@ -97,7 +102,7 @@ if(isset($_POST['subid'])){
  
  $response2 = "<div>";
  while( $row3 = mysqli_fetch_array($result3) ){
-                                                $p_id = $row3['ID'];
+                                              //  $p_id = $row3['ID'];
                                                 $p_name = $row3['Project_name'];
                                                 $p_description = $row3['Description'];
                                                 $p_main_menu_id = $row3['main_menu_id'];
@@ -107,10 +112,11 @@ if(isset($_POST['subid'])){
  
  $response2 .= "<form action='get_data.php' method='post'> ";
  $response2 .= "<div class=''>";
-
+/*
  $response2 .= "<div class='row'>";
  $response2 .= "<div class='col-3'>ID : </div><div class='col-3'><input name='modal_id' class='form-control form-control-sm' type='text' value=".$p_id."></div>";
  $response2 .= "</div>";
+ */
  
  $response2 .= "<div class='row'>";
  $response2 .= "<div class='col-3'>Title : </div><div class='col-3'><input name='title' class='form-control form-control-sm' type='text' value=".$p_name." ></div>";
@@ -120,13 +126,14 @@ if(isset($_POST['subid'])){
  $response2 .= "<div class='col-3'>Description : </div>                
                 <textarea type='description' name='description' ' class='form-control form-control-sm col-9' value=".$p_description." >$p_description</textarea>";
  $response2 .= "</div>";
-
+/*
 $response2 .= "<div class='row'>";
 $response2 .= "<div class='col-3'>URL : </div>
                 <div class='col-9'>
                     <input name='url' class='form-control form-control-sm' type='text' value=".$p_url." >
                     </div>";
 $response2 .= "</div>";
+*/
 $response2 .= "<div class='row'>";
 $response2 .= "<div class='col-3'>main_menu_id: </div>
                 <div class='col-9'>
@@ -193,7 +200,7 @@ if(isset($_POST['feaid'])){
  
  $response3 = "<div>";
  while( $row4 = mysqli_fetch_array($result4) ){
-                                                $m_id = $row4['ID'];
+                                             //   $m_id = $row4['ID'];
                                                 $m_name = $row4['Module_name'];
                                                 $m_description = $row4['Description'];
                                                 $m_Project_id = $row4['project_id'];
@@ -203,11 +210,11 @@ if(isset($_POST['feaid'])){
  
  $response3 .= "<form action='get_data.php' method='post'> ";
  $response3 .= "<div class=''>";
-
+/*
  $response3 .= "<div class='row'>";
  $response3 .= "<div class='col-3'>ID : </div><div class='col-3'><input name='modal_id' class='form-control form-control-sm' type='text' value=".$m_id."></div>";
  $response3 .= "</div>";
- 
+ */
  $response3 .= "<div class='row'>";
  $response3 .= "<div class='col-3'>Title : </div><div class='col-3'><input name='title' class='form-control form-control-sm' type='text' value=".$m_name." ></div>";
  $response3 .= "</div>";
@@ -216,14 +223,14 @@ if(isset($_POST['feaid'])){
  $response3 .= "<div class='col-3'>Description : </div>                
                 <textarea type='description' name='description' ' class='form-control form-control-sm col-9' value=".$m_description." >$m_description</textarea>";
  $response3 .= "</div>";
-
+/*
 $response3 .= "<div class='row'>";
 $response3 .= "<div class='col-3'>URL : </div>
                 <div class='col-9'>
                     <input name='url' class='form-control form-control-sm' type='text' value=".$m_Project_id." >
                     </div>";
 $response3 .= "</div>";
-
+*/
 
  
 
