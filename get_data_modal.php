@@ -10,32 +10,33 @@ if(isset($_POST['custId'])){
  
  $response = "<div>";
  while( $row = mysqli_fetch_array($result) ){
- //$id = $row['id'];
- $name = $row['title'];
- $description = $row['description'];
- $url = $row['url'];
+ $menu_id = $row['id'];
+ $menu_name = $row['title'];
+ //$menu_name = "test test";
+ $menu_description = $row['description'];
+ $menu_url = $row['url'];
 
  
- $response .= "<form action='get_data.php' method='post'> ";
+ $response .= "<form action='get_data_modal.php' method='post'> ";
  $response .= "<div class=''>";
-/*
+
  $response .= "<div class='row'>";
  $response .= "<div class='col-3'>ID : </div><div class='col-3'><input name='modal_id' class='form-control form-control-sm' type='text' value=".$id."></div>";
  $response .= "</div>";
- */
+ 
  $response .= "<div class='row'>";
- $response .= "<div class='col-3'>Title : </div><div class='col-3'><input name='title' class='form-control form-control-sm' type='text' value=".$name." ></div>";
+ $response .= "<div class='col-3'>".$menu_name." : </div><div class=''><input name='title' class='form-control form-control-sm col-8 ml-3 ' type='text' value=".$menu_name."></div> ";
  $response .= "</div>";
 
  $response .= "<div class='row'>";
  $response .= "<div class='col-3'>Description : </div>                
-                <textarea type='description' name='description'  class='form-control form-control-sm col-8 ml-3 ' style='max-width: 50%;' value=".$description." >$description</textarea>";
+                <textarea type='description' name='description'  class='form-control form-control-sm col-8 ml-3 ' style='max-width: 50%;' value=".$menu_description." >$menu_description</textarea>";
  $response .= "</div>";
 
 $response .= "<div class='row'>";
 $response .= "<div class='col-3'>URL : </div>
                 <div class='col-9'>
-                    <input name='url' class='form-control form-control-sm' type='text' value=".$url." >
+                    <input name='url' class='form-control form-control-sm' type='text' value=".$menu_url." >
                     </div>";
 $response .= "</div>";
 
@@ -43,7 +44,7 @@ $response .= "</div>";
 
  $response .= "</div>";
  $response .= "<div>";
- $response .= "<button href='delete.php' type='submit' class='btn btn-primary' name='submit-update' value='submit'>Submit</button>";
+ $response .= "<button type='submit' class='btn btn-primary' name='submit-update-menu' value='submit'>Submit</button>";
  $response .= "</div>";
  $response .= "</form>";
  
@@ -58,13 +59,13 @@ $response .= "</div>";
 
 // Main menu update 
 
-        if(isset($_POST['submit-update'])){
+        if(isset($_POST['submit-update-menu'])){
 
         //include 'config/connection.php';
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // collect value of input field
-        $id = $_POST['modal_id'];
+        $menu_id = $_POST['modal_id'];
         $title= $_POST['title'];
         $description=$_POST['description'];
         $main_url=$_POST['url'];
@@ -74,10 +75,10 @@ $response .= "</div>";
         } else {
             
                 if (empty($main_url)) {
-                    $sql= "INSERT into main_menu (title, description) VALUES ('$title','$description')";
+                    $sql = "UPDATE main_menu SET title='$title', description='$description' WHERE  id=$menu_id;";
                     $result= mysqli_query($con,$sql);
                 } else {
-                    $sql= "INSERT into main_menu (title, description, url) VALUES ('$title','$description',  '$main_url')";
+                    $sql = "UPDATE main_menu SET title='$title', description='$description', url='$main_url' WHERE  id=$menu_id;";
                     $result= mysqli_query($con,$sql);
         }
         }
@@ -110,13 +111,13 @@ if(isset($_POST['subid'])){
                                                 
 
  
- $response2 .= "<form action='get_data.php' method='post'> ";
+ $response2 .= "<form action='get_data_modal.php' method='post'> ";
  $response2 .= "<div class=''>";
-/*
+
  $response2 .= "<div class='row'>";
  $response2 .= "<div class='col-3'>ID : </div><div class='col-3'><input name='modal_id' class='form-control form-control-sm' type='text' value=".$p_id."></div>";
  $response2 .= "</div>";
- */
+
  
  $response2 .= "<div class='row'>";
  $response2 .= "<div class='col-4'>Title : </div><div class='col-3'><input name='title' class='form-control form-control-sm' type='text' value=".$p_name." ></div>";
@@ -145,7 +146,7 @@ $response2 .= "</div>";
 
  $response2 .= "</div>";
  $response2 .= "<div>";
- $response2 .= "<button type='submit' class='btn btn-primary' name='submit-update' value='submit'>Submit</button>";
+ $response2 .= "<button type='submit' class='btn btn-primary' name='submit-update-project' value='submit'>Submit</button>";
  $response2 .= "</div>";
  $response2 .= "</form>";
  
@@ -157,22 +158,23 @@ $response2 .= "</div>";
  exit;
 }
 
-                            if(isset($_POST['submit-update'])){
+                            if(isset($_POST['submit-update-project'])){
                         
                                 //include 'config/connection.php';
                                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 
                                     // collect value of input field
-                                    $id = $_POST['ID'];
-                                    $Project_name= $_POST['Project_name'];
-                                    $Description=$_POST['Description'];
+                                    $id = $_POST['modal_id'];
+                                    $Project_name= $_POST['title'];
+                                    $Description=$_POST['description'];
                                     $main_menu_id=$_POST['main_menu_id'];
-                                    $project_url=$_POST['url'];
+                                    //$project_url=$_POST['url'];
                                 
-                                    if (empty($title)) {
+                                    if (empty($Project_name)) {
                                         echo "data is empty";
                                     } else {
-                                        $sql= "UPDATE project SET  Project_name = '$Project_name', Description = '$Description', url='$project_url' where ID = $id";
+                                        $sql= "UPDATE project SET Project_name='$Project_name', Description='$Description', main_menu_id='$main_menu_id' WHERE  ID=$id;";
+                                        
                                        // UPDATE `k_b`.`main_menu` SET `description`='ss' WHERE  `id`=4;
                                         $result= mysqli_query($con,$sql);
                                     }
@@ -208,13 +210,13 @@ if(isset($_POST['feaid'])){
                                                 
 
  
- $response3 .= "<form action='get_data.php' method='post'> ";
+ $response3 .= "<form action='get_data_modal.php' method='post'> ";
  $response3 .= "<div class=''>";
-/*
+
  $response3 .= "<div class='row'>";
  $response3 .= "<div class='col-3'>ID : </div><div class='col-3'><input name='modal_id' class='form-control form-control-sm' type='text' value=".$m_id."></div>";
  $response3 .= "</div>";
- */
+
  $response3 .= "<div class='row'>";
  $response3 .= "<div class='col-3'>Title : </div><div class='col-3'><input name='title' class='form-control form-control-sm' type='text' value=".$m_name." ></div>";
  $response3 .= "</div>";
@@ -223,20 +225,16 @@ if(isset($_POST['feaid'])){
  $response3 .= "<div class='col-3'>Description : </div>                
                 <textarea type='description' name='description' ' class='form-control form-control-sm col-8 ml-3 ' style='max-width: 50%;' value=".$m_description." >$m_description</textarea>";
  $response3 .= "</div>";
-/*
-$response3 .= "<div class='row'>";
-$response3 .= "<div class='col-3'>URL : </div>
-                <div class='col-9'>
-                    <input name='url' class='form-control form-control-sm' type='text' value=".$m_Project_id." >
-                    </div>";
-$response3 .= "</div>";
-*/
+
+ $response3 .= "<div class='row'>";
+ $response3 .= "<div class='col-3'>Project ID : </div><div class='col-3'><input name='Project_id' class='form-control form-control-sm' type='text' value=".$m_Project_id." ></div>";
+ $response3 .= "</div>";
 
  
 
  $response3 .= "</div>";
  $response3 .= "<div>";
- $response3 .= "<button type='submit' class='btn btn-primary' name='submit-update' value='submit'>Submit</button>";
+ $response3 .= "<button type='submit' class='btn btn-primary' name='submit-update-feature' value='submit'>Submit</button>";
  $response3 .= "</div>";
  $response3 .= "</form>";
  
@@ -248,22 +246,23 @@ $response3 .= "</div>";
  exit;
 }
 
-                            if(isset($_POST['submit-update'])){
+                            if(isset($_POST['submit-update-feature'])){
                         
                                 //include 'config/connection.php';
                                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 
                                     // collect value of input field
-                                    $id = $_POST['ID'];
-                                    $Module_name= $_POST['Module_name'];
-                                    $Description=$_POST['Description'];
+                                    $id = $_POST['modal_id'];
+                                    $Module_name= $_POST['title'];
+                                    $Description=$_POST['description'];
                                     $Project_id=$_POST['Project_id'];
                                     $module_url=$_POST['url'];
                                 
-                                    if (empty($title)) {
+                                    if (empty($Module_name)) {
                                         echo "data is empty";
                                     } else {
-                                        $sql= "UPDATE project SET  Module_name = '$Module_name', Description = '$Description', url='$module_url' where ID = $id";
+                                        $sql= "UPDATE module SET Module_name='$Module_name', Description='$Description', project_id='$Project_id' WHERE  ID=$id;";
+                                        
                                        // UPDATE `k_b`.`main_menu` SET `description`='ss' WHERE  `id`=4;
                                         $result= mysqli_query($con,$sql);
                                     }
@@ -298,7 +297,7 @@ if(isset($_POST['tagid'])){
                                                 
 
  
- $response4 .= "<form action='get_data.php' method='post'> ";
+ $response4 .= "<form action='get_data_modal.php' method='post'> ";
  $response4 .= "<div class=''>";
 
  $response4 .= "<div class='row'>";
