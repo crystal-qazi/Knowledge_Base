@@ -31,7 +31,7 @@
                         $Element = $row['Tag_name'];
                         ?>
       <div class="shortcode_title">
-         <a class="btn" href="#"><?php //echo $Element ?></a>
+         <a class="btn" href="#"><?php echo $Element ?></a>
          <h1> <?php echo $all_subject ?></h1>
          <p> <?php echo $a_porject_Description ?></p>
       </div>
@@ -52,10 +52,13 @@
                                                  $m_id = $row2['ID'];
                                                  $m_porject_name = $row2['Module_name'];
                                                  $m_porject_Description = $row2['Description'];
-                                                 //$Element = $row['Tag_name'];
+                                                 $Element = $row['Tag_name'];
                                                  ?>
       <div class="shortcode_title">
-         <h1> <?php echo $m_porject_name ?></h1>
+      <a class="btn" href="#">
+         <?php echo $Element ; ?>
+         </a>
+         <h1> <?php echo $m_porject_name ;?></h1>
       </div>
       <?php                                     
          }
