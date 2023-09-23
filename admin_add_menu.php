@@ -30,7 +30,7 @@
             </li>
             <li class="nav-item">
                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
-                  aria-controls="contact" aria-selected="true">Features / Subject</a>
+                  aria-controls="contact" aria-selected="true">Side-Menu / Module</a>
             </li>
          </ul>
          <div class="tab-content" id="myTabContent">
@@ -418,7 +418,7 @@
                   <div class="col-lg-9">
                      <article class="shortcode_info">
                         <div class="shortcode_title">
-                           <h1>Feature Menu</h1>
+                           <h1>Side Menu /Modules</h1>
                            <!--   <p><span>FeaMenu</span></p>-->
                         </div>
                         <div class="table">
@@ -426,7 +426,7 @@
                               <thead>
                                  <tr>
                                     <th>Sr.</th>
-                                    <th>Feature Name</th>
+                                    <th>Name</th>
                                     <th>Description</th>
                                     <th>Project Name</th>
                                     <th>Action</th>
@@ -476,7 +476,7 @@
                   <!-- Modal content-->
                   <div class="modal-content">
                      <div class="modal-header">
-                        <h4 class="modal-title">Feature Update</h4>
+                        <h4 class="modal-title">Side Menu / Module update</h4>
                         <!-- <button type="button" class="close" data-bs-dismiss="modal">×</button> -->
                         <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">X</button>
                      </div>
