@@ -75,8 +75,8 @@
          ?>
       <div class="doc-btm">
          <ul class="nav card_tagged">
-            <li>Tagged: </li>
-            <li><a href="#">content</a></li>
+            <li>Tag: </li>
+            <li><a href="content_home.php?project_id=1">Order</a></li>
             <li><a href="#">elements</a></li>
             <li><a href="#">subscription</a></li>
          </ul>

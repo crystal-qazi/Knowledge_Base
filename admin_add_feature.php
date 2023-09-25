@@ -12,6 +12,7 @@
       <div  class="row border-bottom">
          <div class="col-12 d-flex">
             <div class="text-capitalize bold pr-5 pb-4">Part Of Main Menu:</div>
+            <?php $Main_menu_name = "Please select any Project"; ?>
             <div id="main_menu_display"><?php echo $Main_menu_name ?></div>
          </div>
       </div>
