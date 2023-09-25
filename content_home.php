@@ -73,6 +73,7 @@
          
          
          ?>
+         <!--
       <div class="doc-btm">
          <ul class="nav card_tagged">
             <li>Tagged: </li>
@@ -82,6 +83,7 @@
          </ul>
       </div>
    </div>
+      -->
 </div>
 <div class="col-lg-2 col-md-4 doc_right_mobile_menu">
    <div class="open_icon" id="right">

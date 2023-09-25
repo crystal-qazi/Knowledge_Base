@@ -57,7 +57,7 @@
          
          
          ?>
-      <div class="doc-btm">
+    <!--  <div class="doc-btm">
          <ul class="nav card_tagged">
             <li>Tagged: </li>
             <li><a href="#">content</a></li>
@@ -65,6 +65,7 @@
             <li><a href="#">subscription</a></li>
          </ul>
       </div>
+      -->
    </div>
 </div>
 <div class="col-lg-2 col-md-4 doc_right_mobile_menu">
