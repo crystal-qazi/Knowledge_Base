@@ -15,6 +15,7 @@ if(isset($_POST['custId'])){
  //$menu_name = "test test";
  $menu_description = $row['description'];
  $menu_url = $row['url'];
+ $menu_order = $row['menu_order'];
 
  
  $response .= "<form action='get_data_modal.php' method='post'> ";
@@ -37,6 +38,13 @@ $response .= "<div class='row'>";
 $response .= "<div class='col-3'>URL : </div>
                 <div class='col-9'>
                     <input name='url' class='form-control form-control-sm' type='text' value=".$menu_url." >
+                    </div>";
+$response .= "</div>";
+
+$response .= "<div class='row'>";
+$response .= "<div class='col-3'>Menu_Order : </div>
+                <div class='col-9'>
+                    <input name='menu_order' class='form-control form-control-sm' type='text' value=".$menu_order." >
                     </div>";
 $response .= "</div>";
 
@@ -69,16 +77,17 @@ $response .= "</div>";
         $title= $_POST['title'];
         $description=$_POST['description'];
         $main_url=$_POST['url'];
+        $menu_order=$_POST['menu_order'];
 
         if (empty($title)) {
             echo "data is empty";
         } else {
             
                 if (empty($main_url)) {
-                    $sql = "UPDATE main_menu SET title='$title', description='$description' WHERE  id=$menu_id;";
+                    $sql = "UPDATE main_menu SET title='$title', description='$description', menu_order='$menu_order' WHERE  id=$menu_id;";
                     $result= mysqli_query($con,$sql);
                 } else {
-                    $sql = "UPDATE main_menu SET title='$title', description='$description', url='$main_url' WHERE  id=$menu_id;";
+                    $sql = "UPDATE main_menu SET title='$title', description='$description', menu_order='$menu_order', url='$main_url' WHERE  id=$menu_id;";
                     $result= mysqli_query($con,$sql);
         }
         }

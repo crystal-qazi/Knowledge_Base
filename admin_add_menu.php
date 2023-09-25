@@ -53,6 +53,11 @@
                            <input name="url" value=""class="form-control form-control-sm" type="text"
                               placeholder="without space and .php" aria-label=".form-control-sm example">
                         </div>
+                        <div class="mb-3">
+                           <label class="form-label">Menu Order</label>
+                           <input name="menu_order" value=""class="form-control form-control-sm" type="text"
+                              placeholder="Menu_Order" aria-label=".form-control-sm example">
+                        </div>
                         <button type="submit" class="btn btn-primary" name="submit-a"
                            value="submit">Submit</button>
                      </form>
@@ -66,6 +71,7 @@
                                 $title= $_POST['title'];
                                 $description=$_POST['description'];
                                 $main_url=$_POST['url'];
+                                $menu_order=$_POST['menu_order'];
                                 //$main_url=$_POST['url'] ? $_POST['url'] : null;
                                
                                 if (empty($title)) {
@@ -73,10 +79,10 @@
                                 } else {
                                     
                                         if (empty($main_url)) {
-                                            $sql= "INSERT into main_menu (title, description) VALUES ('$title','$description')";
+                                            $sql= "INSERT into main_menu (title, description, menu_order) VALUES ('$title','$description','$menu_order')";
                                             $result= mysqli_query($con,$sql);
                                         } else {
-                                            $sql= "INSERT into main_menu (title, description, url) VALUES ('$title','$description',  '$main_url')";
+                                            $sql= "INSERT into main_menu (title, description, url, menu_order) VALUES ('$title','$description',  '$main_url', 'menu_order')";
                                             $result= mysqli_query($con,$sql);
                                 }
                                 }
@@ -99,6 +105,7 @@
                                     <th>Sr.</th>
                                     <th>Title</th>
                                     <th>Description</th>
+                                    <th>Menu Order</th>
                                     <th>Action</th>
                                  </tr>
                               </thead>
@@ -113,12 +120,14 @@
                                                         while($row1=mysqli_fetch_assoc($result1)){
                                                             $id=$row1['id'];
                                                             $title=$row1['title'];
-                                                            $description=$row1['description'];                                                               
+                                                            $description=$row1['description'];  
+                                                            $menu_order= $row1['menu_order']                                                             
                                                             ?>
                                  <tr>
                                     <th scope="row"><?php echo $id; ?></th>
                                     <td><?php echo $title; ?></td>
                                     <td><?php echo $description; ?></td>
+                                    <td><?php echo $menu_order; ?></td>
                                     <td>
                                        <button data-id="<?php echo $id ?>"class='btn btn-info btn-sm btn-popup'>Update</button>
                                        <button class="btn btn-danger btn-sm"><a href="admin_delete_menu.php?deleteid=<?php echo $id ?>" class="text-light">Delete</a></button>
